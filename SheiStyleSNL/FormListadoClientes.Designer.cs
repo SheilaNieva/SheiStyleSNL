@@ -29,56 +29,18 @@ namespace SheiStyleSNL
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnAtras = new System.Windows.Forms.PictureBox();
-            this.rjListadoCliente = new SheiStyleSNL.RJButton();
             this.tbFiltroNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnNuevoCliente = new System.Windows.Forms.Button();
             this.listVClientes = new System.Windows.Forms.ListView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAtras = new System.Windows.Forms.PictureBox();
+            this.rjListadoCliente = new SheiStyleSNL.RJButton();
+            this.btnEditarCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SheiStyleSNL.Properties.Resources.loguito;
-            this.pictureBox1.Location = new System.Drawing.Point(872, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnAtras
-            // 
-            this.btnAtras.Image = global::SheiStyleSNL.Properties.Resources.atras;
-            this.btnAtras.Location = new System.Drawing.Point(34, 47);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(50, 50);
-            this.btnAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnAtras.TabIndex = 4;
-            this.btnAtras.TabStop = false;
-            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
-            // 
-            // rjListadoCliente
-            // 
-            this.rjListadoCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
-            this.rjListadoCliente.FlatAppearance.BorderSize = 0;
-            this.rjListadoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjListadoCliente.Font = new System.Drawing.Font("Modern No. 20", 15.75F);
-            this.rjListadoCliente.ForeColor = System.Drawing.Color.White;
-            this.rjListadoCliente.Image = global::SheiStyleSNL.Properties.Resources.clientes;
-            this.rjListadoCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjListadoCliente.Location = new System.Drawing.Point(177, 37);
-            this.rjListadoCliente.Name = "rjListadoCliente";
-            this.rjListadoCliente.Size = new System.Drawing.Size(644, 65);
-            this.rjListadoCliente.TabIndex = 3;
-            this.rjListadoCliente.Text = "Listado clientes";
-            this.rjListadoCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rjListadoCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.rjListadoCliente.UseVisualStyleBackColor = false;
             // 
             // tbFiltroNombre
             // 
@@ -134,6 +96,59 @@ namespace SheiStyleSNL
             this.listVClientes.TabIndex = 11;
             this.listVClientes.UseCompatibleStateImageBehavior = false;
             this.listVClientes.View = System.Windows.Forms.View.Details;
+            this.listVClientes.DoubleClick += new System.EventHandler(this.listVClientes_DoubleClick);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SheiStyleSNL.Properties.Resources.loguito;
+            this.pictureBox1.Location = new System.Drawing.Point(872, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnAtras
+            // 
+            this.btnAtras.Image = global::SheiStyleSNL.Properties.Resources.atras;
+            this.btnAtras.Location = new System.Drawing.Point(34, 47);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(50, 50);
+            this.btnAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnAtras.TabIndex = 4;
+            this.btnAtras.TabStop = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
+            // rjListadoCliente
+            // 
+            this.rjListadoCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
+            this.rjListadoCliente.FlatAppearance.BorderSize = 0;
+            this.rjListadoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjListadoCliente.Font = new System.Drawing.Font("Modern No. 20", 15.75F);
+            this.rjListadoCliente.ForeColor = System.Drawing.Color.White;
+            this.rjListadoCliente.Image = global::SheiStyleSNL.Properties.Resources.clientes;
+            this.rjListadoCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjListadoCliente.Location = new System.Drawing.Point(177, 37);
+            this.rjListadoCliente.Name = "rjListadoCliente";
+            this.rjListadoCliente.Size = new System.Drawing.Size(644, 65);
+            this.rjListadoCliente.TabIndex = 3;
+            this.rjListadoCliente.Text = "Listado clientes";
+            this.rjListadoCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rjListadoCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.rjListadoCliente.UseVisualStyleBackColor = false;
+            // 
+            // btnEditarCliente
+            // 
+            this.btnEditarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
+            this.btnEditarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditarCliente.ForeColor = System.Drawing.Color.White;
+            this.btnEditarCliente.Location = new System.Drawing.Point(304, 562);
+            this.btnEditarCliente.Name = "btnEditarCliente";
+            this.btnEditarCliente.Size = new System.Drawing.Size(105, 30);
+            this.btnEditarCliente.TabIndex = 12;
+            this.btnEditarCliente.Text = "Editar cliente";
+            this.btnEditarCliente.UseVisualStyleBackColor = false;
+            this.btnEditarCliente.Click += new System.EventHandler(this.btnEditarCliente_Click);
             // 
             // FormListadoClientes
             // 
@@ -141,6 +156,7 @@ namespace SheiStyleSNL
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(170)))), ((int)(((byte)(57)))));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.btnEditarCliente);
             this.Controls.Add(this.listVClientes);
             this.Controls.Add(this.btnNuevoCliente);
             this.Controls.Add(this.btnBuscar);
@@ -170,5 +186,6 @@ namespace SheiStyleSNL
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnNuevoCliente;
         private System.Windows.Forms.ListView listVClientes;
+        private System.Windows.Forms.Button btnEditarCliente;
     }
 }

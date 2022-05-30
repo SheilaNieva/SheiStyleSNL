@@ -35,5 +35,13 @@ namespace SheiStyleSNL
             FormListadoClientes frmListadoCliente = new FormListadoClientes();
             frmListadoCliente.Show();
         }
+
+        private void btnFavoritos_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            FormFavoritos frmFavoritos = new FormFavoritos();
+            frmFavoritos.Show();
+        }
     }
 }

@@ -75,6 +75,7 @@ namespace SheiStyleSNL
             this.btnFavoritos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFavoritos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFavoritos.UseVisualStyleBackColor = false;
+            this.btnFavoritos.Click += new System.EventHandler(this.btnFavoritos_Click);
             // 
             // btnPrecio
             // 

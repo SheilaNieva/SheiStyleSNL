@@ -85,7 +85,7 @@ namespace SheiStyleSNL
              
             }
 
-            // listVClientes.Columns["Ocultar"].Visible = false;
+           
         }
 
         private void btnNuevoCliente_Click(object sender, EventArgs e)
@@ -93,6 +93,20 @@ namespace SheiStyleSNL
             this.Hide();
             FormNuevoCliente frmNuevoCliente = new FormNuevoCliente();
             frmNuevoCliente.Show();
+        }
+
+        private void btnEditarCliente_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormEditarCliente frmEditarCliente = new FormEditarCliente();
+            frmEditarCliente.Show();
+        }
+
+        private void listVClientes_DoubleClick(object sender, EventArgs e)
+        {
+            //this.Hide();
+            //FormEditarCliente frmEditarCliente = new FormEditarCliente();
+           // frmEditarCliente.Show();
         }
     }
 }

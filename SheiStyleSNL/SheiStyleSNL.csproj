@@ -70,6 +70,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Cliente.cs" />
+    <Compile Include="FormEditarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditarCliente.Designer.cs">
+      <DependentUpon>FormEditarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFavoritos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFavoritos.Designer.cs">
+      <DependentUpon>FormFavoritos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormListadoClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +105,12 @@
     <Compile Include="RJButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="FormEditarCliente.resx">
+      <DependentUpon>FormEditarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFavoritos.resx">
+      <DependentUpon>FormFavoritos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormListadoClientes.resx">
       <DependentUpon>FormListadoClientes.cs</DependentUpon>
     </EmbeddedResource>
