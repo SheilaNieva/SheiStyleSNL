@@ -34,10 +34,10 @@ namespace SheiStyleSNL
             this.btnPrecio = new SheiStyleSNL.RJButton();
             this.btnClientes = new SheiStyleSNL.RJButton();
             this.btnNuevaCita = new SheiStyleSNL.RJButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbSalir = new System.Windows.Forms.PictureBox();
             this.pbMenu = new System.Windows.Forms.PictureBox();
             this.pbLogo = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSalir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
@@ -109,6 +109,7 @@ namespace SheiStyleSNL
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClientes.UseVisualStyleBackColor = false;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // btnNuevaCita
             // 
@@ -127,16 +128,16 @@ namespace SheiStyleSNL
             this.btnNuevaCita.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevaCita.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
+            // pbSalir
             // 
-            this.pictureBox1.Image = global::SheiStyleSNL.Properties.Resources.icons8_salida_48;
-            this.pictureBox1.Location = new System.Drawing.Point(892, 580);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(60, 60);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pbSalir.Image = global::SheiStyleSNL.Properties.Resources.icons8_salida_48;
+            this.pbSalir.Location = new System.Drawing.Point(892, 580);
+            this.pbSalir.Name = "pbSalir";
+            this.pbSalir.Size = new System.Drawing.Size(60, 60);
+            this.pbSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSalir.TabIndex = 2;
+            this.pbSalir.TabStop = false;
+            this.pbSalir.Click += new System.EventHandler(this.pbSalir_Click);
             // 
             // pbMenu
             // 
@@ -169,13 +170,14 @@ namespace SheiStyleSNL
             this.Controls.Add(this.btnPrecio);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnNuevaCita);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbSalir);
             this.Controls.Add(this.pbMenu);
             this.Controls.Add(this.pbLogo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSalir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
@@ -186,7 +188,7 @@ namespace SheiStyleSNL
 
         private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.PictureBox pbMenu;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbSalir;
         private RJButton btnNuevaCita;
         private RJButton btnClientes;
         private RJButton btnPrecio;

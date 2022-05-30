@@ -18,9 +18,21 @@ namespace SheiStyleSNL
             
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pbSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult dr = MessageBox.Show("¿Estás seguro?", "Salir", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormNuevoCliente frmNuevoCliente = new FormNuevoCliente();
+            frmNuevoCliente.Show();
         }
     }
 }
