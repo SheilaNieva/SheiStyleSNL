@@ -29,9 +29,6 @@ namespace SheiStyleSNL
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAtras = new System.Windows.Forms.PictureBox();
-            this.rjNuevoCliente = new SheiStyleSNL.RJButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,49 +40,13 @@ namespace SheiStyleSNL
             this.tbTlfn = new System.Windows.Forms.TextBox();
             this.tbCorreo = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAtras = new System.Windows.Forms.PictureBox();
+            this.rjNuevoCliente = new SheiStyleSNL.RJButton();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnAtras
-            // 
-            this.btnAtras.Image = global::SheiStyleSNL.Properties.Resources.atras;
-            this.btnAtras.Location = new System.Drawing.Point(41, 45);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(50, 50);
-            this.btnAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnAtras.TabIndex = 1;
-            this.btnAtras.TabStop = false;
-            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
-            // 
-            // rjNuevoCliente
-            // 
-            this.rjNuevoCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
-            this.rjNuevoCliente.FlatAppearance.BorderSize = 0;
-            this.rjNuevoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjNuevoCliente.Font = new System.Drawing.Font("Modern No. 20", 15.75F);
-            this.rjNuevoCliente.ForeColor = System.Drawing.Color.White;
-            this.rjNuevoCliente.Image = global::SheiStyleSNL.Properties.Resources.clientes;
-            this.rjNuevoCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjNuevoCliente.Location = new System.Drawing.Point(184, 35);
-            this.rjNuevoCliente.Name = "rjNuevoCliente";
-            this.rjNuevoCliente.Size = new System.Drawing.Size(644, 65);
-            this.rjNuevoCliente.TabIndex = 0;
-            this.rjNuevoCliente.Text = "Nuevo Cliente";
-            this.rjNuevoCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rjNuevoCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.rjNuevoCliente.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SheiStyleSNL.Properties.Resources.loguito;
-            this.pictureBox1.Location = new System.Drawing.Point(872, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -193,6 +154,46 @@ namespace SheiStyleSNL
             this.button1.TabIndex = 5;
             this.button1.Text = "Añadir";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btnAnadirCliente_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SheiStyleSNL.Properties.Resources.loguito;
+            this.pictureBox1.Location = new System.Drawing.Point(872, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnAtras
+            // 
+            this.btnAtras.Image = global::SheiStyleSNL.Properties.Resources.atras;
+            this.btnAtras.Location = new System.Drawing.Point(41, 45);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(50, 50);
+            this.btnAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnAtras.TabIndex = 1;
+            this.btnAtras.TabStop = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
+            // rjNuevoCliente
+            // 
+            this.rjNuevoCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
+            this.rjNuevoCliente.FlatAppearance.BorderSize = 0;
+            this.rjNuevoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjNuevoCliente.Font = new System.Drawing.Font("Modern No. 20", 15.75F);
+            this.rjNuevoCliente.ForeColor = System.Drawing.Color.White;
+            this.rjNuevoCliente.Image = global::SheiStyleSNL.Properties.Resources.clientes;
+            this.rjNuevoCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjNuevoCliente.Location = new System.Drawing.Point(184, 35);
+            this.rjNuevoCliente.Name = "rjNuevoCliente";
+            this.rjNuevoCliente.Size = new System.Drawing.Size(644, 65);
+            this.rjNuevoCliente.TabIndex = 0;
+            this.rjNuevoCliente.Text = "Nuevo Cliente";
+            this.rjNuevoCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rjNuevoCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.rjNuevoCliente.UseVisualStyleBackColor = false;
             // 
             // FormNuevoCliente
             // 
@@ -210,10 +211,10 @@ namespace SheiStyleSNL
             this.Name = "FormNuevoCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormNuevoCliente";
-            ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

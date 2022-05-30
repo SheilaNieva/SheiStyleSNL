@@ -31,8 +31,9 @@ namespace SheiStyleSNL
         private void btnClientes_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormNuevoCliente frmNuevoCliente = new FormNuevoCliente();
-            frmNuevoCliente.Show();
+
+            FormListadoClientes frmListadoCliente = new FormListadoClientes();
+            frmListadoCliente.Show();
         }
     }
 }
