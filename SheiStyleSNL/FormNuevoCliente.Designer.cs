@@ -31,18 +31,18 @@ namespace SheiStyleSNL
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbNombre = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbApellidos = new System.Windows.Forms.TextBox();
-            this.tbTlfn = new System.Windows.Forms.TextBox();
             this.tbCorreo = new System.Windows.Forms.TextBox();
+            this.tbApellidos = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbNombre = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAtras = new System.Windows.Forms.PictureBox();
             this.rjNuevoCliente = new SheiStyleSNL.RJButton();
+            this.tbTlfn = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
@@ -61,8 +61,8 @@ namespace SheiStyleSNL
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(158)))), ((int)(((byte)(55)))));
-            this.panel1.Controls.Add(this.tbCorreo);
             this.panel1.Controls.Add(this.tbTlfn);
+            this.panel1.Controls.Add(this.tbCorreo);
             this.panel1.Controls.Add(this.tbApellidos);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
@@ -74,42 +74,19 @@ namespace SheiStyleSNL
             this.panel1.Size = new System.Drawing.Size(472, 272);
             this.panel1.TabIndex = 4;
             // 
-            // label2
+            // tbCorreo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(84, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 18);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Nombre:";
+            this.tbCorreo.Location = new System.Drawing.Point(208, 202);
+            this.tbCorreo.Name = "tbCorreo";
+            this.tbCorreo.Size = new System.Drawing.Size(182, 20);
+            this.tbCorreo.TabIndex = 7;
             // 
-            // tbNombre
+            // tbApellidos
             // 
-            this.tbNombre.Location = new System.Drawing.Point(208, 48);
-            this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(182, 20);
-            this.tbNombre.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(84, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 18);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Apellidos:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(84, 155);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 18);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Teléfono:";
+            this.tbApellidos.Location = new System.Drawing.Point(208, 102);
+            this.tbApellidos.Name = "tbApellidos";
+            this.tbApellidos.Size = new System.Drawing.Size(182, 20);
+            this.tbApellidos.TabIndex = 5;
             // 
             // label5
             // 
@@ -121,26 +98,42 @@ namespace SheiStyleSNL
             this.label5.TabIndex = 4;
             this.label5.Text = "Correo:";
             // 
-            // tbApellidos
+            // label4
             // 
-            this.tbApellidos.Location = new System.Drawing.Point(208, 102);
-            this.tbApellidos.Name = "tbApellidos";
-            this.tbApellidos.Size = new System.Drawing.Size(182, 20);
-            this.tbApellidos.TabIndex = 5;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(84, 155);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 18);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Teléfono:";
             // 
-            // tbTlfn
+            // label3
             // 
-            this.tbTlfn.Location = new System.Drawing.Point(208, 156);
-            this.tbTlfn.Name = "tbTlfn";
-            this.tbTlfn.Size = new System.Drawing.Size(182, 20);
-            this.tbTlfn.TabIndex = 6;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(84, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(83, 18);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Apellidos:";
             // 
-            // tbCorreo
+            // tbNombre
             // 
-            this.tbCorreo.Location = new System.Drawing.Point(208, 202);
-            this.tbCorreo.Name = "tbCorreo";
-            this.tbCorreo.Size = new System.Drawing.Size(182, 20);
-            this.tbCorreo.TabIndex = 7;
+            this.tbNombre.Location = new System.Drawing.Point(208, 48);
+            this.tbNombre.Name = "tbNombre";
+            this.tbNombre.Size = new System.Drawing.Size(182, 20);
+            this.tbNombre.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(84, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 18);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Nombre:";
             // 
             // button1
             // 
@@ -195,6 +188,14 @@ namespace SheiStyleSNL
             this.rjNuevoCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.rjNuevoCliente.UseVisualStyleBackColor = false;
             // 
+            // tbTlfn
+            // 
+            this.tbTlfn.Location = new System.Drawing.Point(208, 156);
+            this.tbTlfn.Mask = "000-000-000";
+            this.tbTlfn.Name = "tbTlfn";
+            this.tbTlfn.Size = new System.Drawing.Size(182, 20);
+            this.tbTlfn.TabIndex = 8;
+            // 
             // FormNuevoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,7 +229,6 @@ namespace SheiStyleSNL
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox tbCorreo;
-        private System.Windows.Forms.TextBox tbTlfn;
         private System.Windows.Forms.TextBox tbApellidos;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -236,5 +236,6 @@ namespace SheiStyleSNL
         private System.Windows.Forms.TextBox tbNombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MaskedTextBox tbTlfn;
     }
 }

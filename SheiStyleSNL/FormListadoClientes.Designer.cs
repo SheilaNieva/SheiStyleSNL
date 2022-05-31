@@ -38,6 +38,7 @@ namespace SheiStyleSNL
             this.btnAtras = new System.Windows.Forms.PictureBox();
             this.rjListadoCliente = new SheiStyleSNL.RJButton();
             this.btnEditarCliente = new System.Windows.Forms.Button();
+            this.btnEliminarCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
             this.SuspendLayout();
@@ -150,12 +151,26 @@ namespace SheiStyleSNL
             this.btnEditarCliente.UseVisualStyleBackColor = false;
             this.btnEditarCliente.Click += new System.EventHandler(this.btnEditarCliente_Click);
             // 
+            // btnEliminarCliente
+            // 
+            this.btnEliminarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
+            this.btnEliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminarCliente.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarCliente.Location = new System.Drawing.Point(488, 562);
+            this.btnEliminarCliente.Name = "btnEliminarCliente";
+            this.btnEliminarCliente.Size = new System.Drawing.Size(105, 30);
+            this.btnEliminarCliente.TabIndex = 13;
+            this.btnEliminarCliente.Text = "Eliminar cliente";
+            this.btnEliminarCliente.UseVisualStyleBackColor = false;
+            this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
+            // 
             // FormListadoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(170)))), ((int)(((byte)(57)))));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.btnEliminarCliente);
             this.Controls.Add(this.btnEditarCliente);
             this.Controls.Add(this.listVClientes);
             this.Controls.Add(this.btnNuevoCliente);
@@ -187,5 +202,6 @@ namespace SheiStyleSNL
         private System.Windows.Forms.Button btnNuevoCliente;
         private System.Windows.Forms.ListView listVClientes;
         private System.Windows.Forms.Button btnEditarCliente;
+        private System.Windows.Forms.Button btnEliminarCliente;
     }
 }

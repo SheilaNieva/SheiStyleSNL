@@ -31,7 +31,6 @@ namespace SheiStyleSNL
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbCorreo = new System.Windows.Forms.TextBox();
-            this.tbTlfn = new System.Windows.Forms.TextBox();
             this.tbApellidos = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@ namespace SheiStyleSNL
             this.btnAtras = new System.Windows.Forms.PictureBox();
             this.rjEditarCliente = new SheiStyleSNL.RJButton();
             this.btnActualizarCliente = new System.Windows.Forms.Button();
+            this.tbTlfn = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
@@ -51,8 +51,8 @@ namespace SheiStyleSNL
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(158)))), ((int)(((byte)(55)))));
-            this.panel1.Controls.Add(this.tbCorreo);
             this.panel1.Controls.Add(this.tbTlfn);
+            this.panel1.Controls.Add(this.tbCorreo);
             this.panel1.Controls.Add(this.tbApellidos);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
@@ -70,13 +70,6 @@ namespace SheiStyleSNL
             this.tbCorreo.Name = "tbCorreo";
             this.tbCorreo.Size = new System.Drawing.Size(182, 20);
             this.tbCorreo.TabIndex = 7;
-            // 
-            // tbTlfn
-            // 
-            this.tbTlfn.Location = new System.Drawing.Point(208, 156);
-            this.tbTlfn.Name = "tbTlfn";
-            this.tbTlfn.Size = new System.Drawing.Size(182, 20);
-            this.tbTlfn.TabIndex = 6;
             // 
             // tbApellidos
             // 
@@ -193,6 +186,15 @@ namespace SheiStyleSNL
             this.btnActualizarCliente.TabIndex = 10;
             this.btnActualizarCliente.Text = "Actualizar cliente";
             this.btnActualizarCliente.UseVisualStyleBackColor = false;
+            this.btnActualizarCliente.Click += new System.EventHandler(this.btnActualizarCliente_Click);
+            // 
+            // tbTlfn
+            // 
+            this.tbTlfn.Location = new System.Drawing.Point(208, 156);
+            this.tbTlfn.Mask = "000-000-000";
+            this.tbTlfn.Name = "tbTlfn";
+            this.tbTlfn.Size = new System.Drawing.Size(182, 20);
+            this.tbTlfn.TabIndex = 8;
             // 
             // FormEditarCliente
             // 
@@ -223,7 +225,6 @@ namespace SheiStyleSNL
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox tbCorreo;
-        private System.Windows.Forms.TextBox tbTlfn;
         private System.Windows.Forms.TextBox tbApellidos;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -235,5 +236,6 @@ namespace SheiStyleSNL
         private System.Windows.Forms.PictureBox btnAtras;
         private RJButton rjEditarCliente;
         private System.Windows.Forms.Button btnActualizarCliente;
+        private System.Windows.Forms.MaskedTextBox tbTlfn;
     }
 }

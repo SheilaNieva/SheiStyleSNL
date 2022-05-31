@@ -22,7 +22,7 @@ namespace SheiStyleSNL
         {
             InitializeComponent();
             cargar();
-            cargarDatagrid();
+            cargarListado();
         }
 
 
@@ -56,7 +56,7 @@ namespace SheiStyleSNL
             }
         }
 
-        private void cargarDatagrid()
+        private void cargarListado()
         {
             FirebaseResponse res = clien.Get(@"Cliente");
             Dictionary<string, Cliente> data = JsonConvert.DeserializeObject<Dictionary<string, Cliente>>(res.Body.ToString());
@@ -105,17 +105,33 @@ namespace SheiStyleSNL
             seleccionarCliente();
         }
 
+        //Obtenemos el cliente que hemos seleccionado y se lo pasamos al formulario editar
         private void seleccionarCliente()
+        {
+            Cliente resCliente = recuperarDatosClienteSeleccionado();
+            
+             this.Hide();
+             FormEditarCliente frmEditarCliente = new FormEditarCliente(resCliente);
+             frmEditarCliente.Show();
+        }
+
+        //Recuperamos los datos del cliente que hemos seleccionado
+        private Cliente recuperarDatosClienteSeleccionado()
         {
             int fila = listVClientes.FocusedItem.Index; //Obtenemos la fila que pulsamos
             String idCliente = listVClientes.Items[fila].SubItems[4].Text; //Obtenemos el idCliente de la fila que hemos seleccionado
 
             FirebaseResponse res = clien.Get(@"Cliente/" + idCliente);
             Cliente resCliente = res.ResultAs<Cliente>();
-            
-             this.Hide();
-             FormEditarCliente frmEditarCliente = new FormEditarCliente(resCliente);
-             frmEditarCliente.Show();
+            return resCliente;
+        }
+
+        private void btnEliminarCliente_Click(object sender, EventArgs e)
+        {
+            Cliente resCliente = recuperarDatosClienteSeleccionado();
+            var eliminar = clien.Delete("Cliente/" + resCliente.idCliente);
+            MessageBox.Show("Cliente " + resCliente.nombre + " se ha eliminado con éxito");
+            cargarListado();
         }
     }
 }

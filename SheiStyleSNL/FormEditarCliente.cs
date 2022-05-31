@@ -20,6 +20,7 @@ namespace SheiStyleSNL
     public partial class FormEditarCliente : Form
     {
         Cliente resCliente;
+        
         public FormEditarCliente(Cliente resCliente)
         {
             InitializeComponent();
@@ -60,6 +61,45 @@ namespace SheiStyleSNL
                 throw; //no internet connection
             }
         }
-       
+
+        private void btnActualizarCliente_Click(object sender, EventArgs e)
+        {
+            bool correcto;
+
+            String idCliente = resCliente.idCliente;
+            String nombre = tbNombre.Text;
+            String apellidos = tbApellidos.Text;
+            String telefono = tbTlfn.Text;
+            String correo = tbCorreo.Text;
+
+            correcto = comprobarDatosCliente(nombre, apellidos, telefono, correo);
+
+            if (correcto)
+            {
+
+               Cliente clienteModificado = new Cliente(idCliente, nombre, apellidos, telefono, correo);
+               var res = clien.Update("Cliente/" + idCliente, clienteModificado);
+
+                MessageBox.Show("Cliente " + nombre + " se ha modificado con éxito");
+
+                this.Close();
+                FormListadoClientes frmListadoCliente = new FormListadoClientes();
+                frmListadoCliente.Show();
+            }
+        }
+
+        private bool comprobarDatosCliente(string nombre, string apellidos, string telefono, string correo)
+        {
+            if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(apellidos) || string.IsNullOrWhiteSpace(telefono) || string.IsNullOrWhiteSpace(correo))
+            {
+                MessageBox.Show("Debes rellenar todos los campos");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
     }
 }
