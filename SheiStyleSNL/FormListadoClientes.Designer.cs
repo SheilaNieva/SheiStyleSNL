@@ -156,7 +156,7 @@ namespace SheiStyleSNL
             this.btnEliminarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
             this.btnEliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEliminarCliente.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarCliente.Location = new System.Drawing.Point(488, 562);
+            this.btnEliminarCliente.Location = new System.Drawing.Point(506, 562);
             this.btnEliminarCliente.Name = "btnEliminarCliente";
             this.btnEliminarCliente.Size = new System.Drawing.Size(105, 30);
             this.btnEliminarCliente.TabIndex = 13;

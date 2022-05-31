@@ -12,6 +12,7 @@ using FireSharp.Config;
 using FireSharp.Response;
 using FireSharp.Interfaces;
 using SheiStyleSNL.Clases;
+using System.Text.RegularExpressions;
 
 namespace SheiStyleSNL
 {
@@ -63,9 +64,43 @@ namespace SheiStyleSNL
             }
             else
             {
-                return true;
+                if (!tbTlfn.MaskCompleted) //comprueba que el tlfn tenga 9 digitos
+                {
+                    MessageBox.Show("El teléfono debe contener 9 dígitos");
+                    return false;
+                }else if (!correoValido(correo))
+                {
+                    MessageBox.Show("Formato del correo erróneo");
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+                
             }
 
+        }
+
+        private bool correoValido(string correo)
+        {
+            String sFormato;
+            sFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(correo, sFormato))
+            {
+                if (Regex.Replace(correo, sFormato, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void btnAnadirCliente_Click(object sender, EventArgs e)
