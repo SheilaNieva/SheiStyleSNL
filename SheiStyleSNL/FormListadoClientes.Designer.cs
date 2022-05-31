@@ -36,9 +36,10 @@ namespace SheiStyleSNL
             this.listVClientes = new System.Windows.Forms.ListView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAtras = new System.Windows.Forms.PictureBox();
-            this.rjListadoCliente = new SheiStyleSNL.RJButton();
             this.btnEditarCliente = new System.Windows.Forms.Button();
             this.btnEliminarCliente = new System.Windows.Forms.Button();
+            this.btnMostrarCitas = new System.Windows.Forms.Button();
+            this.rjListadoCliente = new SheiStyleSNL.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +50,7 @@ namespace SheiStyleSNL
             this.tbFiltroNombre.Name = "tbFiltroNombre";
             this.tbFiltroNombre.Size = new System.Drawing.Size(185, 20);
             this.tbFiltroNombre.TabIndex = 6;
+            this.tbFiltroNombre.TextChanged += new System.EventHandler(this.tbFiltroNombre_TextChanged);
             // 
             // label1
             // 
@@ -71,13 +73,14 @@ namespace SheiStyleSNL
             this.btnBuscar.TabIndex = 8;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnNuevoCliente
             // 
             this.btnNuevoCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
             this.btnNuevoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNuevoCliente.ForeColor = System.Drawing.Color.White;
-            this.btnNuevoCliente.Location = new System.Drawing.Point(108, 562);
+            this.btnNuevoCliente.Location = new System.Drawing.Point(177, 562);
             this.btnNuevoCliente.Name = "btnNuevoCliente";
             this.btnNuevoCliente.Size = new System.Drawing.Size(105, 30);
             this.btnNuevoCliente.TabIndex = 10;
@@ -120,6 +123,44 @@ namespace SheiStyleSNL
             this.btnAtras.TabStop = false;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
+            // btnEditarCliente
+            // 
+            this.btnEditarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
+            this.btnEditarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditarCliente.ForeColor = System.Drawing.Color.White;
+            this.btnEditarCliente.Location = new System.Drawing.Point(382, 562);
+            this.btnEditarCliente.Name = "btnEditarCliente";
+            this.btnEditarCliente.Size = new System.Drawing.Size(105, 30);
+            this.btnEditarCliente.TabIndex = 12;
+            this.btnEditarCliente.Text = "Editar cliente";
+            this.btnEditarCliente.UseVisualStyleBackColor = false;
+            this.btnEditarCliente.Click += new System.EventHandler(this.btnEditarCliente_Click);
+            // 
+            // btnEliminarCliente
+            // 
+            this.btnEliminarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
+            this.btnEliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminarCliente.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarCliente.Location = new System.Drawing.Point(580, 562);
+            this.btnEliminarCliente.Name = "btnEliminarCliente";
+            this.btnEliminarCliente.Size = new System.Drawing.Size(105, 30);
+            this.btnEliminarCliente.TabIndex = 13;
+            this.btnEliminarCliente.Text = "Eliminar cliente";
+            this.btnEliminarCliente.UseVisualStyleBackColor = false;
+            this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
+            // 
+            // btnMostrarCitas
+            // 
+            this.btnMostrarCitas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
+            this.btnMostrarCitas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMostrarCitas.ForeColor = System.Drawing.Color.White;
+            this.btnMostrarCitas.Location = new System.Drawing.Point(775, 562);
+            this.btnMostrarCitas.Name = "btnMostrarCitas";
+            this.btnMostrarCitas.Size = new System.Drawing.Size(105, 30);
+            this.btnMostrarCitas.TabIndex = 14;
+            this.btnMostrarCitas.Text = "Mostrar citas";
+            this.btnMostrarCitas.UseVisualStyleBackColor = false;
+            // 
             // rjListadoCliente
             // 
             this.rjListadoCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
@@ -138,38 +179,13 @@ namespace SheiStyleSNL
             this.rjListadoCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.rjListadoCliente.UseVisualStyleBackColor = false;
             // 
-            // btnEditarCliente
-            // 
-            this.btnEditarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
-            this.btnEditarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEditarCliente.ForeColor = System.Drawing.Color.White;
-            this.btnEditarCliente.Location = new System.Drawing.Point(304, 562);
-            this.btnEditarCliente.Name = "btnEditarCliente";
-            this.btnEditarCliente.Size = new System.Drawing.Size(105, 30);
-            this.btnEditarCliente.TabIndex = 12;
-            this.btnEditarCliente.Text = "Editar cliente";
-            this.btnEditarCliente.UseVisualStyleBackColor = false;
-            this.btnEditarCliente.Click += new System.EventHandler(this.btnEditarCliente_Click);
-            // 
-            // btnEliminarCliente
-            // 
-            this.btnEliminarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
-            this.btnEliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEliminarCliente.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarCliente.Location = new System.Drawing.Point(506, 562);
-            this.btnEliminarCliente.Name = "btnEliminarCliente";
-            this.btnEliminarCliente.Size = new System.Drawing.Size(105, 30);
-            this.btnEliminarCliente.TabIndex = 13;
-            this.btnEliminarCliente.Text = "Eliminar cliente";
-            this.btnEliminarCliente.UseVisualStyleBackColor = false;
-            this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
-            // 
             // FormListadoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(170)))), ((int)(((byte)(57)))));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.btnMostrarCitas);
             this.Controls.Add(this.btnEliminarCliente);
             this.Controls.Add(this.btnEditarCliente);
             this.Controls.Add(this.listVClientes);
@@ -203,5 +219,6 @@ namespace SheiStyleSNL
         private System.Windows.Forms.ListView listVClientes;
         private System.Windows.Forms.Button btnEditarCliente;
         private System.Windows.Forms.Button btnEliminarCliente;
+        private System.Windows.Forms.Button btnMostrarCitas;
     }
 }
