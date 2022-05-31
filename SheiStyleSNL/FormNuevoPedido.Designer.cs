@@ -151,6 +151,7 @@ namespace SheiStyleSNL
             this.btnActualizarCliente.TabIndex = 19;
             this.btnActualizarCliente.Text = "Pedir";
             this.btnActualizarCliente.UseVisualStyleBackColor = false;
+            this.btnActualizarCliente.Click += new System.EventHandler(this.btnActualizarCliente_Click);
             // 
             // FormNuevoPedido
             // 

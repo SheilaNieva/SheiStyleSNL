@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Cliente.cs" />
+    <Compile Include="Clases\Pedido.cs" />
     <Compile Include="FormEditarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
