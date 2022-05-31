@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace SheiStyleSNL
 {
-    public partial class Form1 : Form
+    public partial class FormFavoritos : Form
     {
-        public Form1()
+        public FormFavoritos()
         {
             InitializeComponent();
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormPrincipal frmPrincipal = new FormPrincipal();
+            frmPrincipal.Show();
         }
     }
 }
