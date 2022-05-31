@@ -48,9 +48,6 @@ namespace SheiStyleSNL
             {
                 clien = new FireSharp.FirebaseClient(ifc);
 
-                //FirebaseResponse res = cliente.Get(@"Usuarios");
-                //Dictionary<string, Usuario> data = JsonConvert.DeserializeObject<Dictionary<string, Usuario>>(res.Body.ToString());
-
             }
             catch (Exception)
             {
@@ -63,10 +60,10 @@ namespace SheiStyleSNL
         {
             FirebaseResponse res = clien.Get(@"Cliente");
             Dictionary<string, Cliente> data = JsonConvert.DeserializeObject<Dictionary<string, Cliente>>(res.Body.ToString());
-            rellenarDataGrid(data);
+            rellenarListado(data);
         }
 
-        private void rellenarDataGrid(Dictionary<string, Cliente> data)
+        private void rellenarListado(Dictionary<string, Cliente> data)
         {
             listVClientes.Clear();
             listVClientes.Columns.Clear();
@@ -75,11 +72,13 @@ namespace SheiStyleSNL
             listVClientes.Columns.Add("Apellidos",150);
             listVClientes.Columns.Add("Teléfono",150);
             listVClientes.Columns.Add("Correo",150);
+            listVClientes.Columns.Add("IDCliente", 0);
+            
 
 
             foreach (var item in data)
             {
-                String[] row = {item.Value.nombre, item.Value.apellidos, item.Value.telefono, item.Value.correo};
+                String[] row = {item.Value.nombre, item.Value.apellidos, item.Value.telefono, item.Value.correo, item.Value.idCliente};
                  var itemListView = new ListViewItem(row);
                 listVClientes.Items.Add(itemListView);
              
@@ -97,16 +96,26 @@ namespace SheiStyleSNL
 
         private void btnEditarCliente_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormEditarCliente frmEditarCliente = new FormEditarCliente();
-            frmEditarCliente.Show();
+            seleccionarCliente();
         }
+
 
         private void listVClientes_DoubleClick(object sender, EventArgs e)
         {
-            //this.Hide();
-            //FormEditarCliente frmEditarCliente = new FormEditarCliente();
-           // frmEditarCliente.Show();
+            seleccionarCliente();
+        }
+
+        private void seleccionarCliente()
+        {
+            int fila = listVClientes.FocusedItem.Index; //Obtenemos la fila que pulsamos
+            String idCliente = listVClientes.Items[fila].SubItems[4].Text; //Obtenemos el idCliente de la fila que hemos seleccionado
+
+            FirebaseResponse res = clien.Get(@"Cliente/" + idCliente);
+            Cliente resCliente = res.ResultAs<Cliente>();
+            
+             this.Hide();
+             FormEditarCliente frmEditarCliente = new FormEditarCliente(resCliente);
+             frmEditarCliente.Show();
         }
     }
 }

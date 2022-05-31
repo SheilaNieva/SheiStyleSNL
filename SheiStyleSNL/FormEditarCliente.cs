@@ -19,9 +19,11 @@ namespace SheiStyleSNL
 {
     public partial class FormEditarCliente : Form
     {
-        public FormEditarCliente()
+        Cliente resCliente;
+        public FormEditarCliente(Cliente resCliente)
         {
             InitializeComponent();
+            this.resCliente = resCliente;
             cargar();
         }
 
@@ -46,6 +48,10 @@ namespace SheiStyleSNL
             try
             {
                 clien = new FireSharp.FirebaseClient(ifc);
+                tbNombre.Text = resCliente.nombre;
+                tbApellidos.Text = resCliente.apellidos;
+                tbTlfn.Text = resCliente.telefono;
+                tbCorreo.Text = resCliente.correo;
 
             }
             catch (Exception)

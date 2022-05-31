@@ -208,6 +208,7 @@ namespace SheiStyleSNL
             this.Controls.Add(this.rjEditarCliente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormEditarCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormEditarCliente";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
