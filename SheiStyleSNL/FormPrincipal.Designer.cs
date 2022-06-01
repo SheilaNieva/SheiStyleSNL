@@ -150,6 +150,7 @@ namespace SheiStyleSNL
             this.pbMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbMenu.TabIndex = 1;
             this.pbMenu.TabStop = false;
+            this.pbMenu.Click += new System.EventHandler(this.pbMenu_Click);
             // 
             // pbLogo
             // 

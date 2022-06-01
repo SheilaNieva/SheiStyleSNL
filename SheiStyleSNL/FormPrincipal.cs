@@ -51,5 +51,13 @@ namespace SheiStyleSNL
             FormNuevoPedido frmPedido = new FormNuevoPedido();
             frmPedido.ShowDialog();
         }
+
+        private void pbMenu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            FormMenu frmMenu = new FormMenu();
+            frmMenu.Show();
+        }
     }
 }
