@@ -29,16 +29,47 @@ namespace SheiStyleSNL
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnAtras = new System.Windows.Forms.PictureBox();
-            this.rjAgendaCliente = new SheiStyleSNL.RJButton();
             this.label1 = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dgvAgenda = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAtras = new System.Windows.Forms.PictureBox();
+            this.rjAgendaCliente = new SheiStyleSNL.RJButton();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(356, 120);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 24);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Fecha:";
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Location = new System.Drawing.Point(462, 126);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(0, 16);
+            this.lblFecha.TabIndex = 15;
+            // 
+            // dgvAgenda
+            // 
+            this.dgvAgenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAgenda.Location = new System.Drawing.Point(294, 183);
+            this.dgvAgenda.Name = "dgvAgenda";
+            this.dgvAgenda.RowHeadersVisible = false;
+            this.dgvAgenda.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvAgenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAgenda.Size = new System.Drawing.Size(401, 424);
+            this.dgvAgenda.TabIndex = 16;
+            this.dgvAgenda.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgenda_CellDoubleClick);
             // 
             // pictureBox1
             // 
@@ -79,36 +110,6 @@ namespace SheiStyleSNL
             this.rjAgendaCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.rjAgendaCliente.UseVisualStyleBackColor = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(356, 120);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 24);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Fecha:";
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(462, 126);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(0, 16);
-            this.lblFecha.TabIndex = 15;
-            // 
-            // dgvAgenda
-            // 
-            this.dgvAgenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAgenda.Location = new System.Drawing.Point(294, 183);
-            this.dgvAgenda.Name = "dgvAgenda";
-            this.dgvAgenda.RowHeadersVisible = false;
-            this.dgvAgenda.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvAgenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAgenda.Size = new System.Drawing.Size(401, 329);
-            this.dgvAgenda.TabIndex = 16;
-            // 
             // FormAgenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -125,9 +126,9 @@ namespace SheiStyleSNL
             this.Name = "FormAgenda";
             this.Text = "FormAgenda";
             this.Load += new System.EventHandler(this.FormAgenda_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

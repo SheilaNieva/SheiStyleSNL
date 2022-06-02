@@ -14,22 +14,22 @@ namespace SheiStyleSNL.Clases
 
         }
 
-        public Cita(String idCita, String nombreCliente, String servicio, String fecha, float precioCita)
+        public Cita(String idCita, String idCliente, String servicio, String fecha, float duracion, float precioCita)
         {
             this.idCita = idCita;
-            this.nombreCliente = nombreCliente;
+            this.idCliente = idCliente;
             this.servicio = servicio;
             this.fecha = idCita;
-            this.duracion = 1;
+            this.duracion = duracion;
             this.precioCita = precioCita;
         }
 
 
         public String idCita { get; set; }
-        public String nombreCliente { get; set; }
+        public String idCliente { get; set; }
         public String servicio { get; set; }
         public String fecha { get; set; }
-        public int  duracion { get; set; }
+        public float  duracion { get; set; }
         public float precioCita { get; set; }
     }
 }

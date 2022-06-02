@@ -72,6 +72,8 @@
     <Compile Include="Clases\Cita.cs" />
     <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Clases\Pedido.cs" />
+    <Compile Include="Clases\Sector.cs" />
+    <Compile Include="Clases\Servicio.cs" />
     <Compile Include="FormAgenda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +85,12 @@
     </Compile>
     <Compile Include="FormCalendario.Designer.cs">
       <DependentUpon>FormCalendario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDatosBD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDatosBD.Designer.cs">
+      <DependentUpon>FormDatosBD.cs</DependentUpon>
     </Compile>
     <Compile Include="FormEditarCliente.cs">
       <SubType>Form</SubType>
@@ -132,6 +140,12 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormServicios.Designer.cs">
+      <DependentUpon>FormServicios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDatosEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormServicios.resx">
+      <DependentUpon>FormServicios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDatosEmpresa.resx">
       <DependentUpon>FrmDatosEmpresa.cs</DependentUpon>

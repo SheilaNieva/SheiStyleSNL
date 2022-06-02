@@ -54,5 +54,13 @@ namespace SheiStyleSNL
             FormCalendario frmCalendario = new FormCalendario();
             frmCalendario.ShowDialog();
         }
+
+        private void dgvAgenda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.Hide();
+
+            FormServicios frmServicios = new FormServicios(fecha);
+            frmServicios.ShowDialog();
+        }
     }
 }

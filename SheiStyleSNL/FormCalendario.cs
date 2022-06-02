@@ -30,7 +30,7 @@ namespace SheiStyleSNL
         {
             fechaSeleccionada = monthCalendar1.SelectionStart.Date.ToShortDateString();
             //MessageBox.Show(monthCalendar1.SelectionStart.ToString());
-            MessageBox.Show(fechaSeleccionada);
+            //MessageBox.Show(fechaSeleccionada);
         }
 
         private void FormCalendario_Load(object sender, EventArgs e)
