@@ -34,9 +34,6 @@ namespace SheiStyleSNL
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnAtras = new System.Windows.Forms.PictureBox();
-            this.rjListadoCliente = new SheiStyleSNL.RJButton();
             this.dgvPeluqueria = new System.Windows.Forms.DataGridView();
             this.columnServicioP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnPrecioP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,52 +55,17 @@ namespace SheiStyleSNL
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnModificarPrecio = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAtras = new System.Windows.Forms.PictureBox();
+            this.rjListadoCliente = new SheiStyleSNL.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeluqueria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBarberia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLaser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCera)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SheiStyleSNL.Properties.Resources.loguito;
-            this.pictureBox1.Location = new System.Drawing.Point(875, 17);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnAtras
-            // 
-            this.btnAtras.Image = global::SheiStyleSNL.Properties.Resources.atras;
-            this.btnAtras.Location = new System.Drawing.Point(37, 51);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(50, 50);
-            this.btnAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnAtras.TabIndex = 7;
-            this.btnAtras.TabStop = false;
-            // 
-            // rjListadoCliente
-            // 
-            this.rjListadoCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
-            this.rjListadoCliente.FlatAppearance.BorderSize = 0;
-            this.rjListadoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjListadoCliente.Font = new System.Drawing.Font("Modern No. 20", 15.75F);
-            this.rjListadoCliente.ForeColor = System.Drawing.Color.White;
-            this.rjListadoCliente.Image = global::SheiStyleSNL.Properties.Resources.precio;
-            this.rjListadoCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjListadoCliente.Location = new System.Drawing.Point(180, 41);
-            this.rjListadoCliente.Name = "rjListadoCliente";
-            this.rjListadoCliente.Size = new System.Drawing.Size(644, 65);
-            this.rjListadoCliente.TabIndex = 6;
-            this.rjListadoCliente.Text = "Precios y servicios";
-            this.rjListadoCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rjListadoCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.rjListadoCliente.UseVisualStyleBackColor = false;
             // 
             // dgvPeluqueria
             // 
@@ -348,6 +310,45 @@ namespace SheiStyleSNL
             this.btnModificarPrecio.Text = "Modificar precio";
             this.btnModificarPrecio.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SheiStyleSNL.Properties.Resources.loguito;
+            this.pictureBox1.Location = new System.Drawing.Point(875, 17);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnAtras
+            // 
+            this.btnAtras.Image = global::SheiStyleSNL.Properties.Resources.atras;
+            this.btnAtras.Location = new System.Drawing.Point(37, 51);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(50, 50);
+            this.btnAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnAtras.TabIndex = 7;
+            this.btnAtras.TabStop = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
+            // rjListadoCliente
+            // 
+            this.rjListadoCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
+            this.rjListadoCliente.FlatAppearance.BorderSize = 0;
+            this.rjListadoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjListadoCliente.Font = new System.Drawing.Font("Modern No. 20", 15.75F);
+            this.rjListadoCliente.ForeColor = System.Drawing.Color.White;
+            this.rjListadoCliente.Image = global::SheiStyleSNL.Properties.Resources.precio;
+            this.rjListadoCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjListadoCliente.Location = new System.Drawing.Point(180, 41);
+            this.rjListadoCliente.Name = "rjListadoCliente";
+            this.rjListadoCliente.Size = new System.Drawing.Size(644, 65);
+            this.rjListadoCliente.TabIndex = 6;
+            this.rjListadoCliente.Text = "Precios y servicios";
+            this.rjListadoCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rjListadoCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.rjListadoCliente.UseVisualStyleBackColor = false;
+            // 
             // FormPrecios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -371,13 +372,13 @@ namespace SheiStyleSNL
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPrecios";
             this.Text = "FormPrecios";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeluqueria)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBarberia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLaser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCera)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

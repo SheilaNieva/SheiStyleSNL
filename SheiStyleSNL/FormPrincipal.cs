@@ -59,5 +59,13 @@ namespace SheiStyleSNL
             FormMenu frmMenu = new FormMenu();
             frmMenu.Show();
         }
+
+        private void btnNuevaCita_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            FormCalendario frmCalendario = new FormCalendario();
+            frmCalendario.ShowDialog();
+        }
     }
 }

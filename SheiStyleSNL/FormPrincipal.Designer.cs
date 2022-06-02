@@ -129,6 +129,7 @@ namespace SheiStyleSNL
             this.btnNuevaCita.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevaCita.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevaCita.UseVisualStyleBackColor = false;
+            this.btnNuevaCita.Click += new System.EventHandler(this.btnNuevaCita_Click);
             // 
             // pbSalir
             // 

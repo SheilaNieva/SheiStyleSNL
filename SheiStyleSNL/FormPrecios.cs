@@ -16,5 +16,12 @@ namespace SheiStyleSNL
         {
             InitializeComponent();
         }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormPrincipal frmPrincipal = new FormPrincipal();
+            frmPrincipal.Show();
+        }
     }
 }
