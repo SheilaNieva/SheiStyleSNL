@@ -34,6 +34,7 @@ namespace SheiStyleSNL
             this.dgvAgenda = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAtras = new System.Windows.Forms.PictureBox();
+            this.btnAnadirCita = new System.Windows.Forms.Button();
             this.rjAgendaCliente = new SheiStyleSNL.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -61,15 +62,19 @@ namespace SheiStyleSNL
             // 
             // dgvAgenda
             // 
+            this.dgvAgenda.AllowUserToAddRows = false;
+            this.dgvAgenda.AllowUserToDeleteRows = false;
+            this.dgvAgenda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAgenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAgenda.Location = new System.Drawing.Point(294, 183);
+            this.dgvAgenda.MultiSelect = false;
             this.dgvAgenda.Name = "dgvAgenda";
+            this.dgvAgenda.ReadOnly = true;
             this.dgvAgenda.RowHeadersVisible = false;
             this.dgvAgenda.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvAgenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAgenda.Size = new System.Drawing.Size(401, 424);
             this.dgvAgenda.TabIndex = 16;
-            this.dgvAgenda.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgenda_CellDoubleClick);
             // 
             // pictureBox1
             // 
@@ -91,6 +96,20 @@ namespace SheiStyleSNL
             this.btnAtras.TabIndex = 12;
             this.btnAtras.TabStop = false;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
+            // btnAnadirCita
+            // 
+            this.btnAnadirCita.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
+            this.btnAnadirCita.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAnadirCita.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnadirCita.ForeColor = System.Drawing.Color.White;
+            this.btnAnadirCita.Location = new System.Drawing.Point(749, 254);
+            this.btnAnadirCita.Name = "btnAnadirCita";
+            this.btnAnadirCita.Size = new System.Drawing.Size(161, 38);
+            this.btnAnadirCita.TabIndex = 20;
+            this.btnAnadirCita.Text = "Continuar cita";
+            this.btnAnadirCita.UseVisualStyleBackColor = false;
+            this.btnAnadirCita.Click += new System.EventHandler(this.btnAnadirCita_Click);
             // 
             // rjAgendaCliente
             // 
@@ -116,6 +135,7 @@ namespace SheiStyleSNL
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(170)))), ((int)(((byte)(57)))));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.btnAnadirCita);
             this.Controls.Add(this.dgvAgenda);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.label1);
@@ -142,5 +162,6 @@ namespace SheiStyleSNL
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.DataGridView dgvAgenda;
+        private System.Windows.Forms.Button btnAnadirCita;
     }
 }

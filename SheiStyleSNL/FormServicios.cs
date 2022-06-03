@@ -19,10 +19,12 @@ namespace SheiStyleSNL
 {
     public partial class FormServicios : Form
     {
-        String fecha;
+        DateTime fecha;
+        float prec;
+        float dur;
         ArrayList listaIdCliente = new ArrayList();
-        public float duracionServicio = 0;
-        public FormServicios(string fecha)
+        
+        public FormServicios(DateTime fecha)
         {
             InitializeComponent();
             this.fecha = fecha;
@@ -50,7 +52,7 @@ namespace SheiStyleSNL
             }
         }
 
-
+         
         private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -61,9 +63,8 @@ namespace SheiStyleSNL
 
         private void FormServicios_Load(object sender, EventArgs e)
         {
-            lblFecha.Text = fecha;
+            lblFecha.Text = fecha.ToShortDateString();
 
-            // Consultamos base de datos para obtener los nombres de clientes
             FirebaseResponse res = clien.Get(@"Cliente");
             Dictionary<string, Cliente> data = JsonConvert.DeserializeObject<Dictionary<string, Cliente>>(res.Body.ToString());
 
@@ -79,58 +80,254 @@ namespace SheiStyleSNL
                     }
                 }
             }
+
+            FirebaseResponse res1 = clien.Get(@"Cita");
+            Dictionary<string, Cita> dataCita = JsonConvert.DeserializeObject<Dictionary<string, Cita>>(res1.Body.ToString());
+
+            ArrayList listaHoras = new ArrayList();
+            ArrayList listaHorasBBDD = new ArrayList();
+
+            foreach (var item in dataCita)
+            {
+                if (item.Value.fecha.ToShortDateString() == fecha.ToShortDateString())
+                {
+                    //listaHoras.Add((item.Value.fecha.Hour + ":" + item.Value.fecha.Minute).ToString());
+                    listaHoras.Add(item.Value.fecha.ToShortTimeString());
+                    //listaHorasBBDD.Add((fecha.Hour + ":" + fecha.Minute).ToString());
+                }
+            }
+
+
+            if (!listaHoras.Contains("8:00")){
+                cbHoras.Items.Add("8:00");
+            }
+
+            if (!listaHoras.Contains("8:30"))
+            {
+                cbHoras.Items.Add("8:30");
+            }
+            if (!listaHoras.Contains("9:00"))
+            {
+                cbHoras.Items.Add("9:00");
+            }
+            if (!listaHoras.Contains("9:30"))
+            {
+                cbHoras.Items.Add("9:30");
+            }
+
+            if (!listaHoras.Contains("10:00"))
+            {
+                cbHoras.Items.Add("10:00");
+            }
+
+            if (!listaHoras.Contains("10:30"))
+            {
+                cbHoras.Items.Add("10:30");
+            }
+
+            if (!listaHoras.Contains("11:00"))
+            {
+                cbHoras.Items.Add("11:00");
+            }
+
+            if (!listaHoras.Contains("11:30"))
+            {
+                cbHoras.Items.Add("11:30");
+            }
+
+            if (!listaHoras.Contains("12:00"))
+            {
+                cbHoras.Items.Add("12:00");
+            }
+
+            if (!listaHoras.Contains("12:30"))
+            {
+                cbHoras.Items.Add("12:30");
+            }
+
+            if (!listaHoras.Contains("13:00"))
+            {
+                cbHoras.Items.Add("13:00");
+            }
+
+            if (!listaHoras.Contains("13:30"))
+            {
+                cbHoras.Items.Add("13:30");
+            }
+
+            if (!listaHoras.Contains("14:00"))
+            {
+                cbHoras.Items.Add("14:00");
+            }
+
+
             cbCliente.SelectedIndex = 0;
+
+
         }
 
-        
 
-        private String serviciosSeleccionados() {
+        private String serviciosSeleccionados()
+        {
 
-            String servicioSeleccionado = "";
+            String servicioSeleccionado = "";            
+            float duracionServicio = 0;
+            float precio = 0;
+            FirebaseResponse res1 = clien.Get(@"Servicio");
+            Dictionary<string, Servicio> data1 = JsonConvert.DeserializeObject<Dictionary<string, Servicio>>(res1.Body.ToString());
 
-            if (cbLavado.Checked)
+
+            foreach (var item in data1)
             {
-                servicioSeleccionado = servicioSeleccionado + cbLavado.Text + ",";
-                duracionServicio = duracionServicio + 1;
-            }
 
-            if (cbCorte.Checked)
-            {
-                servicioSeleccionado = servicioSeleccionado + cbCorte.Text + ",";
-                duracionServicio = duracionServicio + 0.5f;
-            }
+                if (cbLavado.Checked && cbLavado.Text.Equals(item.Value.nombre))
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbLavado.Text + ",";
+                    duracionServicio = duracionServicio + item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
 
-            if (cbTinte.Checked)
-            {
-                servicioSeleccionado = servicioSeleccionado + cbTinte.Text + ",";
-            }
+                if (cbCorte.Checked && cbCorte.Text.Equals(item.Value.nombre))
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbCorte.Text + ",";
+                    duracionServicio = duracionServicio + item.Value.duracion;
+                    precio = precio + item.Value.precio;
 
-            if (cbMechas.Checked)
-            {
-                servicioSeleccionado = servicioSeleccionado + cbMechas.Text + ",";
-            }
+                }
 
-            if (cbDecoloracion.Checked)
-            {
-                servicioSeleccionado = servicioSeleccionado + cbDecoloracion.Text + ",";
-            }
+                if (cbTinte.Checked && cbTinte.Text.Equals(item.Value.nombre))
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbTinte.Text + ",";
+                    duracionServicio += item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
 
-            if (cbAlisado.Checked)
-            {
-                servicioSeleccionado = servicioSeleccionado + cbLavado.Text + ",";
-            }
+                if (cbMechas.Checked && cbMechas.Text.Equals(item.Value.nombre))
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbMechas.Text + ",";
+                    duracionServicio = duracionServicio + item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
 
-            if (cbPermanente.Checked)
-            {
-                servicioSeleccionado = servicioSeleccionado + cbLavado.Text + ",";
-            }
+                if (cbDecoloracion.Checked && cbDecoloracion.Text.Equals(item.Value.nombre))
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbDecoloracion.Text + ",";
+                    duracionServicio += item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
 
-            if (cbRecogido.Checked)
-            {
-                servicioSeleccionado = servicioSeleccionado + cbLavado.Text + ",";
-            }
+                if (cbAlisado.Checked && cbAlisado.Text.Equals(item.Value.nombre))
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbAlisado.Text + ",";
+                    duracionServicio += item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
 
+                if (cbPermanente.Checked && cbPermanente.Text.Equals(item.Value.nombre))
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbPermanente.Text + ",";
+                    duracionServicio += item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
+
+                if (cbRecogido.Checked && cbRecogido.Text.Equals(item.Value.nombre) )
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbRecogido.Text + ",";
+                    duracionServicio += item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
+
+                if (cbPedicura.Checked && cbPedicura.Text.Equals(item.Value.nombre) )
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbPedicura.Text + ",";
+                    duracionServicio += item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
+                if (cbGel.Checked && cbGel.Text.Equals(item.Value.nombre))
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbGel.Text + ",";
+                    duracionServicio += item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
+                if (cbAcrilicas.Checked && cbAcrilicas.Text.Equals(item.Value.nombre))
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbAcrilicas.Text + ",";
+                    duracionServicio += item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
+                if (cbPermanentes.Checked && cbPermanentes.Text.Equals(item.Value.nombre) )
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbPermanentes.Text + ",";
+                    duracionServicio += item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
+                if (cbBigote.Checked && cbBigote.Text.Equals(item.Value.nombre) )
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbBigote.Text + ",";
+                    duracionServicio += item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
+                if (cbCejas.Checked && cbCejas.Text.Equals(item.Value.nombre))
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbCejas.Text + ",";
+                    duracionServicio += item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
+                if (cbPiernas.Checked && cbPiernas.Text.Equals(item.Value.nombre))
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbPiernas.Text + ",";
+                    duracionServicio += item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
+                if (cbBrazos.Checked && cbBrazos.Text.Equals(item.Value.nombre) )
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbBrazos.Text + ",";
+                    duracionServicio += item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
+                if (cbIntima.Checked && cbIntima.Text.Equals(item.Value.nombre))
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbIntima.Text + ",";
+                    duracionServicio += item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
+                if (cbAxilas.Checked && cbAxilas.Text.Equals(item.Value.nombre))
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbAxilas.Text + ",";
+                    duracionServicio += item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
+                if (cbAfeitado.Checked && cbAfeitado.Text.Equals(item.Value.nombre))
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbAfeitado.Text + ",";
+                    duracionServicio += item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
+                if (cbRecorte.Checked && cbRecorte.Text.Equals(item.Value.nombre))
+                {
+                    servicioSeleccionado = servicioSeleccionado + cbRecorte.Text + ",";
+                    duracionServicio += item.Value.duracion;
+                    precio = precio + item.Value.precio;
+                }
+
+            }
+            prec = precio;
+            dur = duracionServicio;
+            
             return servicioSeleccionado;
+            
+        }
+        // Metodo para calcular la hora y los minutos seleccionados
+        private DateTime calcularHorasMinutos(String horaSeleccionada)
+        {
+            string[] fechaSplit = horaSeleccionada.Split(':');
+
+            int hora = Int32.Parse(fechaSplit[0]);
+            int minutos = Int32.Parse(fechaSplit[1]);
+
+            DateTime fechaCita = new DateTime(fecha.Year, fecha.Month, fecha.Day, hora, minutos, 00);
+
+            return fechaCita;
         }
 
         private void btnAnadir_Click(object sender, EventArgs e)
@@ -144,11 +341,14 @@ namespace SheiStyleSNL
             cita.idCita = UUID.ToString();
             cita.idCliente = listaIdCliente[cbCliente.SelectedIndex].ToString();
             cita.servicio = serviciosSeleccionados();
-            cita.fecha = fecha;
-            cita.duracion = duracionServicio;
-            cita.precioCita = 12;
+            cita.fecha = calcularHorasMinutos(cbHoras.SelectedItem.ToString());
+            cita.duracion = dur;
+            cita.precioCita = prec;
 
-            SetResponse resCita = clien.Set(@"Cita/" + cita.idCita, cita);
+            MessageBox.Show("Servicios seleccionados : " + cita.servicio + " precio estimado: " + cita.precioCita + " duracion: " + cita.duracion);
+
+            FormPresupuesto frmPresupuesto = new FormPresupuesto(cita);
+            frmPresupuesto.ShowDialog();
         }
     }
 }

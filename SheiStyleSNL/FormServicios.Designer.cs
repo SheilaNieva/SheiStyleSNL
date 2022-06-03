@@ -33,34 +33,35 @@ namespace SheiStyleSNL
             this.btnAtras = new System.Windows.Forms.PictureBox();
             this.rjServiciosCliente = new SheiStyleSNL.RJButton();
             this.gbPeluqueria = new System.Windows.Forms.GroupBox();
+            this.cbAlisado = new System.Windows.Forms.CheckBox();
+            this.cbPermanente = new System.Windows.Forms.CheckBox();
+            this.cbRecogido = new System.Windows.Forms.CheckBox();
+            this.cbCorte = new System.Windows.Forms.CheckBox();
+            this.cbTinte = new System.Windows.Forms.CheckBox();
+            this.cbMechas = new System.Windows.Forms.CheckBox();
+            this.cbDecoloracion = new System.Windows.Forms.CheckBox();
+            this.cbLavado = new System.Windows.Forms.CheckBox();
             this.gbUnas = new System.Windows.Forms.GroupBox();
-            this.rbGel = new System.Windows.Forms.RadioButton();
-            this.rbPedicura = new System.Windows.Forms.RadioButton();
-            this.rbAcrílicas = new System.Windows.Forms.RadioButton();
-            this.rbPermanentes = new System.Windows.Forms.RadioButton();
+            this.cbGel = new System.Windows.Forms.CheckBox();
+            this.cbAcrilicas = new System.Windows.Forms.CheckBox();
+            this.cbPedicura = new System.Windows.Forms.CheckBox();
+            this.cbPermanentes = new System.Windows.Forms.CheckBox();
             this.gbCera = new System.Windows.Forms.GroupBox();
-            this.rbCejas = new System.Windows.Forms.RadioButton();
-            this.rbBigote = new System.Windows.Forms.RadioButton();
+            this.cbCejas = new System.Windows.Forms.CheckBox();
+            this.cbBigote = new System.Windows.Forms.CheckBox();
             this.gbBarberia = new System.Windows.Forms.GroupBox();
-            this.rbRecorte = new System.Windows.Forms.RadioButton();
-            this.rbAfeitado = new System.Windows.Forms.RadioButton();
+            this.cbRecorte = new System.Windows.Forms.CheckBox();
+            this.cbAfeitado = new System.Windows.Forms.CheckBox();
             this.gbLaser = new System.Windows.Forms.GroupBox();
-            this.rbZonaIntima = new System.Windows.Forms.RadioButton();
-            this.rbAxilas = new System.Windows.Forms.RadioButton();
-            this.rbBrazos = new System.Windows.Forms.RadioButton();
-            this.rbPiernas = new System.Windows.Forms.RadioButton();
+            this.cbIntima = new System.Windows.Forms.CheckBox();
+            this.cbBrazos = new System.Windows.Forms.CheckBox();
+            this.cbAxilas = new System.Windows.Forms.CheckBox();
+            this.cbPiernas = new System.Windows.Forms.CheckBox();
             this.lblFecha = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAnadir = new System.Windows.Forms.Button();
             this.cbCliente = new System.Windows.Forms.ComboBox();
-            this.cbLavado = new System.Windows.Forms.CheckBox();
-            this.cbDecoloracion = new System.Windows.Forms.CheckBox();
-            this.cbMechas = new System.Windows.Forms.CheckBox();
-            this.cbTinte = new System.Windows.Forms.CheckBox();
-            this.cbCorte = new System.Windows.Forms.CheckBox();
-            this.cbRecogido = new System.Windows.Forms.CheckBox();
-            this.cbPermanente = new System.Windows.Forms.CheckBox();
-            this.cbAlisado = new System.Windows.Forms.CheckBox();
+            this.cbHoras = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
             this.gbPeluqueria.SuspendLayout();
@@ -129,13 +130,101 @@ namespace SheiStyleSNL
             this.gbPeluqueria.TabStop = false;
             this.gbPeluqueria.Text = "Peluquería";
             // 
+            // cbAlisado
+            // 
+            this.cbAlisado.AutoSize = true;
+            this.cbAlisado.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAlisado.Location = new System.Drawing.Point(175, 77);
+            this.cbAlisado.Name = "cbAlisado";
+            this.cbAlisado.Size = new System.Drawing.Size(76, 22);
+            this.cbAlisado.TabIndex = 7;
+            this.cbAlisado.Text = "Alisado";
+            this.cbAlisado.UseVisualStyleBackColor = true;
+            // 
+            // cbPermanente
+            // 
+            this.cbPermanente.AutoSize = true;
+            this.cbPermanente.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPermanente.Location = new System.Drawing.Point(175, 121);
+            this.cbPermanente.Name = "cbPermanente";
+            this.cbPermanente.Size = new System.Drawing.Size(103, 22);
+            this.cbPermanente.TabIndex = 6;
+            this.cbPermanente.Text = "Permanente";
+            this.cbPermanente.UseVisualStyleBackColor = true;
+            // 
+            // cbRecogido
+            // 
+            this.cbRecogido.AutoSize = true;
+            this.cbRecogido.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRecogido.Location = new System.Drawing.Point(175, 166);
+            this.cbRecogido.Name = "cbRecogido";
+            this.cbRecogido.Size = new System.Drawing.Size(84, 22);
+            this.cbRecogido.TabIndex = 5;
+            this.cbRecogido.Text = "Recogido";
+            this.cbRecogido.UseVisualStyleBackColor = true;
+            // 
+            // cbCorte
+            // 
+            this.cbCorte.AutoSize = true;
+            this.cbCorte.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCorte.Location = new System.Drawing.Point(21, 77);
+            this.cbCorte.Name = "cbCorte";
+            this.cbCorte.Size = new System.Drawing.Size(60, 22);
+            this.cbCorte.TabIndex = 4;
+            this.cbCorte.Text = "Corte";
+            this.cbCorte.UseVisualStyleBackColor = true;
+            // 
+            // cbTinte
+            // 
+            this.cbTinte.AutoSize = true;
+            this.cbTinte.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTinte.Location = new System.Drawing.Point(21, 121);
+            this.cbTinte.Name = "cbTinte";
+            this.cbTinte.Size = new System.Drawing.Size(62, 22);
+            this.cbTinte.TabIndex = 3;
+            this.cbTinte.Text = "Tinte";
+            this.cbTinte.UseVisualStyleBackColor = true;
+            // 
+            // cbMechas
+            // 
+            this.cbMechas.AutoSize = true;
+            this.cbMechas.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMechas.Location = new System.Drawing.Point(21, 166);
+            this.cbMechas.Name = "cbMechas";
+            this.cbMechas.Size = new System.Drawing.Size(75, 22);
+            this.cbMechas.TabIndex = 2;
+            this.cbMechas.Text = "Mechas";
+            this.cbMechas.UseVisualStyleBackColor = true;
+            // 
+            // cbDecoloracion
+            // 
+            this.cbDecoloracion.AutoSize = true;
+            this.cbDecoloracion.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDecoloracion.Location = new System.Drawing.Point(175, 36);
+            this.cbDecoloracion.Name = "cbDecoloracion";
+            this.cbDecoloracion.Size = new System.Drawing.Size(110, 22);
+            this.cbDecoloracion.TabIndex = 1;
+            this.cbDecoloracion.Text = "Decoloracion";
+            this.cbDecoloracion.UseVisualStyleBackColor = true;
+            // 
+            // cbLavado
+            // 
+            this.cbLavado.AutoSize = true;
+            this.cbLavado.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbLavado.Location = new System.Drawing.Point(20, 36);
+            this.cbLavado.Name = "cbLavado";
+            this.cbLavado.Size = new System.Drawing.Size(74, 22);
+            this.cbLavado.TabIndex = 0;
+            this.cbLavado.Text = "Lavado";
+            this.cbLavado.UseVisualStyleBackColor = true;
+            // 
             // gbUnas
             // 
             this.gbUnas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(158)))), ((int)(((byte)(55)))));
-            this.gbUnas.Controls.Add(this.rbGel);
-            this.gbUnas.Controls.Add(this.rbPedicura);
-            this.gbUnas.Controls.Add(this.rbAcrílicas);
-            this.gbUnas.Controls.Add(this.rbPermanentes);
+            this.gbUnas.Controls.Add(this.cbGel);
+            this.gbUnas.Controls.Add(this.cbAcrilicas);
+            this.gbUnas.Controls.Add(this.cbPedicura);
+            this.gbUnas.Controls.Add(this.cbPermanentes);
             this.gbUnas.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbUnas.Location = new System.Drawing.Point(87, 416);
             this.gbUnas.Name = "gbUnas";
@@ -144,59 +233,55 @@ namespace SheiStyleSNL
             this.gbUnas.TabStop = false;
             this.gbUnas.Text = "Uñas";
             // 
-            // rbGel
+            // cbGel
             // 
-            this.rbGel.AutoSize = true;
-            this.rbGel.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbGel.Location = new System.Drawing.Point(184, 75);
-            this.rbGel.Name = "rbGel";
-            this.rbGel.Size = new System.Drawing.Size(65, 21);
-            this.rbGel.TabIndex = 5;
-            this.rbGel.TabStop = true;
-            this.rbGel.Text = "De gel";
-            this.rbGel.UseVisualStyleBackColor = true;
+            this.cbGel.AutoSize = true;
+            this.cbGel.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbGel.Location = new System.Drawing.Point(175, 75);
+            this.cbGel.Name = "cbGel";
+            this.cbGel.Size = new System.Drawing.Size(68, 22);
+            this.cbGel.TabIndex = 9;
+            this.cbGel.Text = "De gel";
+            this.cbGel.UseVisualStyleBackColor = true;
             // 
-            // rbPedicura
+            // cbAcrilicas
             // 
-            this.rbPedicura.AutoSize = true;
-            this.rbPedicura.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbPedicura.Location = new System.Drawing.Point(184, 37);
-            this.rbPedicura.Name = "rbPedicura";
-            this.rbPedicura.Size = new System.Drawing.Size(81, 21);
-            this.rbPedicura.TabIndex = 4;
-            this.rbPedicura.TabStop = true;
-            this.rbPedicura.Text = "Pedicura";
-            this.rbPedicura.UseVisualStyleBackColor = true;
+            this.cbAcrilicas.AutoSize = true;
+            this.cbAcrilicas.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAcrilicas.Location = new System.Drawing.Point(20, 75);
+            this.cbAcrilicas.Name = "cbAcrilicas";
+            this.cbAcrilicas.Size = new System.Drawing.Size(84, 22);
+            this.cbAcrilicas.TabIndex = 8;
+            this.cbAcrilicas.Text = "Acrilicas";
+            this.cbAcrilicas.UseVisualStyleBackColor = true;
             // 
-            // rbAcrílicas
+            // cbPedicura
             // 
-            this.rbAcrílicas.AutoSize = true;
-            this.rbAcrílicas.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbAcrílicas.Location = new System.Drawing.Point(20, 75);
-            this.rbAcrílicas.Name = "rbAcrílicas";
-            this.rbAcrílicas.Size = new System.Drawing.Size(81, 21);
-            this.rbAcrílicas.TabIndex = 1;
-            this.rbAcrílicas.TabStop = true;
-            this.rbAcrílicas.Text = "Acrílicas";
-            this.rbAcrílicas.UseVisualStyleBackColor = true;
+            this.cbPedicura.AutoSize = true;
+            this.cbPedicura.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPedicura.Location = new System.Drawing.Point(175, 37);
+            this.cbPedicura.Name = "cbPedicura";
+            this.cbPedicura.Size = new System.Drawing.Size(83, 22);
+            this.cbPedicura.TabIndex = 7;
+            this.cbPedicura.Text = "Pedicura";
+            this.cbPedicura.UseVisualStyleBackColor = true;
             // 
-            // rbPermanentes
+            // cbPermanentes
             // 
-            this.rbPermanentes.AutoSize = true;
-            this.rbPermanentes.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbPermanentes.Location = new System.Drawing.Point(20, 37);
-            this.rbPermanentes.Name = "rbPermanentes";
-            this.rbPermanentes.Size = new System.Drawing.Size(104, 21);
-            this.rbPermanentes.TabIndex = 0;
-            this.rbPermanentes.TabStop = true;
-            this.rbPermanentes.Text = "Permanentes";
-            this.rbPermanentes.UseVisualStyleBackColor = true;
+            this.cbPermanentes.AutoSize = true;
+            this.cbPermanentes.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPermanentes.Location = new System.Drawing.Point(20, 37);
+            this.cbPermanentes.Name = "cbPermanentes";
+            this.cbPermanentes.Size = new System.Drawing.Size(109, 22);
+            this.cbPermanentes.TabIndex = 6;
+            this.cbPermanentes.Text = "Permanentes";
+            this.cbPermanentes.UseVisualStyleBackColor = true;
             // 
             // gbCera
             // 
             this.gbCera.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(158)))), ((int)(((byte)(55)))));
-            this.gbCera.Controls.Add(this.rbCejas);
-            this.gbCera.Controls.Add(this.rbBigote);
+            this.gbCera.Controls.Add(this.cbCejas);
+            this.gbCera.Controls.Add(this.cbBigote);
             this.gbCera.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCera.Location = new System.Drawing.Point(533, 134);
             this.gbCera.Name = "gbCera";
@@ -205,35 +290,33 @@ namespace SheiStyleSNL
             this.gbCera.TabStop = false;
             this.gbCera.Text = "Depilación con cera caliente";
             // 
-            // rbCejas
+            // cbCejas
             // 
-            this.rbCejas.AutoSize = true;
-            this.rbCejas.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCejas.Location = new System.Drawing.Point(182, 49);
-            this.rbCejas.Name = "rbCejas";
-            this.rbCejas.Size = new System.Drawing.Size(57, 21);
-            this.rbCejas.TabIndex = 4;
-            this.rbCejas.TabStop = true;
-            this.rbCejas.Text = "Cejas";
-            this.rbCejas.UseVisualStyleBackColor = true;
+            this.cbCejas.AutoSize = true;
+            this.cbCejas.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCejas.Location = new System.Drawing.Point(182, 47);
+            this.cbCejas.Name = "cbCejas";
+            this.cbCejas.Size = new System.Drawing.Size(60, 22);
+            this.cbCejas.TabIndex = 3;
+            this.cbCejas.Text = "Cejas";
+            this.cbCejas.UseVisualStyleBackColor = true;
             // 
-            // rbBigote
+            // cbBigote
             // 
-            this.rbBigote.AutoSize = true;
-            this.rbBigote.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbBigote.Location = new System.Drawing.Point(18, 49);
-            this.rbBigote.Name = "rbBigote";
-            this.rbBigote.Size = new System.Drawing.Size(67, 21);
-            this.rbBigote.TabIndex = 0;
-            this.rbBigote.TabStop = true;
-            this.rbBigote.Text = "Bigote";
-            this.rbBigote.UseVisualStyleBackColor = true;
+            this.cbBigote.AutoSize = true;
+            this.cbBigote.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbBigote.Location = new System.Drawing.Point(20, 47);
+            this.cbBigote.Name = "cbBigote";
+            this.cbBigote.Size = new System.Drawing.Size(68, 22);
+            this.cbBigote.TabIndex = 2;
+            this.cbBigote.Text = "Bigote";
+            this.cbBigote.UseVisualStyleBackColor = true;
             // 
             // gbBarberia
             // 
             this.gbBarberia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(158)))), ((int)(((byte)(55)))));
-            this.gbBarberia.Controls.Add(this.rbRecorte);
-            this.gbBarberia.Controls.Add(this.rbAfeitado);
+            this.gbBarberia.Controls.Add(this.cbRecorte);
+            this.gbBarberia.Controls.Add(this.cbAfeitado);
             this.gbBarberia.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbBarberia.Location = new System.Drawing.Point(533, 453);
             this.gbBarberia.Name = "gbBarberia";
@@ -242,37 +325,35 @@ namespace SheiStyleSNL
             this.gbBarberia.TabStop = false;
             this.gbBarberia.Text = "Barbería";
             // 
-            // rbRecorte
+            // cbRecorte
             // 
-            this.rbRecorte.AutoSize = true;
-            this.rbRecorte.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbRecorte.Location = new System.Drawing.Point(182, 49);
-            this.rbRecorte.Name = "rbRecorte";
-            this.rbRecorte.Size = new System.Drawing.Size(72, 21);
-            this.rbRecorte.TabIndex = 4;
-            this.rbRecorte.TabStop = true;
-            this.rbRecorte.Text = "Recorte";
-            this.rbRecorte.UseVisualStyleBackColor = true;
+            this.cbRecorte.AutoSize = true;
+            this.cbRecorte.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRecorte.Location = new System.Drawing.Point(182, 49);
+            this.cbRecorte.Name = "cbRecorte";
+            this.cbRecorte.Size = new System.Drawing.Size(74, 22);
+            this.cbRecorte.TabIndex = 6;
+            this.cbRecorte.Text = "Recorte";
+            this.cbRecorte.UseVisualStyleBackColor = true;
             // 
-            // rbAfeitado
+            // cbAfeitado
             // 
-            this.rbAfeitado.AutoSize = true;
-            this.rbAfeitado.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbAfeitado.Location = new System.Drawing.Point(18, 49);
-            this.rbAfeitado.Name = "rbAfeitado";
-            this.rbAfeitado.Size = new System.Drawing.Size(78, 21);
-            this.rbAfeitado.TabIndex = 0;
-            this.rbAfeitado.TabStop = true;
-            this.rbAfeitado.Text = "Afeitado";
-            this.rbAfeitado.UseVisualStyleBackColor = true;
+            this.cbAfeitado.AutoSize = true;
+            this.cbAfeitado.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAfeitado.Location = new System.Drawing.Point(20, 49);
+            this.cbAfeitado.Name = "cbAfeitado";
+            this.cbAfeitado.Size = new System.Drawing.Size(82, 22);
+            this.cbAfeitado.TabIndex = 5;
+            this.cbAfeitado.Text = "Afeitado";
+            this.cbAfeitado.UseVisualStyleBackColor = true;
             // 
             // gbLaser
             // 
             this.gbLaser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(158)))), ((int)(((byte)(55)))));
-            this.gbLaser.Controls.Add(this.rbZonaIntima);
-            this.gbLaser.Controls.Add(this.rbAxilas);
-            this.gbLaser.Controls.Add(this.rbBrazos);
-            this.gbLaser.Controls.Add(this.rbPiernas);
+            this.gbLaser.Controls.Add(this.cbIntima);
+            this.gbLaser.Controls.Add(this.cbBrazos);
+            this.gbLaser.Controls.Add(this.cbAxilas);
+            this.gbLaser.Controls.Add(this.cbPiernas);
             this.gbLaser.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbLaser.Location = new System.Drawing.Point(533, 284);
             this.gbLaser.Name = "gbLaser";
@@ -281,53 +362,49 @@ namespace SheiStyleSNL
             this.gbLaser.TabStop = false;
             this.gbLaser.Text = "Láser";
             // 
-            // rbZonaIntima
+            // cbIntima
             // 
-            this.rbZonaIntima.AutoSize = true;
-            this.rbZonaIntima.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbZonaIntima.Location = new System.Drawing.Point(184, 75);
-            this.rbZonaIntima.Name = "rbZonaIntima";
-            this.rbZonaIntima.Size = new System.Drawing.Size(101, 21);
-            this.rbZonaIntima.TabIndex = 5;
-            this.rbZonaIntima.TabStop = true;
-            this.rbZonaIntima.Text = "Zona íntima";
-            this.rbZonaIntima.UseVisualStyleBackColor = true;
+            this.cbIntima.AutoSize = true;
+            this.cbIntima.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbIntima.Location = new System.Drawing.Point(182, 75);
+            this.cbIntima.Name = "cbIntima";
+            this.cbIntima.Size = new System.Drawing.Size(107, 22);
+            this.cbIntima.TabIndex = 9;
+            this.cbIntima.Text = "Zona íntima";
+            this.cbIntima.UseVisualStyleBackColor = true;
             // 
-            // rbAxilas
+            // cbBrazos
             // 
-            this.rbAxilas.AutoSize = true;
-            this.rbAxilas.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbAxilas.Location = new System.Drawing.Point(184, 37);
-            this.rbAxilas.Name = "rbAxilas";
-            this.rbAxilas.Size = new System.Drawing.Size(65, 21);
-            this.rbAxilas.TabIndex = 4;
-            this.rbAxilas.TabStop = true;
-            this.rbAxilas.Text = "Axilas";
-            this.rbAxilas.UseVisualStyleBackColor = true;
+            this.cbBrazos.AutoSize = true;
+            this.cbBrazos.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbBrazos.Location = new System.Drawing.Point(18, 75);
+            this.cbBrazos.Name = "cbBrazos";
+            this.cbBrazos.Size = new System.Drawing.Size(71, 22);
+            this.cbBrazos.TabIndex = 8;
+            this.cbBrazos.Text = "Brazos";
+            this.cbBrazos.UseVisualStyleBackColor = true;
             // 
-            // rbBrazos
+            // cbAxilas
             // 
-            this.rbBrazos.AutoSize = true;
-            this.rbBrazos.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbBrazos.Location = new System.Drawing.Point(20, 75);
-            this.rbBrazos.Name = "rbBrazos";
-            this.rbBrazos.Size = new System.Drawing.Size(68, 21);
-            this.rbBrazos.TabIndex = 1;
-            this.rbBrazos.TabStop = true;
-            this.rbBrazos.Text = "Brazos";
-            this.rbBrazos.UseVisualStyleBackColor = true;
+            this.cbAxilas.AutoSize = true;
+            this.cbAxilas.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAxilas.Location = new System.Drawing.Point(182, 36);
+            this.cbAxilas.Name = "cbAxilas";
+            this.cbAxilas.Size = new System.Drawing.Size(69, 22);
+            this.cbAxilas.TabIndex = 7;
+            this.cbAxilas.Text = "Axilas";
+            this.cbAxilas.UseVisualStyleBackColor = true;
             // 
-            // rbPiernas
+            // cbPiernas
             // 
-            this.rbPiernas.AutoSize = true;
-            this.rbPiernas.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbPiernas.Location = new System.Drawing.Point(20, 37);
-            this.rbPiernas.Name = "rbPiernas";
-            this.rbPiernas.Size = new System.Drawing.Size(73, 21);
-            this.rbPiernas.TabIndex = 0;
-            this.rbPiernas.TabStop = true;
-            this.rbPiernas.Text = "Piernas";
-            this.rbPiernas.UseVisualStyleBackColor = true;
+            this.cbPiernas.AutoSize = true;
+            this.cbPiernas.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPiernas.Location = new System.Drawing.Point(20, 36);
+            this.cbPiernas.Name = "cbPiernas";
+            this.cbPiernas.Size = new System.Drawing.Size(76, 22);
+            this.cbPiernas.TabIndex = 6;
+            this.cbPiernas.Text = "Piernas";
+            this.cbPiernas.UseVisualStyleBackColor = true;
             // 
             // lblFecha
             // 
@@ -370,85 +447,13 @@ namespace SheiStyleSNL
             this.cbCliente.Size = new System.Drawing.Size(121, 21);
             this.cbCliente.TabIndex = 25;
             // 
-            // cbLavado
+            // cbHoras
             // 
-            this.cbLavado.AutoSize = true;
-            this.cbLavado.Location = new System.Drawing.Point(20, 36);
-            this.cbLavado.Name = "cbLavado";
-            this.cbLavado.Size = new System.Drawing.Size(80, 22);
-            this.cbLavado.TabIndex = 0;
-            this.cbLavado.Text = "Lavado";
-            this.cbLavado.UseVisualStyleBackColor = true;
-            // 
-            // cbDecoloracion
-            // 
-            this.cbDecoloracion.AutoSize = true;
-            this.cbDecoloracion.Location = new System.Drawing.Point(175, 36);
-            this.cbDecoloracion.Name = "cbDecoloracion";
-            this.cbDecoloracion.Size = new System.Drawing.Size(122, 22);
-            this.cbDecoloracion.TabIndex = 1;
-            this.cbDecoloracion.Text = "Decoloracion";
-            this.cbDecoloracion.UseVisualStyleBackColor = true;
-            // 
-            // cbMechas
-            // 
-            this.cbMechas.AutoSize = true;
-            this.cbMechas.Location = new System.Drawing.Point(21, 166);
-            this.cbMechas.Name = "cbMechas";
-            this.cbMechas.Size = new System.Drawing.Size(81, 22);
-            this.cbMechas.TabIndex = 2;
-            this.cbMechas.Text = "Mechas";
-            this.cbMechas.UseVisualStyleBackColor = true;
-            // 
-            // cbTinte
-            // 
-            this.cbTinte.AutoSize = true;
-            this.cbTinte.Location = new System.Drawing.Point(21, 121);
-            this.cbTinte.Name = "cbTinte";
-            this.cbTinte.Size = new System.Drawing.Size(67, 22);
-            this.cbTinte.TabIndex = 3;
-            this.cbTinte.Text = "Tinte";
-            this.cbTinte.UseVisualStyleBackColor = true;
-            // 
-            // cbCorte
-            // 
-            this.cbCorte.AutoSize = true;
-            this.cbCorte.Location = new System.Drawing.Point(21, 77);
-            this.cbCorte.Name = "cbCorte";
-            this.cbCorte.Size = new System.Drawing.Size(65, 22);
-            this.cbCorte.TabIndex = 4;
-            this.cbCorte.Text = "Corte";
-            this.cbCorte.UseVisualStyleBackColor = true;
-            // 
-            // cbRecogido
-            // 
-            this.cbRecogido.AutoSize = true;
-            this.cbRecogido.Location = new System.Drawing.Point(175, 166);
-            this.cbRecogido.Name = "cbRecogido";
-            this.cbRecogido.Size = new System.Drawing.Size(92, 22);
-            this.cbRecogido.TabIndex = 5;
-            this.cbRecogido.Text = "Recogido";
-            this.cbRecogido.UseVisualStyleBackColor = true;
-            // 
-            // cbPermanente
-            // 
-            this.cbPermanente.AutoSize = true;
-            this.cbPermanente.Location = new System.Drawing.Point(175, 121);
-            this.cbPermanente.Name = "cbPermanente";
-            this.cbPermanente.Size = new System.Drawing.Size(113, 22);
-            this.cbPermanente.TabIndex = 6;
-            this.cbPermanente.Text = "Permanente";
-            this.cbPermanente.UseVisualStyleBackColor = true;
-            // 
-            // cbAlisado
-            // 
-            this.cbAlisado.AutoSize = true;
-            this.cbAlisado.Location = new System.Drawing.Point(175, 77);
-            this.cbAlisado.Name = "cbAlisado";
-            this.cbAlisado.Size = new System.Drawing.Size(83, 22);
-            this.cbAlisado.TabIndex = 7;
-            this.cbAlisado.Text = "Alisado";
-            this.cbAlisado.UseVisualStyleBackColor = true;
+            this.cbHoras.FormattingEnabled = true;
+            this.cbHoras.Location = new System.Drawing.Point(565, 575);
+            this.cbHoras.Name = "cbHoras";
+            this.cbHoras.Size = new System.Drawing.Size(121, 21);
+            this.cbHoras.TabIndex = 26;
             // 
             // FormServicios
             // 
@@ -456,6 +461,7 @@ namespace SheiStyleSNL
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(170)))), ((int)(((byte)(57)))));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.cbHoras);
             this.Controls.Add(this.cbCliente);
             this.Controls.Add(this.btnAnadir);
             this.Controls.Add(this.lblFecha);
@@ -497,21 +503,9 @@ namespace SheiStyleSNL
         private RJButton rjServiciosCliente;
         private System.Windows.Forms.GroupBox gbPeluqueria;
         private System.Windows.Forms.GroupBox gbUnas;
-        private System.Windows.Forms.RadioButton rbGel;
-        private System.Windows.Forms.RadioButton rbPedicura;
-        private System.Windows.Forms.RadioButton rbAcrílicas;
-        private System.Windows.Forms.RadioButton rbPermanentes;
         private System.Windows.Forms.GroupBox gbCera;
-        private System.Windows.Forms.RadioButton rbCejas;
-        private System.Windows.Forms.RadioButton rbBigote;
         private System.Windows.Forms.GroupBox gbBarberia;
-        private System.Windows.Forms.RadioButton rbRecorte;
-        private System.Windows.Forms.RadioButton rbAfeitado;
         private System.Windows.Forms.GroupBox gbLaser;
-        private System.Windows.Forms.RadioButton rbZonaIntima;
-        private System.Windows.Forms.RadioButton rbAxilas;
-        private System.Windows.Forms.RadioButton rbBrazos;
-        private System.Windows.Forms.RadioButton rbPiernas;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAnadir;
@@ -524,5 +518,18 @@ namespace SheiStyleSNL
         private System.Windows.Forms.CheckBox cbMechas;
         private System.Windows.Forms.CheckBox cbDecoloracion;
         private System.Windows.Forms.CheckBox cbLavado;
+        private System.Windows.Forms.CheckBox cbGel;
+        private System.Windows.Forms.CheckBox cbAcrilicas;
+        private System.Windows.Forms.CheckBox cbPedicura;
+        private System.Windows.Forms.CheckBox cbPermanentes;
+        private System.Windows.Forms.CheckBox cbCejas;
+        private System.Windows.Forms.CheckBox cbBigote;
+        private System.Windows.Forms.CheckBox cbRecorte;
+        private System.Windows.Forms.CheckBox cbAfeitado;
+        private System.Windows.Forms.CheckBox cbIntima;
+        private System.Windows.Forms.CheckBox cbBrazos;
+        private System.Windows.Forms.CheckBox cbAxilas;
+        private System.Windows.Forms.CheckBox cbPiernas;
+        private System.Windows.Forms.ComboBox cbHoras;
     }
 }

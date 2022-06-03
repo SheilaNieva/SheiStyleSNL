@@ -25,6 +25,20 @@ namespace SheiStyleSNL.Clases
             this.citasAcumuladas = 0;
         }
 
+        public Cliente(String idCliente, String nombre, String apellidos, String telefono, String correo, int citasAcumuladas)
+        {
+            this.idCliente = idCliente;
+            this.nombre = nombre;
+            this.apellidos = apellidos;
+            this.telefono = telefono;
+            this.correo = correo;
+
+
+            //Inicializar campos
+            this.empresa = "SheiStyle";
+            this.citasAcumuladas = citasAcumuladas;
+        }
+
         public String idCliente { get; set; }
         public String nombre { get; set; }
         public String apellidos { get; set; }

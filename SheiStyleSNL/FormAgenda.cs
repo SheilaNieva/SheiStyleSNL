@@ -8,12 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using FireSharp.Config;
+using FireSharp.Response;
+using FireSharp.Interfaces;
+using SheiStyleSNL.Clases;
+using Newtonsoft.Json;
+using System.Collections;
+
 namespace SheiStyleSNL
 {
     public partial class FormAgenda : Form
     {
-        String fecha;
-        public FormAgenda(string fecha)
+        DateTime fecha;
+        ArrayList citasHoy = new ArrayList();
+        public FormAgenda(DateTime fecha)
         {
             InitializeComponent();
             this.fecha = fecha;
@@ -21,30 +29,70 @@ namespace SheiStyleSNL
 
         private void FormAgenda_Load(object sender, EventArgs e)
         {
-            lblFecha.Text = fecha;
+            lblFecha.Text = fecha.ToShortDateString();
+            cargar();
             cargarTabla();
         }
 
+        IFirebaseConfig ifc = new FirebaseConfig()
+        {
+            AuthSecret = "6vyUU5qV0nzcwGXgtnzkyPvZDBe8ykvBXH6UV53I",
+            BasePath = "https://sheistyle-default-rtdb.europe-west1.firebasedatabase.app/"
+        };
+
+        IFirebaseClient clien;
+
+        private void cargar()
+        {
+            try
+            {
+                clien = new FireSharp.FirebaseClient(ifc);
+            }
+            catch (Exception)
+            {
+                throw; //no internet connection
+            }
+        }
+
+
         private void cargarTabla()
         {
-            dgvAgenda.Columns.Add("0", "Horas");
-            dgvAgenda.Columns[0].Width = 100;
-            dgvAgenda.Columns.Add("1", "Clientes");
-            dgvAgenda.Columns[1].Width = 300;
+            String nombreC;
+            FirebaseResponse res = clien.Get(@"Cita");
+            Dictionary<string, Cita> data = JsonConvert.DeserializeObject<Dictionary<string, Cita>>(res.Body.ToString());
 
-            for (int i = 0; i < 7; i++)
+            FirebaseResponse res1 = clien.Get(@"Cliente");
+            Dictionary<string, Cliente> data1 = JsonConvert.DeserializeObject<Dictionary<string, Cliente>>(res1.Body.ToString());
+
+            //RELLENAR TABLAA
+            dgvAgenda.Rows.Clear();
+            dgvAgenda.Columns.Clear();
+            dgvAgenda.Columns.Add("Fecha", "Fecha");
+            dgvAgenda.Columns.Add("Hora", "Hora");
+            dgvAgenda.Columns.Add("Cliente", "Cliente");
+
+            foreach (var item in data)
             {
-                dgvAgenda.Rows.Add();
+                if(item.Value.fecha.ToShortDateString().Equals(fecha.ToShortDateString()))
+                {
+                    nombreC = nombreCliente(data1, item.Value.idCliente);
+                    dgvAgenda.Rows.Add(item.Value.fecha, "", nombreC);
+                }
             }
-           
-            dgvAgenda.Rows[0].Cells[0].Value = "10:00";
-            dgvAgenda.Rows[1].Cells[0].Value = "11:00";
-            dgvAgenda.Rows[2].Cells[0].Value = "12:00";
-            dgvAgenda.Rows[3].Cells[0].Value = "13:00";
-            dgvAgenda.Rows[4].Cells[0].Value = "14:00";
-            dgvAgenda.Rows[5].Cells[0].Value = "17:00";
-            dgvAgenda.Rows[6].Cells[0].Value = "18:00";
-            dgvAgenda.Rows[7].Cells[0].Value = "19:00";
+
+        }
+
+        private String nombreCliente(Dictionary<string, Cliente> data1, string idCliente)
+        {
+            String nombreC = "";
+            foreach (var item in data1)
+            {
+                if (item.Value.idCliente == idCliente)
+                {
+                    nombreC = item.Value.nombre;
+                }
+            }
+            return nombreC;
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
@@ -55,7 +103,7 @@ namespace SheiStyleSNL
             frmCalendario.ShowDialog();
         }
 
-        private void dgvAgenda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void btnAnadirCita_Click(object sender, EventArgs e)
         {
             this.Hide();
 

@@ -134,6 +134,12 @@
     <Compile Include="FormPrecios.Designer.cs">
       <DependentUpon>FormPrecios.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPresupuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPresupuesto.Designer.cs">
+      <DependentUpon>FormPresupuesto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     <EmbeddedResource Include="FormCalendario.resx">
       <DependentUpon>FormCalendario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDatosBD.resx">
+      <DependentUpon>FormDatosBD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEditarCliente.resx">
       <DependentUpon>FormEditarCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrecios.resx">
       <DependentUpon>FormPrecios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPresupuesto.resx">
+      <DependentUpon>FormPresupuesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>

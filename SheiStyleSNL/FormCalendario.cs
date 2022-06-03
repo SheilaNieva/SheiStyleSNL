@@ -12,7 +12,7 @@ namespace SheiStyleSNL
 {
     public partial class FormCalendario : Form
     {
-        String fechaSeleccionada;
+        DateTime fechaSeleccionada = DateTime.Now;
         DateTime fechaHoyDate = DateTime.Now;
         public FormCalendario()
         {
@@ -28,9 +28,7 @@ namespace SheiStyleSNL
 
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
-            fechaSeleccionada = monthCalendar1.SelectionStart.Date.ToShortDateString();
-            //MessageBox.Show(monthCalendar1.SelectionStart.ToString());
-            //MessageBox.Show(fechaSeleccionada);
+            fechaSeleccionada = monthCalendar1.SelectionRange.Start;
         }
 
         private void FormCalendario_Load(object sender, EventArgs e)
