@@ -332,23 +332,32 @@ namespace SheiStyleSNL
 
         private void btnAnadir_Click(object sender, EventArgs e)
         {
-            FirebaseResponse res = clien.Get(@"Cliente");
-            Dictionary<string, Cliente> data = JsonConvert.DeserializeObject<Dictionary<string, Cliente>>(res.Body.ToString());
 
-            // Construimos la cita que vamos a registrar en base de datos
-            Cita cita = new Cita();
-            Guid UUID = Guid.NewGuid();
-            cita.idCita = UUID.ToString();
-            cita.idCliente = listaIdCliente[cbCliente.SelectedIndex].ToString();
-            cita.servicio = serviciosSeleccionados();
-            cita.fecha = calcularHorasMinutos(cbHoras.SelectedItem.ToString());
-            cita.duracion = dur;
-            cita.precioCita = prec;
+            if(cbHoras.SelectedIndex == null)
+            {
+                MessageBox.Show("Debes seleccionar una hora para reservar tu cita");
+            }
+            else
+            {
+                FirebaseResponse res = clien.Get(@"Cliente");
+                Dictionary<string, Cliente> data = JsonConvert.DeserializeObject<Dictionary<string, Cliente>>(res.Body.ToString());
 
-            MessageBox.Show("Servicios seleccionados : " + cita.servicio + " precio estimado: " + cita.precioCita + " duracion: " + cita.duracion);
+                // Construimos la cita que vamos a registrar en base de datos
+                Cita cita = new Cita();
+                Guid UUID = Guid.NewGuid();
+                cita.idCita = UUID.ToString();
+                cita.idCliente = listaIdCliente[cbCliente.SelectedIndex].ToString();
+                cita.servicio = serviciosSeleccionados();
+                cita.fecha = calcularHorasMinutos(cbHoras.SelectedItem.ToString());
+                cita.duracion = dur;
+                cita.precioCita = prec;
 
-            FormPresupuesto frmPresupuesto = new FormPresupuesto(cita);
-            frmPresupuesto.ShowDialog();
+                MessageBox.Show("Servicios seleccionados : " + cita.servicio + " precio estimado: " + cita.precioCita + " duracion: " + cita.duracion);
+
+                FormPresupuesto frmPresupuesto = new FormPresupuesto(cita);
+                frmPresupuesto.ShowDialog();
+            }
+           
         }
     }
 }

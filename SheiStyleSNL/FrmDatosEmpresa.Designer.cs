@@ -30,7 +30,6 @@ namespace SheiStyleSNL
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.rjEditarCliente = new SheiStyleSNL.RJButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,6 +38,7 @@ namespace SheiStyleSNL
             this.tbTlfn = new System.Windows.Forms.TextBox();
             this.tbCorreo = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.rjEditarCliente = new SheiStyleSNL.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,21 +51,6 @@ namespace SheiStyleSNL
             this.label2.Size = new System.Drawing.Size(88, 24);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre:";
-            // 
-            // rjEditarCliente
-            // 
-            this.rjEditarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
-            this.rjEditarCliente.FlatAppearance.BorderSize = 0;
-            this.rjEditarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjEditarCliente.Font = new System.Drawing.Font("Modern No. 20", 15.75F);
-            this.rjEditarCliente.ForeColor = System.Drawing.Color.White;
-            this.rjEditarCliente.Location = new System.Drawing.Point(101, 48);
-            this.rjEditarCliente.Name = "rjEditarCliente";
-            this.rjEditarCliente.Size = new System.Drawing.Size(511, 65);
-            this.rjEditarCliente.TabIndex = 6;
-            this.rjEditarCliente.Text = "Datos empresa";
-            this.rjEditarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.rjEditarCliente.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -107,7 +92,6 @@ namespace SheiStyleSNL
             this.tbNombre.ReadOnly = true;
             this.tbNombre.Size = new System.Drawing.Size(299, 26);
             this.tbNombre.TabIndex = 10;
-            this.tbNombre.Text = "SheiStyle";
             this.tbNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbDireccion
@@ -120,7 +104,6 @@ namespace SheiStyleSNL
             this.tbDireccion.ReadOnly = true;
             this.tbDireccion.Size = new System.Drawing.Size(299, 26);
             this.tbDireccion.TabIndex = 11;
-            this.tbDireccion.Text = "Av. Andalucía, nº0603";
             this.tbDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbTlfn
@@ -133,7 +116,6 @@ namespace SheiStyleSNL
             this.tbTlfn.ReadOnly = true;
             this.tbTlfn.Size = new System.Drawing.Size(299, 26);
             this.tbTlfn.TabIndex = 12;
-            this.tbTlfn.Text = "901-512-865";
             this.tbTlfn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbCorreo
@@ -146,7 +128,6 @@ namespace SheiStyleSNL
             this.tbCorreo.ReadOnly = true;
             this.tbCorreo.Size = new System.Drawing.Size(299, 26);
             this.tbCorreo.TabIndex = 13;
-            this.tbCorreo.Text = "sheistyle@atencioncliente.es";
             this.tbCorreo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pictureBox1
@@ -158,6 +139,21 @@ namespace SheiStyleSNL
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
+            // 
+            // rjEditarCliente
+            // 
+            this.rjEditarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
+            this.rjEditarCliente.FlatAppearance.BorderSize = 0;
+            this.rjEditarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjEditarCliente.Font = new System.Drawing.Font("Modern No. 20", 15.75F);
+            this.rjEditarCliente.ForeColor = System.Drawing.Color.White;
+            this.rjEditarCliente.Location = new System.Drawing.Point(101, 48);
+            this.rjEditarCliente.Name = "rjEditarCliente";
+            this.rjEditarCliente.Size = new System.Drawing.Size(511, 65);
+            this.rjEditarCliente.TabIndex = 6;
+            this.rjEditarCliente.Text = "Datos empresa";
+            this.rjEditarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.rjEditarCliente.UseVisualStyleBackColor = false;
             // 
             // FrmDatosEmpresa
             // 
@@ -178,6 +174,7 @@ namespace SheiStyleSNL
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmDatosEmpresa";
             this.Text = "FrmDatosEmpresa";
+            this.Load += new System.EventHandler(this.FrmDatosEmpresa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

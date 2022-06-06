@@ -94,6 +94,7 @@ namespace SheiStyleSNL
             this.btnPrecio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPrecio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPrecio.UseVisualStyleBackColor = false;
+            this.btnPrecio.Click += new System.EventHandler(this.btnPrecio_Click);
             // 
             // btnClientes
             // 

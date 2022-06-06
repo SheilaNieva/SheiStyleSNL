@@ -30,7 +30,7 @@ namespace SheiStyleSNL
         private void InitializeComponent()
         {
             this.btnAtras = new System.Windows.Forms.PictureBox();
-            this.rjEditarCliente = new SheiStyleSNL.RJButton();
+            this.rjPresupuesto = new SheiStyleSNL.RJButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,20 +57,20 @@ namespace SheiStyleSNL
             this.btnAtras.TabStop = false;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
-            // rjEditarCliente
+            // rjPresupuesto
             // 
-            this.rjEditarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
-            this.rjEditarCliente.FlatAppearance.BorderSize = 0;
-            this.rjEditarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjEditarCliente.Font = new System.Drawing.Font("Modern No. 20", 15.75F);
-            this.rjEditarCliente.ForeColor = System.Drawing.Color.White;
-            this.rjEditarCliente.Location = new System.Drawing.Point(71, 47);
-            this.rjEditarCliente.Name = "rjEditarCliente";
-            this.rjEditarCliente.Size = new System.Drawing.Size(223, 50);
-            this.rjEditarCliente.TabIndex = 8;
-            this.rjEditarCliente.Text = "Presupuesto";
-            this.rjEditarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.rjEditarCliente.UseVisualStyleBackColor = false;
+            this.rjPresupuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
+            this.rjPresupuesto.FlatAppearance.BorderSize = 0;
+            this.rjPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjPresupuesto.Font = new System.Drawing.Font("Modern No. 20", 15.75F);
+            this.rjPresupuesto.ForeColor = System.Drawing.Color.White;
+            this.rjPresupuesto.Location = new System.Drawing.Point(71, 47);
+            this.rjPresupuesto.Name = "rjPresupuesto";
+            this.rjPresupuesto.Size = new System.Drawing.Size(223, 50);
+            this.rjPresupuesto.TabIndex = 8;
+            this.rjPresupuesto.Text = "Presupuesto";
+            this.rjPresupuesto.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.rjPresupuesto.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -200,7 +200,7 @@ namespace SheiStyleSNL
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.rjEditarCliente);
+            this.Controls.Add(this.rjPresupuesto);
             this.Controls.Add(this.btnAtras);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPresupuesto";
@@ -217,7 +217,7 @@ namespace SheiStyleSNL
         #endregion
 
         private System.Windows.Forms.PictureBox btnAtras;
-        private RJButton rjEditarCliente;
+        private RJButton rjPresupuesto;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

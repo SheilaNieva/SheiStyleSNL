@@ -73,7 +73,7 @@ namespace SheiStyleSNL
             {
                 array.Add(item.Value.idSector);
             }
-            servicio.idSector = array[4].ToString();
+            servicio.idSector = array[1].ToString();
             
             SetResponse resServicio = clien.Set(@"Servicio/" + idServicio1, servicio);
 
@@ -81,6 +81,22 @@ namespace SheiStyleSNL
 
             // Sector sector = new Sector(idSector, nombre);
             // SetResponse res = clien.Set(@"Sector/" + idSector, sector);
+        }
+
+        private void btnEmpresa_Click(object sender, EventArgs e)
+        {
+            Empresa empresa = new Empresa();
+
+            Guid UUID = Guid.NewGuid();
+            empresa.idEmpresa = UUID.ToString();
+            empresa.nombre = tbNombreE.Text;
+            empresa.direccion = tbDireccionE.Text;
+            empresa.telefono = tbTelefonoE.Text;
+            empresa.correo = tbCorreoE.Text;
+
+
+
+            SetResponse resEmpresa = clien.Set(@"Empresa/" + empresa.idEmpresa, empresa);
         }
     }
 }

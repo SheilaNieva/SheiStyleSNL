@@ -12,6 +12,7 @@ using FireSharp.Config;
 using FireSharp.Response;
 using FireSharp.Interfaces;
 using SheiStyleSNL.Clases;
+using Newtonsoft.Json;
 
 namespace SheiStyleSNL
 {
@@ -54,18 +55,30 @@ namespace SheiStyleSNL
 
         private void btnActualizarCliente_Click(object sender, EventArgs e)
         {
+            String idEmpresa="";
+
+            FirebaseResponse res1 = clien.Get(@"Empresa");
+            Dictionary<string, Empresa> data1 = JsonConvert.DeserializeObject<Dictionary<string, Empresa>>(res1.Body.ToString());
+            
+            foreach (var item in data1)
+            {
+                idEmpresa = item.Value.idEmpresa;
+            }
+
+
+
             Guid UUID = Guid.NewGuid();
             String idPedido = UUID.ToString();
             String descripcion = tbDescripcion.Text;
             float importe = float.Parse(tbImporte.Text);
-            String fecha = DateTime.Now.ToString("dd/MM/yyyy");
+            DateTime fecha = DateTime.Now;
 
             if(string.IsNullOrWhiteSpace(descripcion) || string.IsNullOrWhiteSpace(importe.ToString())){
                 MessageBox.Show("Debes rellenar todos los campos");
             }
             else
             {
-                Pedido pedido = new Pedido(idPedido, descripcion, importe, fecha);
+                Pedido pedido = new Pedido(idPedido, descripcion, importe, fecha, idEmpresa);
                 SetResponse res = clien.Set(@"Pedido/" + idPedido, pedido);
 
                 MessageBox.Show("El pedido se ha generado con éxito");

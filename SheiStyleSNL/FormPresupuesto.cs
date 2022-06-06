@@ -97,6 +97,8 @@ namespace SheiStyleSNL
             int citasAcumuladas = resCliente.citasAcumuladas +1;
             Cliente clienteModificado = new Cliente(resCliente.idCliente, resCliente.nombre, resCliente.apellidos, resCliente.telefono, resCliente.correo, citasAcumuladas);
             var res = clien.Update("Cliente/" + resCliente.idCliente, clienteModificado);
+            this.Close();
+            
 
         }
     }

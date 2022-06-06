@@ -35,28 +35,18 @@ namespace SheiStyleSNL
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPeluqueria = new System.Windows.Forms.DataGridView();
-            this.columnServicioP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnPrecioP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblPeluqueria = new System.Windows.Forms.Label();
             this.lblUnas = new System.Windows.Forms.Label();
             this.dgvUnas = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvBarberia = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvLaser = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvCera = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnModificarPrecio = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAtras = new System.Windows.Forms.PictureBox();
+            this.btnModificarPrecio = new System.Windows.Forms.Button();
             this.rjListadoCliente = new SheiStyleSNL.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeluqueria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnas)).BeginInit();
@@ -69,7 +59,9 @@ namespace SheiStyleSNL
             // 
             // dgvPeluqueria
             // 
+            this.dgvPeluqueria.AllowUserToAddRows = false;
             this.dgvPeluqueria.AllowUserToDeleteRows = false;
+            this.dgvPeluqueria.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -79,10 +71,8 @@ namespace SheiStyleSNL
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvPeluqueria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPeluqueria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPeluqueria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.columnServicioP,
-            this.columnPrecioP});
             this.dgvPeluqueria.Location = new System.Drawing.Point(67, 231);
+            this.dgvPeluqueria.MultiSelect = false;
             this.dgvPeluqueria.Name = "dgvPeluqueria";
             this.dgvPeluqueria.ReadOnly = true;
             this.dgvPeluqueria.RowHeadersVisible = false;
@@ -90,18 +80,7 @@ namespace SheiStyleSNL
             this.dgvPeluqueria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPeluqueria.Size = new System.Drawing.Size(204, 212);
             this.dgvPeluqueria.TabIndex = 9;
-            // 
-            // columnServicioP
-            // 
-            this.columnServicioP.HeaderText = "Servicio";
-            this.columnServicioP.Name = "columnServicioP";
-            this.columnServicioP.ReadOnly = true;
-            // 
-            // columnPrecioP
-            // 
-            this.columnPrecioP.HeaderText = "Precio";
-            this.columnPrecioP.Name = "columnPrecioP";
-            this.columnPrecioP.ReadOnly = true;
+            this.dgvPeluqueria.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPeluqueria_CellMouseDoubleClick);
             // 
             // lblPeluqueria
             // 
@@ -125,7 +104,9 @@ namespace SheiStyleSNL
             // 
             // dgvUnas
             // 
+            this.dgvUnas.AllowUserToAddRows = false;
             this.dgvUnas.AllowUserToDeleteRows = false;
+            this.dgvUnas.AllowUserToOrderColumns = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -135,10 +116,8 @@ namespace SheiStyleSNL
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvUnas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUnas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUnas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2});
             this.dgvUnas.Location = new System.Drawing.Point(376, 192);
+            this.dgvUnas.MultiSelect = false;
             this.dgvUnas.Name = "dgvUnas";
             this.dgvUnas.ReadOnly = true;
             this.dgvUnas.RowHeadersVisible = false;
@@ -146,18 +125,7 @@ namespace SheiStyleSNL
             this.dgvUnas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUnas.Size = new System.Drawing.Size(204, 122);
             this.dgvUnas.TabIndex = 11;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Servicio";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Precio";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dgvUnas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUnas_CellContentDoubleClick);
             // 
             // label1
             // 
@@ -171,7 +139,9 @@ namespace SheiStyleSNL
             // 
             // dgvBarberia
             // 
+            this.dgvBarberia.AllowUserToAddRows = false;
             this.dgvBarberia.AllowUserToDeleteRows = false;
+            this.dgvBarberia.AllowUserToOrderColumns = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -181,10 +151,8 @@ namespace SheiStyleSNL
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvBarberia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBarberia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBarberia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
             this.dgvBarberia.Location = new System.Drawing.Point(376, 371);
+            this.dgvBarberia.MultiSelect = false;
             this.dgvBarberia.Name = "dgvBarberia";
             this.dgvBarberia.ReadOnly = true;
             this.dgvBarberia.RowHeadersVisible = false;
@@ -192,18 +160,7 @@ namespace SheiStyleSNL
             this.dgvBarberia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBarberia.Size = new System.Drawing.Size(204, 122);
             this.dgvBarberia.TabIndex = 13;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Servicio";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Precio";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dgvBarberia.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBarberia_CellContentDoubleClick);
             // 
             // label2
             // 
@@ -217,7 +174,9 @@ namespace SheiStyleSNL
             // 
             // dgvLaser
             // 
+            this.dgvLaser.AllowUserToAddRows = false;
             this.dgvLaser.AllowUserToDeleteRows = false;
+            this.dgvLaser.AllowUserToOrderColumns = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -227,10 +186,8 @@ namespace SheiStyleSNL
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvLaser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvLaser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLaser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
             this.dgvLaser.Location = new System.Drawing.Point(695, 371);
+            this.dgvLaser.MultiSelect = false;
             this.dgvLaser.Name = "dgvLaser";
             this.dgvLaser.ReadOnly = true;
             this.dgvLaser.RowHeadersVisible = false;
@@ -238,18 +195,7 @@ namespace SheiStyleSNL
             this.dgvLaser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLaser.Size = new System.Drawing.Size(204, 122);
             this.dgvLaser.TabIndex = 17;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Servicio";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Precio";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dgvLaser.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLaser_CellContentDoubleClick);
             // 
             // label3
             // 
@@ -263,7 +209,9 @@ namespace SheiStyleSNL
             // 
             // dgvCera
             // 
+            this.dgvCera.AllowUserToAddRows = false;
             this.dgvCera.AllowUserToDeleteRows = false;
+            this.dgvCera.AllowUserToOrderColumns = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -273,10 +221,8 @@ namespace SheiStyleSNL
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCera.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCera.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8});
             this.dgvCera.Location = new System.Drawing.Point(695, 192);
+            this.dgvCera.MultiSelect = false;
             this.dgvCera.Name = "dgvCera";
             this.dgvCera.ReadOnly = true;
             this.dgvCera.RowHeadersVisible = false;
@@ -284,31 +230,7 @@ namespace SheiStyleSNL
             this.dgvCera.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCera.Size = new System.Drawing.Size(204, 122);
             this.dgvCera.TabIndex = 15;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Servicio";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Precio";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // btnModificarPrecio
-            // 
-            this.btnModificarPrecio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
-            this.btnModificarPrecio.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnModificarPrecio.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarPrecio.ForeColor = System.Drawing.Color.White;
-            this.btnModificarPrecio.Location = new System.Drawing.Point(400, 572);
-            this.btnModificarPrecio.Name = "btnModificarPrecio";
-            this.btnModificarPrecio.Size = new System.Drawing.Size(161, 38);
-            this.btnModificarPrecio.TabIndex = 19;
-            this.btnModificarPrecio.Text = "Modificar precio";
-            this.btnModificarPrecio.UseVisualStyleBackColor = false;
+            this.dgvCera.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCera_CellContentDoubleClick);
             // 
             // pictureBox1
             // 
@@ -330,6 +252,19 @@ namespace SheiStyleSNL
             this.btnAtras.TabIndex = 7;
             this.btnAtras.TabStop = false;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
+            // btnModificarPrecio
+            // 
+            this.btnModificarPrecio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
+            this.btnModificarPrecio.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnModificarPrecio.ForeColor = System.Drawing.Color.White;
+            this.btnModificarPrecio.Location = new System.Drawing.Point(426, 574);
+            this.btnModificarPrecio.Name = "btnModificarPrecio";
+            this.btnModificarPrecio.Size = new System.Drawing.Size(105, 30);
+            this.btnModificarPrecio.TabIndex = 19;
+            this.btnModificarPrecio.Text = "Modificar precio";
+            this.btnModificarPrecio.UseVisualStyleBackColor = false;
+            this.btnModificarPrecio.Click += new System.EventHandler(this.btnModificarPrecio_Click);
             // 
             // rjListadoCliente
             // 
@@ -372,6 +307,7 @@ namespace SheiStyleSNL
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPrecios";
             this.Text = "FormPrecios";
+            this.Load += new System.EventHandler(this.FormPrecios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeluqueria)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBarberia)).EndInit();
@@ -390,25 +326,15 @@ namespace SheiStyleSNL
         private System.Windows.Forms.PictureBox btnAtras;
         private RJButton rjListadoCliente;
         private System.Windows.Forms.DataGridView dgvPeluqueria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnServicioP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnPrecioP;
         private System.Windows.Forms.Label lblPeluqueria;
         private System.Windows.Forms.Label lblUnas;
         private System.Windows.Forms.DataGridView dgvUnas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvBarberia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvLaser;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvCera;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.Button btnModificarPrecio;
     }
 }

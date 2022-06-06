@@ -67,5 +67,13 @@ namespace SheiStyleSNL
             FormCalendario frmCalendario = new FormCalendario();
             frmCalendario.ShowDialog();
         }
+
+        private void btnPrecio_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            FormPrecios frmPrecio = new FormPrecios();
+            frmPrecio.ShowDialog();
+        }
     }
 }
