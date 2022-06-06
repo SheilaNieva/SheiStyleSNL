@@ -50,7 +50,6 @@ namespace SheiStyleSNL
 
         private void FormModificarPrecio_Load(object sender, EventArgs e)
         {
-            String nomSector = obtenerNombreSector();
            
 
             FirebaseResponse res = clien.Get(@"Servicio");
@@ -61,43 +60,33 @@ namespace SheiStyleSNL
                 if(item.Value.idServicio == idServicio)
                 {
                     tbServicio.Text = item.Value.nombre;
-                    tbSector.Text = nomSector;
+                    tbSector.Text = obtenerNombreSector(item.Value.idSector);
                     tbPrecio.Text = item.Value.precio.ToString();
                 }
             }
         }
 
-        private string obtenerNombreSector()
+        private string obtenerNombreSector(string idSector)
         {
-            String nombreSector ="";
-            String idSector;
-            FirebaseResponse res = clien.Get(@"Servicio");
-            Dictionary<string, Servicio> data = JsonConvert.DeserializeObject<Dictionary<string, Servicio>>(res.Body.ToString());
-            foreach (var item in data)
-            {
-                if (item.Value.idServicio.Contains(idServicio))
-                {
-                    idSector = item.Value.idSector;
-                }
-
-            }
-
+            String nombreSector="";
             FirebaseResponse res1 = clien.Get(@"Sector");
             Dictionary<string, Sector> data1 = JsonConvert.DeserializeObject<Dictionary<string, Sector>>(res1.Body.ToString());
 
             foreach (var item in data1)
             {
+                if(item.Value.idSector == idSector)
                  nombreSector = item.Value.nombre;
             }
+         
 
 
-              return nombreSector;
+            return nombreSector;
 
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            String nomSector = obtenerNombreSector();
+            
 
             if (tbPrecio.Text!=null)
             {
