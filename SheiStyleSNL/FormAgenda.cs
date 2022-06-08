@@ -76,7 +76,7 @@ namespace SheiStyleSNL
                 if(item.Value.fecha.ToShortDateString().Equals(fecha.ToShortDateString()))
                 {
                     nombreC = nombreCliente(data1, item.Value.idCliente);
-                    dgvAgenda.Rows.Add(item.Value.fecha, "", nombreC);
+                    dgvAgenda.Rows.Add(item.Value.fecha.ToShortDateString(), item.Value.fecha.ToShortTimeString(), nombreC);
                 }
             }
 

@@ -94,9 +94,18 @@ namespace SheiStyleSNL
             SetResponse resCita = clien.Set(@"Cita/" + cita.idCita, cita);
             MessageBox.Show("Cita añadida con éxito");
 
+            FirebaseResponse res1 = clien.Get(@"Empresa");
+            Dictionary<string, Empresa> data = JsonConvert.DeserializeObject<Dictionary<string, Empresa>>(res1.Body.ToString());
+            String idEmpresa = "";
+
+            foreach (var item in data)
+            {
+                idEmpresa = item.Value.idEmpresa;
+            }
+
             int citasAcumuladas = resCliente.citasAcumuladas +1;
             Cliente clienteModificado = new Cliente(resCliente.idCliente, resCliente.nombre, resCliente.apellidos, resCliente.telefono, 
-                resCliente.correo, citasAcumuladas);
+                resCliente.correo, idEmpresa, citasAcumuladas);
             var res = clien.Update("Cliente/" + resCliente.idCliente, clienteModificado);
             this.Close();
             

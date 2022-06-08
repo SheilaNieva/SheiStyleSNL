@@ -13,6 +13,7 @@ using FireSharp.Response;
 using FireSharp.Interfaces;
 using SheiStyleSNL.Clases;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
 
 namespace SheiStyleSNL
 {
@@ -105,6 +106,16 @@ namespace SheiStyleSNL
 
         private void btnAnadirCliente_Click(object sender, EventArgs e)
         {
+
+            FirebaseResponse res1 = clien.Get(@"Empresa");
+            Dictionary<string, Empresa> data = JsonConvert.DeserializeObject<Dictionary<string, Empresa>>(res1.Body.ToString());
+            String idEmpresa="";
+
+            foreach (var item in data)
+            {
+                idEmpresa = item.Value.idEmpresa;
+            }
+
             bool correcto;
             Guid UUID = Guid.NewGuid();
             String idCliente = UUID.ToString();
@@ -118,7 +129,7 @@ namespace SheiStyleSNL
             if (correcto)
             {
 
-                Cliente cliente = new Cliente(idCliente, nombre, apellidos, telefono, correo);
+                Cliente cliente = new Cliente(idCliente, nombre, apellidos, telefono, correo, idEmpresa);
                 SetResponse res = clien.Set(@"Cliente/" + idCliente, cliente);
 
                 MessageBox.Show("Cliente " + nombre + " añadido con éxito");

@@ -67,6 +67,15 @@ namespace SheiStyleSNL
         {
             bool correcto;
 
+            FirebaseResponse res1 = clien.Get(@"Empresa");
+            Dictionary<string, Empresa> data = JsonConvert.DeserializeObject<Dictionary<string, Empresa>>(res1.Body.ToString());
+            String idEmpresa = "";
+
+            foreach (var item in data)
+            {
+                idEmpresa = item.Value.idEmpresa;
+            }
+
             String idCliente = resCliente.idCliente;
             String nombre = tbNombre.Text;
             String apellidos = tbApellidos.Text;
@@ -78,7 +87,7 @@ namespace SheiStyleSNL
             if (correcto)
             {
 
-               Cliente clienteModificado = new Cliente(idCliente, nombre, apellidos, telefono, correo);
+               Cliente clienteModificado = new Cliente(idCliente, nombre, apellidos, telefono, correo, idEmpresa);
                var res = clien.Update("Cliente/" + idCliente, clienteModificado);
 
                 MessageBox.Show("Cliente " + nombre + " se ha modificado con éxito");
