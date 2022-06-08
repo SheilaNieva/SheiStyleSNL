@@ -104,7 +104,9 @@ namespace SheiStyleSNL
         {
             if (comprobarClienteSeleccionado())
             {
-                clienteSeleccionado();
+                this.Hide();
+                FormEditarCliente frmEditarCliente = new FormEditarCliente(clienteSeleccionado());
+                frmEditarCliente.Show();
             }
             else
             {
@@ -134,13 +136,12 @@ namespace SheiStyleSNL
 
 
         //Obtenemos el cliente que hemos seleccionado y se lo pasamos al formulario editar
-        private void clienteSeleccionado()
+        private Cliente clienteSeleccionado()
         {
             Cliente resCliente = recuperarDatosClienteSeleccionado();
             
-             this.Hide();
-             FormEditarCliente frmEditarCliente = new FormEditarCliente(resCliente);
-             frmEditarCliente.Show();
+           
+            return resCliente;
         }
 
         //Recuperamos los datos del cliente que hemos seleccionado
@@ -224,6 +225,52 @@ namespace SheiStyleSNL
                 }
 
             }
+        }
+
+        private void btnMostrarCitas_Click(object sender, EventArgs e)
+        {
+            //  try
+            // {
+            bool citas = false;
+                Cliente c;
+                if (comprobarClienteSeleccionado())
+                {
+                    c = clienteSeleccionado();
+                FirebaseResponse res = clien.Get(@"Cita");
+                Dictionary<string, Cita> data = JsonConvert.DeserializeObject<Dictionary<string, Cita>>(res.Body.ToString());
+                foreach (var item in data)
+                {
+                    if (item.Value.idCliente == c.idCliente)
+                    {
+                        citas = true;
+                    }
+                }
+                if (!citas)
+                {
+                    MessageBox.Show("Este cliente no tiene citas");
+
+                }
+                else
+                {
+                    FormListadoCitasCliente frmCitas = new FormListadoCitasCliente(c);
+                    frmCitas.ShowDialog();
+                }
+
+
+                // this.Hide();
+               // FormListadoCitasCliente frmCitas = new FormListadoCitasCliente(c);
+                 //   frmCitas.ShowDialog();
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Debes seleccionar un cliente");
+                }
+
+//            }catch(Exception ee) { }
+            
+
         }
     }
 }

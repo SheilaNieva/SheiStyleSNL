@@ -332,10 +332,15 @@ namespace SheiStyleSNL
 
         private void btnAnadir_Click(object sender, EventArgs e)
         {
+            String servicios = serviciosSeleccionados();
+            
 
-            if(cbHoras.SelectedIndex == null)
+            if(cbHoras.SelectedIndex == -1)
             {
                 MessageBox.Show("Debes seleccionar una hora para reservar tu cita");
+            }else if (string.IsNullOrWhiteSpace(servicios))
+            {
+                MessageBox.Show("Debes seleccionar algún servicio para reservar tu cita");
             }
             else
             {
@@ -347,7 +352,7 @@ namespace SheiStyleSNL
                 Guid UUID = Guid.NewGuid();
                 cita.idCita = UUID.ToString();
                 cita.idCliente = listaIdCliente[cbCliente.SelectedIndex].ToString();
-                cita.servicio = serviciosSeleccionados();
+                cita.servicio = servicios;
                 cita.fecha = calcularHorasMinutos(cbHoras.SelectedItem.ToString());
                 cita.duracion = dur;
                 cita.precioCita = prec;

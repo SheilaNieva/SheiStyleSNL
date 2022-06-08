@@ -160,6 +160,7 @@ namespace SheiStyleSNL
             this.btnMostrarCitas.TabIndex = 14;
             this.btnMostrarCitas.Text = "Mostrar citas";
             this.btnMostrarCitas.UseVisualStyleBackColor = false;
+            this.btnMostrarCitas.Click += new System.EventHandler(this.btnMostrarCitas_Click);
             // 
             // rjListadoCliente
             // 

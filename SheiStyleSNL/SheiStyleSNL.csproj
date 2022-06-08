@@ -105,6 +105,12 @@
     <Compile Include="FormFavoritos.Designer.cs">
       <DependentUpon>FormFavoritos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormListadoCitasCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListadoCitasCliente.Designer.cs">
+      <DependentUpon>FormListadoCitasCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormListadoClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormFavoritos.resx">
       <DependentUpon>FormFavoritos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormListadoCitasCliente.resx">
+      <DependentUpon>FormListadoCitasCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormListadoClientes.resx">
       <DependentUpon>FormListadoClientes.cs</DependentUpon>
