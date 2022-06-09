@@ -62,19 +62,27 @@ namespace SheiStyleSNL
         {
             
                 dibujarColumnasLista();
+               // ArrayList row = new ArrayList();
 
                 foreach (var item in data)
                 {
                     if (item.Value.idCliente == c.idCliente)
                     {
+                    if (item.Value.pagado == false)
+                    {
+                       String[] row = { item.Value.fecha.ToShortDateString(), item.Value.fecha.ToShortTimeString(), item.Value.servicio, item.Value.precioCita.ToString(), "No", item.Value.idCita };
+                        var itemListView = new ListViewItem(row);
+                        listCitaClientes.Items.Add(itemListView);
+                    }
+                    else {
                         //En un array de String introducimos los datos de cada cliente
-                        String[] row = { item.Value.fecha.ToShortDateString(), item.Value.fecha.ToShortTimeString(), item.Value.servicio, item.Value.precioCita.ToString() };
+                       String[] row = { item.Value.fecha.ToShortDateString(), item.Value.fecha.ToShortTimeString(), item.Value.servicio, item.Value.precioCita.ToString(), "Si", item.Value.idCita };
                         //Introducimos los items (clientes) en el listado
                         var itemListView = new ListViewItem(row);
                         listCitaClientes.Items.Add(itemListView);
                     }
+                    }
                 }
-
         }
 
         private void dibujarColumnasLista()
@@ -86,6 +94,8 @@ namespace SheiStyleSNL
             listCitaClientes.Columns.Add("Hora", 150);
             listCitaClientes.Columns.Add("Servicios", 150);
             listCitaClientes.Columns.Add("Precio", 150);
+            listCitaClientes.Columns.Add("Pagado", 150);
+            listCitaClientes.Columns.Add("Id", 0);
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
@@ -93,6 +103,47 @@ namespace SheiStyleSNL
             this.Close();
             FormListadoClientes formListadoClientes = new FormListadoClientes();
             formListadoClientes.Show();
+        }
+
+        private void listCitaClientes_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            //Obtenemos la fila que pulsamos
+            int fila = listCitaClientes.FocusedItem.Index;
+            //Obtenemos el idCliente de la fila que hemos seleccionado
+            String idCita = listCitaClientes.Items[fila].SubItems[5].Text;
+
+            //Obtenemos el cliente que tenfa ese id y lo devolvemos
+            FirebaseResponse res = clien.Get(@"Cita/" + idCita);
+            Cita resCita = res.ResultAs<Cita>();
+            if (resCita.pagado)
+            {
+                MessageBox.Show("Cita pagada");
+            }
+            else
+            {
+                Cita citaModificada = new Cita(resCita.idCita, resCita.idCliente, resCita.servicio, resCita.fecha, resCita.duracion, resCita.precioCita, true);
+                var res1 = clien.Update("Cita/" + idCita, citaModificada);
+                MessageBox.Show("Su pago se ha realizado con éxito: "+resCita.precioCita+ " €");
+                generarIngreso(idCita, resCita.precioCita);
+                cargarListado();
+                
+            }
+        }
+
+        private void generarIngreso(string idCita, float precioCita)
+        {
+           
+            Guid UUID = Guid.NewGuid();
+            String idIngreso = UUID.ToString();
+            DateTime fecha = DateTime.Now;
+            float cantidad = precioCita;
+            String idCitaIngreso = idCita;
+
+
+            Ingreso ing = new Ingreso(idIngreso, fecha, cantidad, idCitaIngreso);
+            SetResponse res = clien.Set(@"Ingreso/" + idIngreso, ing);
+
+            MessageBox.Show("Ingreso generado con éxito");
         }
     }
 }

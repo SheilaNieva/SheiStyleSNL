@@ -72,6 +72,7 @@
     <Compile Include="Clases\Cita.cs" />
     <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Clases\Empresa.cs" />
+    <Compile Include="Clases\Ingreso.cs" />
     <Compile Include="Clases\Pedido.cs" />
     <Compile Include="Clases\Sector.cs" />
     <Compile Include="Clases\Servicio.cs" />

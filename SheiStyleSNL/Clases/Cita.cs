@@ -22,6 +22,18 @@ namespace SheiStyleSNL.Clases
             this.fecha = fecha;
             this.duracion = duracion;
             this.precioCita = precioCita;
+            this.pagado = false;
+        }
+
+        public Cita(String idCita, String idCliente, String servicio, DateTime fecha, float duracion, float precioCita, bool pagado)
+        {
+            this.idCita = idCita;
+            this.idCliente = idCliente;
+            this.servicio = servicio;
+            this.fecha = fecha;
+            this.duracion = duracion;
+            this.precioCita = precioCita;
+            this.pagado = pagado;
         }
 
 
@@ -31,5 +43,6 @@ namespace SheiStyleSNL.Clases
         public DateTime fecha { get; set; }
         public float  duracion { get; set; }
         public float precioCita { get; set; }
+        public bool pagado { get; set; }
     }
 }

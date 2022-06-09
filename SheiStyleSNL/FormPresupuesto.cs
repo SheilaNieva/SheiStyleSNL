@@ -91,24 +91,47 @@ namespace SheiStyleSNL
 
         private void btnReservarCita_Click(object sender, EventArgs e)
         {
-            SetResponse resCita = clien.Set(@"Cita/" + cita.idCita, cita);
-            MessageBox.Show("Cita añadida con éxito");
-
-            FirebaseResponse res1 = clien.Get(@"Empresa");
-            Dictionary<string, Empresa> data = JsonConvert.DeserializeObject<Dictionary<string, Empresa>>(res1.Body.ToString());
-            String idEmpresa = "";
-
-            foreach (var item in data)
+            FirebaseResponse resCita = clien.Get(@"Cita");
+            Dictionary<string, Cita> dataCita = JsonConvert.DeserializeObject<Dictionary<string, Cita>>(resCita.Body.ToString());
+            bool sinPagar = false;
+            foreach (var item in dataCita)
             {
-                idEmpresa = item.Value.idEmpresa;
+                if (item.Value.idCliente == resCliente.idCliente)
+                {
+                    if (item.Value.pagado == false)
+                    {
+                        sinPagar = true;
+                    }
+                }
             }
 
-            int citasAcumuladas = resCliente.citasAcumuladas +1;
-            Cliente clienteModificado = new Cliente(resCliente.idCliente, resCliente.nombre, resCliente.apellidos, resCliente.telefono, 
-                resCliente.correo, idEmpresa, citasAcumuladas);
-            var res = clien.Update("Cliente/" + resCliente.idCliente, clienteModificado);
-            this.Close();
-            
+            if (!sinPagar)
+            {
+                SetResponse resC = clien.Set(@"Cita/" + cita.idCita, cita);
+                MessageBox.Show("Cita añadida con éxito");
+
+                FirebaseResponse resE = clien.Get(@"Empresa");
+                Dictionary<string, Empresa> dataE = JsonConvert.DeserializeObject<Dictionary<string, Empresa>>(resE.Body.ToString());
+                String idEmpresa = "";
+
+                foreach (var item1 in dataE)
+                {
+                    idEmpresa = item1.Value.idEmpresa;
+                }
+
+                int citasAcumuladas = resCliente.citasAcumuladas + 1;
+                Cliente clienteModificado = new Cliente(resCliente.idCliente, resCliente.nombre, resCliente.apellidos, resCliente.telefono,
+                    resCliente.correo, idEmpresa, citasAcumuladas);
+                var res2 = clien.Update("Cliente/" + resCliente.idCliente, clienteModificado);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No se puede reservar esta cita, porque tiene citas anteriores sin pagar");
+
+                this.Close();
+            }
+
 
         }
     }

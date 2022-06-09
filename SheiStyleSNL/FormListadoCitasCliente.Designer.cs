@@ -81,13 +81,14 @@ namespace SheiStyleSNL
             this.listCitaClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(158)))), ((int)(((byte)(55)))));
             this.listCitaClientes.FullRowSelect = true;
             this.listCitaClientes.HideSelection = false;
-            this.listCitaClientes.Location = new System.Drawing.Point(180, 197);
+            this.listCitaClientes.Location = new System.Drawing.Point(152, 197);
             this.listCitaClientes.MultiSelect = false;
             this.listCitaClientes.Name = "listCitaClientes";
-            this.listCitaClientes.Size = new System.Drawing.Size(620, 300);
+            this.listCitaClientes.Size = new System.Drawing.Size(673, 300);
             this.listCitaClientes.TabIndex = 12;
             this.listCitaClientes.UseCompatibleStateImageBehavior = false;
             this.listCitaClientes.View = System.Windows.Forms.View.Details;
+            this.listCitaClientes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listCitaClientes_MouseDoubleClick);
             // 
             // FormListadoCitasCliente
             // 

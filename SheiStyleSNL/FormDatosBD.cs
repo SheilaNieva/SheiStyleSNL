@@ -98,5 +98,22 @@ namespace SheiStyleSNL
 
             SetResponse resEmpresa = clien.Set(@"Empresa/" + empresa.idEmpresa, empresa);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Cita cita = new Cita();
+
+            Guid UUID = Guid.NewGuid();
+            cita.idCita = UUID.ToString();
+            cita.idCliente = "3a0a13f2-593e-4753-8ce9-da948c7abb8d";
+            cita.servicio = "Lavado, Brazos,";
+            cita.fecha = DateTime.Now;
+            cita.duracion = 2;
+            cita.precioCita = 34;
+
+
+
+            SetResponse resCita = clien.Set(@"Cita/" + cita.idCita, cita);
+        }
     }
 }
