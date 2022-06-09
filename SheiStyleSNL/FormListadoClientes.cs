@@ -162,12 +162,38 @@ namespace SheiStyleSNL
         //comprueba que hay un cliente seleccionado y lo elimina
         private void btnEliminarCliente_Click(object sender, EventArgs e)
         {
+            bool sinPagar = false;
             if (comprobarClienteSeleccionado())
             {
                 Cliente resCliente = recuperarDatosClienteSeleccionado();
-                var eliminar = clien.Delete("Cliente/" + resCliente.idCliente);
-                MessageBox.Show("Cliente " + resCliente.nombre + " se ha eliminado con éxito");
-                cargarListado();
+
+
+                FirebaseResponse resCita = clien.Get(@"Cita");
+                Dictionary<string, Cita> dataCita = JsonConvert.DeserializeObject<Dictionary<string, Cita>>(resCita.Body.ToString());
+                foreach (var item in dataCita)
+                {
+                    if (item.Value.idCliente == resCliente.idCliente)
+                    {
+                        if (item.Value.fecha > DateTime.Now)
+                        {
+                            MessageBox.Show("Se han eliminado las citas que tenía pendientes");
+                           var eliminar = clien.Delete("Cita/" + item.Value.idCita);
+                        }
+                        if(item.Value.pagado == false && item.Value.fecha < DateTime.Now)
+                        {
+                            MessageBox.Show("No se puede eliminar el cliente, porque tiene citas sin pagar");
+                            sinPagar = true;
+                        }
+                    }
+                }
+
+                if (!sinPagar)
+                {
+                    var eliminar = clien.Delete("Cliente/" + resCliente.idCliente);
+                    MessageBox.Show("Cliente " + resCliente.nombre + " se ha eliminado con éxito");
+                    cargarListado();
+                }
+              
             }
             else
             {

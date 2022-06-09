@@ -144,6 +144,7 @@ namespace SheiStyleSNL
             this.Controls.Add(this.rjAgendaCliente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAgenda";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormAgenda";
             this.Load += new System.EventHandler(this.FormAgenda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).EndInit();
