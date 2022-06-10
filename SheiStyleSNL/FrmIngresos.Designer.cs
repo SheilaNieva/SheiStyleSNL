@@ -31,6 +31,7 @@ namespace SheiStyleSNL
         {
             this.rjEditarCliente = new SheiStyleSNL.RJButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.grafIngresos = new ScottPlot.FormsPlot();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,12 +60,20 @@ namespace SheiStyleSNL
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
+            // grafIngresos
+            // 
+            this.grafIngresos.Location = new System.Drawing.Point(183, 138);
+            this.grafIngresos.Name = "grafIngresos";
+            this.grafIngresos.Size = new System.Drawing.Size(400, 300);
+            this.grafIngresos.TabIndex = 17;
+            // 
             // FrmIngresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(170)))), ((int)(((byte)(57)))));
             this.ClientSize = new System.Drawing.Size(796, 450);
+            this.Controls.Add(this.grafIngresos);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.rjEditarCliente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -79,5 +88,6 @@ namespace SheiStyleSNL
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private RJButton rjEditarCliente;
+        private ScottPlot.FormsPlot grafIngresos;
     }
 }

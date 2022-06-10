@@ -189,9 +189,15 @@ namespace SheiStyleSNL
 
                 if (!sinPagar)
                 {
-                    var eliminar = clien.Delete("Cliente/" + resCliente.idCliente);
-                    MessageBox.Show("Cliente " + resCliente.nombre + " se ha eliminado con éxito");
-                    cargarListado();
+                    if(listVClientes.Items.Count > 1)
+                    {
+                        var eliminar = clien.Delete("Cliente/" + resCliente.idCliente);
+                        MessageBox.Show("Cliente " + resCliente.nombre + " se ha eliminado con éxito");
+                        cargarListado();
+                    } else
+                    {
+                        MessageBox.Show("Por protección de la base de datos, no se puede eliminar el último cliente.");
+                    }
                 }
               
             }

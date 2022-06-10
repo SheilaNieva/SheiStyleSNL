@@ -85,6 +85,7 @@ namespace SheiStyleSNL
             Dictionary<string, Cita> dataCita = JsonConvert.DeserializeObject<Dictionary<string, Cita>>(res1.Body.ToString());
 
             ArrayList listaHoras = new ArrayList();
+            ArrayList listaDuracion = new ArrayList();
             ArrayList listaHorasBBDD = new ArrayList();
 
             foreach (var item in dataCita)
@@ -92,74 +93,137 @@ namespace SheiStyleSNL
                 if (item.Value.fecha.ToShortDateString() == fecha.ToShortDateString())
                 {
                     //listaHoras.Add((item.Value.fecha.Hour + ":" + item.Value.fecha.Minute).ToString());
-                    listaHoras.Add(item.Value.fecha.ToShortTimeString());
+                    listaHoras.Add(item.Value.fecha);
+                    listaDuracion.Add(item.Value.duracion);
                     //listaHorasBBDD.Add((fecha.Hour + ":" + fecha.Minute).ToString());
                 }
             }
 
+            // Aniadimos todos los campos al combo de horas
+            cbHoras.Items.Add("8:00");
+            cbHoras.Items.Add("8:30");
+            cbHoras.Items.Add("9:00");
+            cbHoras.Items.Add("9:30");
+            cbHoras.Items.Add("10:00");
+            cbHoras.Items.Add("10:30");
+            cbHoras.Items.Add("11:00");
+            cbHoras.Items.Add("11:30");
+            cbHoras.Items.Add("12:00");
+            cbHoras.Items.Add("12:30");
+            cbHoras.Items.Add("13:00");
+            cbHoras.Items.Add("13:30");
+            cbHoras.Items.Add("14:00");
+            /* cbHoras.Items.Add("8:00");
+             cbHoras.Items.Add("8:00");
+             cbHoras.Items.Add("8:00");
+             cbHoras.Items.Add("8:00");*/
 
-            if (!listaHoras.Contains("8:00")){
-                cbHoras.Items.Add("8:00");
-            }
+            int noExiste = -1;
 
-            if (!listaHoras.Contains("8:30"))
+            for (int i = 0; listaHoras.Count > i; i++)
             {
-                cbHoras.Items.Add("8:30");
-            }
-            if (!listaHoras.Contains("9:00"))
-            {
-                cbHoras.Items.Add("9:00");
-            }
-            if (!listaHoras.Contains("9:30"))
-            {
-                cbHoras.Items.Add("9:30");
-            }
+                DateTime fecha = (DateTime) listaHoras[i];
+                float duracion = float.Parse(listaDuracion[i].ToString());
+                float hora = fecha.Hour;
+                string horaString = fecha.ToShortTimeString();
 
-            if (!listaHoras.Contains("10:00"))
-            {
-                cbHoras.Items.Add("10:00");
-            }
+                
 
-            if (!listaHoras.Contains("10:30"))
-            {
-                cbHoras.Items.Add("10:30");
-            }
+                duracion = duracion * 2;
 
-            if (!listaHoras.Contains("11:00"))
-            {
-                cbHoras.Items.Add("11:00");
-            }
+               // int indice = cbHoras.Items.IndexOf(horaString);
+               // int indice = cbHoras.FindString(horaString);
+                 int indice;
 
-            if (!listaHoras.Contains("11:30"))
-            {
-                cbHoras.Items.Add("11:30");
-            }
+                /*for (int j = indice; j < duracion; j++)
+                  {
+                      cbHoras.Items.RemoveAt(j);
+                  }*/
 
-            if (!listaHoras.Contains("12:00"))
-            {
-                cbHoras.Items.Add("12:00");
-            }
+                indice = cbHoras.FindString(horaString);
 
-            if (!listaHoras.Contains("12:30"))
-            {
-                cbHoras.Items.Add("12:30");
-            }
+                for (int j = 0; j < duracion; j++)
+                {
+                    if(indice < cbHoras.Items.Count)
+                    {
+                        cbHoras.Items.RemoveAt(indice);
+                    }
+                    
+                }
 
-            if (!listaHoras.Contains("13:00"))
-            {
-                cbHoras.Items.Add("13:00");
-            }
 
-            if (!listaHoras.Contains("13:30"))
-            {
-                cbHoras.Items.Add("13:30");
-            }
 
-            if (!listaHoras.Contains("14:00"))
-            {
-                cbHoras.Items.Add("14:00");
-            }
 
+
+
+
+
+
+                /*
+                if (!fecha.Contains("8:00"))
+                {
+                    cbHoras.Items.Add("8:00");
+                }
+
+                if (!fecha.Contains("8:30"))
+                {
+                    cbHoras.Items.Add("8:30");
+                }
+                if (!fecha.Contains("9:00"))
+                {
+                    cbHoras.Items.Add("9:00");
+                }
+                if (!fecha.Contains("9:30"))
+                {
+                    cbHoras.Items.Add("9:30");
+                }
+
+                if (!fecha.Contains("10:00"))
+                {
+                    cbHoras.Items.Add("10:00");
+                }
+
+                if (!fecha.Contains("10:30"))
+                {
+                    cbHoras.Items.Add("10:30");
+                }
+
+                if (!fecha.Contains("11:00"))
+                {
+                    cbHoras.Items.Add("11:00");
+                }
+
+                if (!fecha.Contains("11:30"))
+                {
+                    cbHoras.Items.Add("11:30");
+                }
+
+                if (!fecha.Contains("12:00"))
+                {
+                    cbHoras.Items.Add("12:00");
+                }
+
+                if (!fecha.Contains("12:30"))
+                {
+                    cbHoras.Items.Add("12:30");
+                }
+
+                if (!fecha.Contains("13:00"))
+                {
+                    cbHoras.Items.Add("13:00");
+                }
+
+                if (!fecha.Contains("13:30"))
+                {
+                    cbHoras.Items.Add("13:30");
+                }
+
+                if (!fecha.Contains("14:00"))
+                {
+                    cbHoras.Items.Add("14:00");
+                }*/
+
+            }
 
             cbCliente.SelectedIndex = 0;
 
