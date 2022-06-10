@@ -50,19 +50,51 @@ namespace SheiStyleSNL
 
         private void consultaIngresos()
         {
-            String fecha = "";
-            //ArrayList cantidad = new ArrayList();
-           /* double[] cantidad;
-            double[] tiempo;*/
+            ArrayList listaCantidadIngreso = new ArrayList();
+            float cantIngreso = 0;
             FirebaseResponse res = clien.Get(@"Ingreso");
             Dictionary<string, Ingreso> data = JsonConvert.DeserializeObject<Dictionary<string, Ingreso>>(res.Body.ToString());
             foreach (var item in data)
             {
-                fecha = item.Value.fecha.ToShortDateString();
-                MessageBox.Show(fecha);
+                cantIngreso = item.Value.cantidad + cantIngreso;
+                listaCantidadIngreso.Add(cantIngreso);
             }
-           /* var plt = new ScottPlot.Plot(200, 200);
-            plt.AddScatter(cantidad, tiempo);*/
+            double[] cantGrafico = new double[listaCantidadIngreso.Count];
+            double[] tiempoGrafico = new double[listaCantidadIngreso.Count];
+
+            for (int i = 0; i < listaCantidadIngreso.Count; i++)
+            {
+                cantGrafico[i] = double.Parse(listaCantidadIngreso[i].ToString());
+                tiempoGrafico[i] = i;
+            }
+
+
+
+
+           /* ArrayList listaCantidadGasto = new ArrayList();
+            float cantGasto = 0;
+            FirebaseResponse res1 = clien.Get(@"Pedido");
+            Dictionary<string, Pedido> data1 = JsonConvert.DeserializeObject<Dictionary<string, Pedido>>(res1.Body.ToString());
+            foreach (var item in data1)
+            {
+                cantGasto = item.Value.importe + cantGasto;
+                listaCantidadGasto.Add(cantGasto);
+                // listaTiempo.Add(tiempo);
+                // tiempo++;
+            }
+            double[] cantGraficoGasto = new double[listaCantidadGasto.Count];
+           // double[] tiempoGrafico = new double[listaCantidadIngreso.Count];
+
+            for (int i = 0; i < listaCantidadGasto.Count; i++)
+            {
+                cantGraficoGasto[i] = double.Parse(listaCantidadGasto[i].ToString());
+                //tiempoGrafico[i] = i;
+            }*/
+
+            
+             grafIngresos.Plot.AddScatter(tiempoGrafico, cantGrafico);
+
+            grafIngresos.Refresh();
 
         }
 

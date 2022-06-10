@@ -62,7 +62,7 @@ namespace SheiStyleSNL
             // 
             // grafIngresos
             // 
-            this.grafIngresos.Location = new System.Drawing.Point(183, 138);
+            this.grafIngresos.Location = new System.Drawing.Point(175, 128);
             this.grafIngresos.Name = "grafIngresos";
             this.grafIngresos.Size = new System.Drawing.Size(400, 300);
             this.grafIngresos.TabIndex = 17;
