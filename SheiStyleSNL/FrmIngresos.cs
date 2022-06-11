@@ -71,28 +71,11 @@ namespace SheiStyleSNL
 
 
 
-           /* ArrayList listaCantidadGasto = new ArrayList();
-            float cantGasto = 0;
-            FirebaseResponse res1 = clien.Get(@"Pedido");
-            Dictionary<string, Pedido> data1 = JsonConvert.DeserializeObject<Dictionary<string, Pedido>>(res1.Body.ToString());
-            foreach (var item in data1)
-            {
-                cantGasto = item.Value.importe + cantGasto;
-                listaCantidadGasto.Add(cantGasto);
-                // listaTiempo.Add(tiempo);
-                // tiempo++;
-            }
-            double[] cantGraficoGasto = new double[listaCantidadGasto.Count];
-           // double[] tiempoGrafico = new double[listaCantidadIngreso.Count];
-
-            for (int i = 0; i < listaCantidadGasto.Count; i++)
-            {
-                cantGraficoGasto[i] = double.Parse(listaCantidadGasto[i].ToString());
-                //tiempoGrafico[i] = i;
-            }*/
-
             
-             grafIngresos.Plot.AddScatter(tiempoGrafico, cantGrafico);
+
+            lblIngresos.Text = cantIngreso.ToString();
+            
+            grafIngresos.Plot.AddScatter(tiempoGrafico, cantGrafico);
 
             grafIngresos.Refresh();
 

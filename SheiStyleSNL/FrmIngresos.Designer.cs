@@ -29,11 +29,49 @@ namespace SheiStyleSNL
         /// </summary>
         private void InitializeComponent()
         {
-            this.rjEditarCliente = new SheiStyleSNL.RJButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grafIngresos = new ScottPlot.FormsPlot();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblIngresos = new System.Windows.Forms.Label();
+            this.rjEditarCliente = new SheiStyleSNL.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SheiStyleSNL.Properties.Resources.loguito;
+            this.pictureBox1.Location = new System.Drawing.Point(645, 18);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(117, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            // 
+            // grafIngresos
+            // 
+            this.grafIngresos.Location = new System.Drawing.Point(132, 119);
+            this.grafIngresos.Name = "grafIngresos";
+            this.grafIngresos.Size = new System.Drawing.Size(400, 300);
+            this.grafIngresos.TabIndex = 17;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(603, 162);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 26);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Hasta el momento,\r\nnuestro ingresos son:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblIngresos
+            // 
+            this.lblIngresos.AutoSize = true;
+            this.lblIngresos.Location = new System.Drawing.Point(633, 214);
+            this.lblIngresos.Name = "lblIngresos";
+            this.lblIngresos.Size = new System.Drawing.Size(35, 13);
+            this.lblIngresos.TabIndex = 19;
+            this.lblIngresos.Text = "label2";
             // 
             // rjEditarCliente
             // 
@@ -50,29 +88,14 @@ namespace SheiStyleSNL
             this.rjEditarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.rjEditarCliente.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SheiStyleSNL.Properties.Resources.loguito;
-            this.pictureBox1.Location = new System.Drawing.Point(645, 18);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(117, 95);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
-            // 
-            // grafIngresos
-            // 
-            this.grafIngresos.Location = new System.Drawing.Point(175, 128);
-            this.grafIngresos.Name = "grafIngresos";
-            this.grafIngresos.Size = new System.Drawing.Size(400, 300);
-            this.grafIngresos.TabIndex = 17;
-            // 
             // FrmIngresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(170)))), ((int)(((byte)(57)))));
             this.ClientSize = new System.Drawing.Size(796, 450);
+            this.Controls.Add(this.lblIngresos);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.grafIngresos);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.rjEditarCliente);
@@ -81,6 +104,7 @@ namespace SheiStyleSNL
             this.Text = "FrmIngresos";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -89,5 +113,7 @@ namespace SheiStyleSNL
         private System.Windows.Forms.PictureBox pictureBox1;
         private RJButton rjEditarCliente;
         private ScottPlot.FormsPlot grafIngresos;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblIngresos;
     }
 }
