@@ -70,13 +70,15 @@ namespace SheiStyleSNL
             dgvAgenda.Columns.Add("Fecha", "Fecha");
             dgvAgenda.Columns.Add("Hora", "Hora");
             dgvAgenda.Columns.Add("Cliente", "Cliente");
+            dgvAgenda.Columns.Add("ID", "ID");
+            dgvAgenda.Columns[3].Visible = false;
 
             foreach (var item in data)
             {
                 if(item.Value.fecha.ToShortDateString().Equals(fecha.ToShortDateString()))
                 {
                     nombreC = nombreCliente(data1, item.Value.idCliente);
-                    dgvAgenda.Rows.Add(item.Value.fecha.ToShortDateString(), item.Value.fecha.ToShortTimeString(), nombreC);
+                    dgvAgenda.Rows.Add(item.Value.fecha.ToShortDateString(), item.Value.fecha.ToShortTimeString(), nombreC, item.Value.idCliente);
                 }
             }
 
@@ -109,6 +111,23 @@ namespace SheiStyleSNL
 
             FormServicios frmServicios = new FormServicios(fecha);
             frmServicios.ShowDialog();
+        }
+
+        private void dgvAgenda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvAgenda.SelectedCells.Count > 0)
+            {
+                int fila = dgvAgenda.CurrentRow.Index;
+                //Obtenemos el idCliente de la fila que hemos seleccionado
+                String idCliente = dgvAgenda.Rows[fila].Cells[3].Value.ToString();
+                FirebaseResponse res1 = clien.Get(@"Cliente");
+                Dictionary<string, Cliente> data1 = JsonConvert.DeserializeObject<Dictionary<string, Cliente>>(res1.Body.ToString());
+                foreach (var item in data1)
+                {
+                    if(idCliente.Equals(item.Value.idCliente))
+                    MessageBox.Show("Téfono de contacto del cliente: "+item.Value.telefono.ToString());
+                }
+            }
         }
     }
 }

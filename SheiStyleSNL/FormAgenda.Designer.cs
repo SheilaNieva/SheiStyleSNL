@@ -75,6 +75,7 @@ namespace SheiStyleSNL
             this.dgvAgenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAgenda.Size = new System.Drawing.Size(401, 424);
             this.dgvAgenda.TabIndex = 16;
+            this.dgvAgenda.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgenda_CellDoubleClick);
             // 
             // pictureBox1
             // 
