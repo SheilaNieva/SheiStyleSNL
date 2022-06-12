@@ -132,7 +132,8 @@ namespace SheiStyleSNL
                 this.Close();
             }
 
-
+            FormPrincipal frmPrincipal = new FormPrincipal();
+            frmPrincipal.Show();
         }
     }
 }

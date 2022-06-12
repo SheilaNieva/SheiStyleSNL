@@ -70,15 +70,20 @@ namespace SheiStyleSNL
             dgvAgenda.Columns.Add("Fecha", "Fecha");
             dgvAgenda.Columns.Add("Hora", "Hora");
             dgvAgenda.Columns.Add("Cliente", "Cliente");
-            dgvAgenda.Columns.Add("ID", "ID");
+            dgvAgenda.Columns.Add("IDCliente", "IDCliente");
+            dgvAgenda.Columns.Add("IDCita", "IDCita");
             dgvAgenda.Columns[3].Visible = false;
+            dgvAgenda.Columns[4].Visible = false;
 
             foreach (var item in data)
             {
                 if(item.Value.fecha.ToShortDateString().Equals(fecha.ToShortDateString()))
                 {
                     nombreC = nombreCliente(data1, item.Value.idCliente);
-                    dgvAgenda.Rows.Add(item.Value.fecha.ToShortDateString(), item.Value.fecha.ToShortTimeString(), nombreC, item.Value.idCliente);
+                    if (!string.IsNullOrEmpty(nombreC))
+                    {
+                        dgvAgenda.Rows.Add(item.Value.fecha.ToShortDateString(), item.Value.fecha.ToShortTimeString(), nombreC, item.Value.idCliente, item.Value.idCita);
+                    }
                 }
             }
 
@@ -115,6 +120,7 @@ namespace SheiStyleSNL
 
         private void dgvAgenda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            String mensaje = "";
             if (dgvAgenda.SelectedCells.Count > 0)
             {
                 int fila = dgvAgenda.CurrentRow.Index;
@@ -125,8 +131,20 @@ namespace SheiStyleSNL
                 foreach (var item in data1)
                 {
                     if(idCliente.Equals(item.Value.idCliente))
-                    MessageBox.Show("Téfono de contacto del cliente: "+item.Value.telefono.ToString());
+                    mensaje ="Téfono de contacto del cliente: "+item.Value.telefono.ToString()+"\n";
                 }
+
+                String idCita = dgvAgenda.Rows[fila].Cells[4].Value.ToString();
+                FirebaseResponse res = clien.Get(@"Cita");
+                Dictionary<string, Cita> data = JsonConvert.DeserializeObject<Dictionary<string, Cita>>(res.Body.ToString());
+                foreach (var item in data)
+                {
+                    if (idCita.Equals(item.Value.idCita))
+                        mensaje = mensaje + " Duración de la cita: " + item.Value.duracion.ToString() +" h";
+                }
+
+                MessageBox.Show(mensaje);
+
             }
         }
     }

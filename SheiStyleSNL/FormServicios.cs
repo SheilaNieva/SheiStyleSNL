@@ -422,11 +422,9 @@ namespace SheiStyleSNL
                 cita.precioCita = prec;
 
                 MessageBox.Show("Servicios seleccionados : " + cita.servicio + " precio estimado: " + cita.precioCita + " duracion: " + cita.duracion);
-
                 FormPresupuesto frmPresupuesto = new FormPresupuesto(cita);
-                frmPresupuesto.ShowDialog();
+                frmPresupuesto.Show();
             }
-           
         }
     }
 }

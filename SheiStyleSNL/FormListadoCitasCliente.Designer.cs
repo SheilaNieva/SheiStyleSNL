@@ -33,6 +33,7 @@ namespace SheiStyleSNL
             this.btnAtras = new System.Windows.Forms.PictureBox();
             this.rjCitasCliente = new SheiStyleSNL.RJButton();
             this.listCitaClientes = new System.Windows.Forms.ListView();
+            this.btnEliminarCita = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
             this.SuspendLayout();
@@ -90,12 +91,27 @@ namespace SheiStyleSNL
             this.listCitaClientes.View = System.Windows.Forms.View.Details;
             this.listCitaClientes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listCitaClientes_MouseDoubleClick);
             // 
+            // btnEliminarCita
+            // 
+            this.btnEliminarCita.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
+            this.btnEliminarCita.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminarCita.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarCita.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarCita.Location = new System.Drawing.Point(420, 535);
+            this.btnEliminarCita.Name = "btnEliminarCita";
+            this.btnEliminarCita.Size = new System.Drawing.Size(161, 38);
+            this.btnEliminarCita.TabIndex = 21;
+            this.btnEliminarCita.Text = "Eliminar cita";
+            this.btnEliminarCita.UseVisualStyleBackColor = false;
+            this.btnEliminarCita.Click += new System.EventHandler(this.btnEliminarCita_Click);
+            // 
             // FormListadoCitasCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(170)))), ((int)(((byte)(57)))));
             this.ClientSize = new System.Drawing.Size(968, 622);
+            this.Controls.Add(this.btnEliminarCita);
             this.Controls.Add(this.listCitaClientes);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAtras);
@@ -116,5 +132,6 @@ namespace SheiStyleSNL
         private System.Windows.Forms.PictureBox btnAtras;
         private RJButton rjCitasCliente;
         private System.Windows.Forms.ListView listCitaClientes;
+        private System.Windows.Forms.Button btnEliminarCita;
     }
 }
