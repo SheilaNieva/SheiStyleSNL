@@ -62,6 +62,8 @@ namespace SheiStyleSNL
             this.btnAnadir = new System.Windows.Forms.Button();
             this.cbCliente = new System.Windows.Forms.ComboBox();
             this.cbHoras = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
             this.gbPeluqueria.SuspendLayout();
@@ -442,7 +444,7 @@ namespace SheiStyleSNL
             // cbCliente
             // 
             this.cbCliente.FormattingEnabled = true;
-            this.cbCliente.Location = new System.Drawing.Point(717, 590);
+            this.cbCliente.Location = new System.Drawing.Point(809, 590);
             this.cbCliente.Name = "cbCliente";
             this.cbCliente.Size = new System.Drawing.Size(121, 21);
             this.cbCliente.TabIndex = 25;
@@ -450,10 +452,28 @@ namespace SheiStyleSNL
             // cbHoras
             // 
             this.cbHoras.FormattingEnabled = true;
-            this.cbHoras.Location = new System.Drawing.Point(565, 575);
+            this.cbHoras.Location = new System.Drawing.Point(622, 590);
             this.cbHoras.Name = "cbHoras";
             this.cbHoras.Size = new System.Drawing.Size(121, 21);
             this.cbHoras.TabIndex = 26;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(806, 564);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Elija un cliente:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(619, 564);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(142, 13);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Seleccione la hora deseada:";
             // 
             // FormServicios
             // 
@@ -461,6 +481,8 @@ namespace SheiStyleSNL
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(170)))), ((int)(((byte)(57)))));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.cbHoras);
             this.Controls.Add(this.cbCliente);
             this.Controls.Add(this.btnAnadir);
@@ -531,5 +553,7 @@ namespace SheiStyleSNL
         private System.Windows.Forms.CheckBox cbAxilas;
         private System.Windows.Forms.CheckBox cbPiernas;
         private System.Windows.Forms.ComboBox cbHoras;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

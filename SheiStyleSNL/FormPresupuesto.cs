@@ -22,6 +22,8 @@ namespace SheiStyleSNL
     {
         Cita cita;
         Cliente resCliente;
+
+        //Formulario que recibe una cita para registrar en la bd
         public FormPresupuesto(Cita cita)
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace SheiStyleSNL
             this.cita = cita;
         }
 
+        //CONEXION A LA BD
         IFirebaseConfig ifc = new FirebaseConfig()
         {
             AuthSecret = "6vyUU5qV0nzcwGXgtnzkyPvZDBe8ykvBXH6UV53I",
@@ -52,6 +55,7 @@ namespace SheiStyleSNL
             }
         }
 
+        //Si pulsamos en el boton atras, nos lleva al formulario para poder elegir servicios
         private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -59,6 +63,7 @@ namespace SheiStyleSNL
             frmServicios.Show();
         }
 
+        //Cargamos el formulario con el precio de la cita que hemos generado en el otro formulario
         private void FormPresupuesto_Load(object sender, EventArgs e)
         {
             lblPresupuesto.Text = cita.precioCita.ToString();
@@ -66,10 +71,10 @@ namespace SheiStyleSNL
             
         }
 
+        //Metodo que comprueba si al cliente por cada 3 citas le corresponde un 30% de descuento o no
         private void comprobarDescuento()
         {
             String idCliente = cita.idCliente;
-           // Cliente cliente = new Cliente(idCliente, nombre, apellidos, telefono, correo);
             var res = clien.Get("Cliente/" + idCliente);
             resCliente = res.ResultAs<Cliente>();
 
@@ -91,9 +96,11 @@ namespace SheiStyleSNL
 
         private void btnReservarCita_Click(object sender, EventArgs e)
         {
+            //Hacemo suna consulta a la tabla Cita
             FirebaseResponse resCita = clien.Get(@"Cita");
             Dictionary<string, Cita> dataCita = JsonConvert.DeserializeObject<Dictionary<string, Cita>>(resCita.Body.ToString());
             bool sinPagar = false;
+            //Comprobamos si las citas de ese cliente estan o no pagadas
             foreach (var item in dataCita)
             {
                 if (item.Value.idCliente == resCliente.idCliente)
@@ -105,6 +112,7 @@ namespace SheiStyleSNL
                 }
             }
 
+            //Si no debe nada, creamos una cita correctamente
             if (!sinPagar)
             {
                 SetResponse resC = clien.Set(@"Cita/" + cita.idCita, cita);
@@ -119,7 +127,10 @@ namespace SheiStyleSNL
                     idEmpresa = item1.Value.idEmpresa;
                 }
 
+                //Anadimos una cita al cumulo de citas de ese cliente, para poder hacerle el descuento cuando corresponda
                 int citasAcumuladas = resCliente.citasAcumuladas + 1;
+
+                //Modificamos el cliente para sumarle la cita
                 Cliente clienteModificado = new Cliente(resCliente.idCliente, resCliente.nombre, resCliente.apellidos, resCliente.telefono,
                     resCliente.correo, idEmpresa, citasAcumuladas);
                 var res2 = clien.Update("Cliente/" + resCliente.idCliente, clienteModificado);

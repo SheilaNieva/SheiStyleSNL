@@ -104,7 +104,7 @@ namespace SheiStyleSNL
             this.btnAnadirCita.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAnadirCita.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnadirCita.ForeColor = System.Drawing.Color.White;
-            this.btnAnadirCita.Location = new System.Drawing.Point(749, 254);
+            this.btnAnadirCita.Location = new System.Drawing.Point(732, 360);
             this.btnAnadirCita.Name = "btnAnadirCita";
             this.btnAnadirCita.Size = new System.Drawing.Size(161, 38);
             this.btnAnadirCita.TabIndex = 20;

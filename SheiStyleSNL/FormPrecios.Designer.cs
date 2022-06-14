@@ -306,6 +306,7 @@ namespace SheiStyleSNL
             this.Controls.Add(this.rjListadoCliente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPrecios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPrecios";
             this.Load += new System.EventHandler(this.FormPrecios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeluqueria)).EndInit();

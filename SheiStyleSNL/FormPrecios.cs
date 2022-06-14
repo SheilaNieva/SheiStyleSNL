@@ -55,7 +55,7 @@ namespace SheiStyleSNL
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             FormPrincipal frmPrincipal = new FormPrincipal();
             frmPrincipal.Show();
         }
@@ -183,6 +183,10 @@ namespace SheiStyleSNL
             else if (dgvCera.SelectedRows.Count > 0)
             {
                 seleccionItem(dgvCera);
+            }
+            else
+            {
+                MessageBox.Show("Elija un servicio para modificar su precio");
             }
         }
 

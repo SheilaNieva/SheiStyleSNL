@@ -166,6 +166,10 @@ namespace SheiStyleSNL
                     MessageBox.Show("Esta cita está pagada y archivada. No se puede eliminar");
                 }
             }
+            else
+            {
+                MessageBox.Show("Debes seleccionar una cita para poder eliminarla");
+            }
         }
     }
 }

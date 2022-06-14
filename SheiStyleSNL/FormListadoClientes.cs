@@ -26,7 +26,7 @@ namespace SheiStyleSNL
             cargarListado();
         }
 
-
+        //CONEXION A BD
         IFirebaseConfig ifc = new FirebaseConfig()
         {
             AuthSecret = "6vyUU5qV0nzcwGXgtnzkyPvZDBe8ykvBXH6UV53I",
@@ -35,10 +35,10 @@ namespace SheiStyleSNL
 
         IFirebaseClient clien;
 
-
+        //El boton atras nos lleva al formulario principal
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             FormPrincipal frmPrincipal = new FormPrincipal();
             frmPrincipal.Show();
         }
@@ -57,6 +57,7 @@ namespace SheiStyleSNL
             }
         }
 
+        //Consultamos la tabla cliente para rellenar el listado
         private void cargarListado()
         {
             FirebaseResponse res = clien.Get(@"Cliente");
@@ -64,6 +65,7 @@ namespace SheiStyleSNL
             rellenarListado(data);
         }
 
+        //Rellenamos la lista con los datos obtenidos de la bd de la tabla Cliente
         private void rellenarListado(Dictionary<string, Cliente> data)
         {
             dibujarColumnasLista();
@@ -79,6 +81,8 @@ namespace SheiStyleSNL
             }
         }
 
+
+        //Metodo que nos permite dibujar las columas de la tabla
         private void dibujarColumnasLista()
         {
             listVClientes.Clear();
@@ -88,12 +92,13 @@ namespace SheiStyleSNL
             listVClientes.Columns.Add("Apellidos", 150);
             listVClientes.Columns.Add("Teléfono", 150);
             listVClientes.Columns.Add("Correo", 150);
-            listVClientes.Columns.Add("IDCliente", 0);
+            listVClientes.Columns.Add("IDCliente", 0); //Guardamos el id de cada cliente en la tabla pero no lo mostramos
         }
 
+        //Si hacemos clic en el boton de nuevo cliente, nos abre un nuevo formulario
         private void btnNuevoCliente_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             FormNuevoCliente frmNuevoCliente = new FormNuevoCliente();
             frmNuevoCliente.Show();
         }
@@ -104,7 +109,7 @@ namespace SheiStyleSNL
         {
             if (comprobarClienteSeleccionado())
             {
-                this.Hide();
+                this.Close();
                 FormEditarCliente frmEditarCliente = new FormEditarCliente(clienteSeleccionado());
                 frmEditarCliente.Show();
             }
@@ -147,15 +152,24 @@ namespace SheiStyleSNL
         //Recuperamos los datos del cliente que hemos seleccionado
         private Cliente recuperarDatosClienteSeleccionado()
         {
+            String idCliente="";
             //Obtenemos la fila que pulsamos
-            int fila = listVClientes.FocusedItem.Index;
-            //Obtenemos el idCliente de la fila que hemos seleccionado
-            String idCliente = listVClientes.Items[fila].SubItems[4].Text;
-            
+            // int fila = listVClientes.FocusedItem.Index;
+          //  if (listVClientes.SelectedItems.Count > 0)
+           // {
+                int fila = listVClientes.FocusedItem.Index;
+                
+
+
+                //Obtenemos el idCliente de la fila que hemos seleccionado
+                idCliente = listVClientes.Items[fila].SubItems[4].Text;
+         //   }
+
             //Obtenemos el cliente que tenfa ese id y lo devolvemos
             FirebaseResponse res = clien.Get(@"Cliente/" + idCliente);
             Cliente resCliente = res.ResultAs<Cliente>();
             return resCliente;
+
         }
 
 
@@ -261,8 +275,6 @@ namespace SheiStyleSNL
 
         private void btnMostrarCitas_Click(object sender, EventArgs e)
         {
-            //  try
-            // {
             bool citas = false;
                 Cliente c;
                 if (comprobarClienteSeleccionado())
@@ -289,18 +301,12 @@ namespace SheiStyleSNL
                 }
 
 
-                // this.Hide();
-               // FormListadoCitasCliente frmCitas = new FormListadoCitasCliente(c);
-                 //   frmCitas.ShowDialog();
-
-
                 }
                 else
                 {
                     MessageBox.Show("Debes seleccionar un cliente");
                 }
 
-//            }catch(Exception ee) { }
             
 
         }

@@ -19,18 +19,21 @@ namespace SheiStyleSNL
 {
     public partial class FormServicios : Form
     {
+        //Declaracion de variables
         DateTime fecha;
         float prec;
         float dur;
         ArrayList listaIdCliente = new ArrayList();
         
+        //Al llamar a este formulario, le pasamos la fecha elegida para nuestra cita
         public FormServicios(DateTime fecha)
         {
             InitializeComponent();
             this.fecha = fecha;
             cargar();
         }
-
+        
+        //CONEXION CON LA BD
 
         IFirebaseConfig ifc = new FirebaseConfig()
         {
@@ -52,28 +55,35 @@ namespace SheiStyleSNL
             }
         }
 
-         
+         //El boton atras nos lleva de nuevo al formulario del listado de citas de un dia en concreto
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
 
             FormAgenda frmAgenda = new FormAgenda(fecha);
             frmAgenda.ShowDialog();
         }
 
+        /*
+         * Metodo que se ejecuta al cargar el formulario de servicios
+         */
         private void FormServicios_Load(object sender, EventArgs e)
         {
+            //Rescatamos la fecha de la cita y la mostramos por pantalla
             lblFecha.Text = fecha.ToShortDateString();
 
+            //Hacemos una consulta sobre la tabla Cliente
             FirebaseResponse res = clien.Get(@"Cliente");
             Dictionary<string, Cliente> data = JsonConvert.DeserializeObject<Dictionary<string, Cliente>>(res.Body.ToString());
 
-
+            //Comprobamos que en la bbdd esten los campos nombre y apellidos rellenos
             foreach (var item in data)
             {
                 if (null != item.Value.nombre && null != item.Value.apellidos)
                 {
+                    //Rellenamos el combo para elegir los clientes para la cita
                     cbCliente.Items.Add(item.Value.nombre + " " + item.Value.apellidos);
+                    //De forma paralela, creamos un array con los id de los clientes
                     if (null != item.Value.idCliente)
                     {
                         listaIdCliente.Add(item.Value.idCliente);
@@ -81,21 +91,22 @@ namespace SheiStyleSNL
                 }
             }
 
+            //Hacemos una consulta a la tabla Cita
             FirebaseResponse res1 = clien.Get(@"Cita");
             Dictionary<string, Cita> dataCita = JsonConvert.DeserializeObject<Dictionary<string, Cita>>(res1.Body.ToString());
 
             ArrayList listaHoras = new ArrayList();
             ArrayList listaDuracion = new ArrayList();
-            ArrayList listaHorasBBDD = new ArrayList();
 
+            //Recorremos todas las citas de la bbdd y nos quedamos con las que coincidan con la fecha seleccionada de nuestra nueva cita
             foreach (var item in dataCita)
             {
                 if (item.Value.fecha.ToShortDateString() == fecha.ToShortDateString())
                 {
-                    //listaHoras.Add((item.Value.fecha.Hour + ":" + item.Value.fecha.Minute).ToString());
+                    //Guardamos en un array todas las fecha (y horas) de las citas de ese dia
                     listaHoras.Add(item.Value.fecha);
+                    //Guardamos en otro array la duracion de las citas de ese dia
                     listaDuracion.Add(item.Value.duracion);
-                    //listaHorasBBDD.Add((fecha.Hour + ":" + fecha.Minute).ToString());
                 }
             }
 
@@ -113,59 +124,50 @@ namespace SheiStyleSNL
             cbHoras.Items.Add("13:00");
             cbHoras.Items.Add("13:30");
             cbHoras.Items.Add("14:00");
-            /* cbHoras.Items.Add("8:00");
-             cbHoras.Items.Add("8:00");
-             cbHoras.Items.Add("8:00");
-             cbHoras.Items.Add("8:00");*/
 
-            int noExiste = -1;
-
+            
+            //Recorremos el array que contiene todas las horas de citas de ese dia
             for (int i = 0; listaHoras.Count > i; i++)
             {
-                DateTime fecha = (DateTime) listaHoras[i];
-                float duracion = float.Parse(listaDuracion[i].ToString());
-                float hora = fecha.Hour;
-                string horaString = fecha.ToShortTimeString();
-                duracion = duracion * 2;
+                DateTime fecha = (DateTime) listaHoras[i];//Guardamos las fechas (con horas) en un DateTime
+                float duracion = float.Parse(listaDuracion[i].ToString()); //Guardamos la duracion de cada cita en un float
+                string horaString = fecha.ToShortTimeString();//Guardamos la hora de las citas en un string
+                duracion = duracion * 2; //x2 por cada duracion para que cuente las medias horas
 
-               // int indice = cbHoras.Items.IndexOf(horaString);
-               // int indice = cbHoras.FindString(horaString);
-                 int indice;
-
-                /*for (int j = indice; j < duracion; j++)
-                  {
-                      cbHoras.Items.RemoveAt(j);
-                  }*/
-
+               
+                //Guardamos el indice del combo en el cual aparecen esas horas
+                int indice;
                 indice = cbHoras.FindString(horaString);
 
+                //Recorremos la duracion de cada cita y vamos eliminando las horas que vaya a ocupar esa cita (por el indice)
                 for (int j = 0; j < duracion; j++)
                 {
                     if(indice < cbHoras.Items.Count)
                     {
                         cbHoras.Items.RemoveAt(indice);
                     }
-                    
                 }
-
             }
 
+            //Por defecto, seleccionamos el primer cliente del combobox
             cbCliente.SelectedIndex = 0;
-
-
         }
 
-
+        /*
+         * Metodo que comprueba los servicios seleccionados, la duracion y el precio estimado
+         */
         private String serviciosSeleccionados()
         {
 
             String servicioSeleccionado = "";            
             float duracionServicio = 0;
             float precio = 0;
+
+            //Consulta a la tabla servicios
             FirebaseResponse res1 = clien.Get(@"Servicio");
             Dictionary<string, Servicio> data1 = JsonConvert.DeserializeObject<Dictionary<string, Servicio>>(res1.Body.ToString());
 
-
+            //Comprueba cada uno de los checkBox seleccionados en el formulario 
             foreach (var item in data1)
             {
 
@@ -300,12 +302,16 @@ namespace SheiStyleSNL
                 }
 
             }
+            //Recogemos el precio y la duracion de la cita segun los servicios que hayamos seleccionado
             prec = precio;
             dur = duracionServicio;
             
+            //Devuelve una lista con todos los servicios seleccionados para la nueva cita
             return servicioSeleccionado;
             
         }
+
+
         // Metodo para calcular la hora y los minutos seleccionados
         private DateTime calcularHorasMinutos(String horaSeleccionada)
         {
@@ -333,6 +339,7 @@ namespace SheiStyleSNL
             }
             else
             {
+                //Hacemos una consulta a la tabla Cliente
                 FirebaseResponse res = clien.Get(@"Cliente");
                 Dictionary<string, Cliente> data = JsonConvert.DeserializeObject<Dictionary<string, Cliente>>(res.Body.ToString());
                 bool correcto = true;
@@ -348,39 +355,39 @@ namespace SheiStyleSNL
                 cita.precioCita = prec;
 
 
-                // askldñfjasdñlkfjsdlfj
+                //Hacemos una consulta a la tabla Cita
                 FirebaseResponse res1 = clien.Get(@"Cita");
                 Dictionary<string, Cita> dataCita = JsonConvert.DeserializeObject<Dictionary<string, Cita>>(res1.Body.ToString());
 
                 ArrayList listaHoras = new ArrayList();
                 ArrayList listaDuracion = new ArrayList();
-
+                //Guardamos las fecha y la duracion en 2 array
                 foreach (var item in dataCita)
                 {
                     if (item.Value.fecha.ToShortDateString() == fecha.ToShortDateString())
                     {
-                        //listaHoras.Add((item.Value.fecha.Hour + ":" + item.Value.fecha.Minute).ToString());
                         listaHoras.Add(item.Value.fecha);
                         listaDuracion.Add(item.Value.duracion);
-                        //listaHorasBBDD.Add((fecha.Hour + ":" + fecha.Minute).ToString());
                     }
                 }
-                int hora = cita.fecha.Hour;
-                 int minutos = cita.fecha.Minute;
+                int hora = cita.fecha.Hour; //obtenemos la hora de la cita que queremos reservar
+                int minutos = cita.fecha.Minute; //obtenemos los minutos de la cita que queremos reservar
+
+                //Recorremos las citas que hay ese dia y comprobamos las horas para que no se solapen las citas
                 for (int i = 0; i < listaHoras.Count; i++)
                 {
                     for (int j = 0; j < dur; j++)
                     {
-                        DateTime prueba = new DateTime(cita.fecha.Year, cita.fecha.Month, cita.fecha.Day, hora + j, minutos, cita.fecha.Second);
-                        DateTime prueba2 = (DateTime) listaHoras[i];
-                        if (prueba2.ToShortTimeString().Contains(prueba.ToShortTimeString()))
+                        DateTime fecha1 = new DateTime(cita.fecha.Year, cita.fecha.Month, cita.fecha.Day, hora + j, minutos, cita.fecha.Second);
+                        DateTime fecha2 = (DateTime) listaHoras[i];
+                        if (fecha2.ToShortTimeString().Contains(fecha1.ToShortTimeString()))
                         {
                             correcto = false;
                             break;
                         }
 
-                        prueba = new DateTime(cita.fecha.Year, cita.fecha.Month, cita.fecha.Day, hora + j, 00, cita.fecha.Second);
-                        if (prueba2.ToShortTimeString().Contains(prueba.ToShortTimeString()) && j > 0)
+                        fecha1 = new DateTime(cita.fecha.Year, cita.fecha.Month, cita.fecha.Day, hora + j, 00, cita.fecha.Second);
+                        if (fecha2.ToShortTimeString().Contains(fecha1.ToShortTimeString()) && j > 0)
                         {
                             correcto = false;
                             break;
@@ -388,10 +395,9 @@ namespace SheiStyleSNL
                     }
                  }
 
-
+                //Si todo va bien, llamamos al nuevo formulario y le pasamos la cita que acabamos de crear
                 if (correcto)
                 {
-                    MessageBox.Show("Servicios seleccionados : " + cita.servicio + " precio estimado: " + cita.precioCita + " duracion: " + cita.duracion);
                     FormPresupuesto frmPresupuesto = new FormPresupuesto(cita);
                     frmPresupuesto.Show();
                 }

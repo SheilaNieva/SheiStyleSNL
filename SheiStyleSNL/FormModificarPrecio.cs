@@ -88,7 +88,7 @@ namespace SheiStyleSNL
         {
             
 
-            if (tbPrecio.Text!=null)
+            if (string.IsNullOrEmpty(tbPrecio.Text))
             {
                 FirebaseResponse res = clien.Get(@"Servicio/" + idServicio);
                 Servicio resServicio = res.ResultAs<Servicio>();
