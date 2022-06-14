@@ -126,9 +126,6 @@ namespace SheiStyleSNL
                 float duracion = float.Parse(listaDuracion[i].ToString());
                 float hora = fecha.Hour;
                 string horaString = fecha.ToShortTimeString();
-
-                
-
                 duracion = duracion * 2;
 
                // int indice = cbHoras.Items.IndexOf(horaString);
@@ -150,78 +147,6 @@ namespace SheiStyleSNL
                     }
                     
                 }
-
-
-
-
-
-
-
-
-
-                /*
-                if (!fecha.Contains("8:00"))
-                {
-                    cbHoras.Items.Add("8:00");
-                }
-
-                if (!fecha.Contains("8:30"))
-                {
-                    cbHoras.Items.Add("8:30");
-                }
-                if (!fecha.Contains("9:00"))
-                {
-                    cbHoras.Items.Add("9:00");
-                }
-                if (!fecha.Contains("9:30"))
-                {
-                    cbHoras.Items.Add("9:30");
-                }
-
-                if (!fecha.Contains("10:00"))
-                {
-                    cbHoras.Items.Add("10:00");
-                }
-
-                if (!fecha.Contains("10:30"))
-                {
-                    cbHoras.Items.Add("10:30");
-                }
-
-                if (!fecha.Contains("11:00"))
-                {
-                    cbHoras.Items.Add("11:00");
-                }
-
-                if (!fecha.Contains("11:30"))
-                {
-                    cbHoras.Items.Add("11:30");
-                }
-
-                if (!fecha.Contains("12:00"))
-                {
-                    cbHoras.Items.Add("12:00");
-                }
-
-                if (!fecha.Contains("12:30"))
-                {
-                    cbHoras.Items.Add("12:30");
-                }
-
-                if (!fecha.Contains("13:00"))
-                {
-                    cbHoras.Items.Add("13:00");
-                }
-
-                if (!fecha.Contains("13:30"))
-                {
-                    cbHoras.Items.Add("13:30");
-                }
-
-                if (!fecha.Contains("14:00"))
-                {
-                    cbHoras.Items.Add("14:00");
-                }*/
 
             }
 
@@ -410,6 +335,7 @@ namespace SheiStyleSNL
             {
                 FirebaseResponse res = clien.Get(@"Cliente");
                 Dictionary<string, Cliente> data = JsonConvert.DeserializeObject<Dictionary<string, Cliente>>(res.Body.ToString());
+                bool correcto = true;
 
                 // Construimos la cita que vamos a registrar en base de datos
                 Cita cita = new Cita();
@@ -421,9 +347,59 @@ namespace SheiStyleSNL
                 cita.duracion = dur;
                 cita.precioCita = prec;
 
-                MessageBox.Show("Servicios seleccionados : " + cita.servicio + " precio estimado: " + cita.precioCita + " duracion: " + cita.duracion);
-                FormPresupuesto frmPresupuesto = new FormPresupuesto(cita);
-                frmPresupuesto.Show();
+
+                // askldñfjasdñlkfjsdlfj
+                FirebaseResponse res1 = clien.Get(@"Cita");
+                Dictionary<string, Cita> dataCita = JsonConvert.DeserializeObject<Dictionary<string, Cita>>(res1.Body.ToString());
+
+                ArrayList listaHoras = new ArrayList();
+                ArrayList listaDuracion = new ArrayList();
+
+                foreach (var item in dataCita)
+                {
+                    if (item.Value.fecha.ToShortDateString() == fecha.ToShortDateString())
+                    {
+                        //listaHoras.Add((item.Value.fecha.Hour + ":" + item.Value.fecha.Minute).ToString());
+                        listaHoras.Add(item.Value.fecha);
+                        listaDuracion.Add(item.Value.duracion);
+                        //listaHorasBBDD.Add((fecha.Hour + ":" + fecha.Minute).ToString());
+                    }
+                }
+                int hora = cita.fecha.Hour;
+                 int minutos = cita.fecha.Minute;
+                for (int i = 0; i < listaHoras.Count; i++)
+                {
+                    for (int j = 0; j < dur; j++)
+                    {
+                        DateTime prueba = new DateTime(cita.fecha.Year, cita.fecha.Month, cita.fecha.Day, hora + j, minutos, cita.fecha.Second);
+                        DateTime prueba2 = (DateTime) listaHoras[i];
+                        if (prueba2.ToShortTimeString().Contains(prueba.ToShortTimeString()))
+                        {
+                            correcto = false;
+                            break;
+                        }
+
+                        prueba = new DateTime(cita.fecha.Year, cita.fecha.Month, cita.fecha.Day, hora + j, 00, cita.fecha.Second);
+                        if (prueba2.ToShortTimeString().Contains(prueba.ToShortTimeString()) && j > 0)
+                        {
+                            correcto = false;
+                            break;
+                        }
+                    }
+                 }
+
+
+                if (correcto)
+                {
+                    MessageBox.Show("Servicios seleccionados : " + cita.servicio + " precio estimado: " + cita.precioCita + " duracion: " + cita.duracion);
+                    FormPresupuesto frmPresupuesto = new FormPresupuesto(cita);
+                    frmPresupuesto.Show();
+                }
+                else
+                {
+                    MessageBox.Show("No hay tiempo disponible para su cita. Por favor seleccione una hora distinta o una fecha distinta.");
+                }
+                
             }
         }
     }

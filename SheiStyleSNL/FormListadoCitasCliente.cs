@@ -149,21 +149,23 @@ namespace SheiStyleSNL
         private void btnEliminarCita_Click(object sender, EventArgs e)
         {
             //Obtenemos la fila que pulsamos
-            int fila = listCitaClientes.FocusedItem.Index;
-            //Obtenemos el idCliente de la fila que hemos seleccionado
-            String idCita = listCitaClientes.Items[fila].SubItems[5].Text;
-
-            FirebaseResponse res = clien.Get(@"Cita/" + idCita);
-            Cita resCita = res.ResultAs<Cita>();
-            if (!resCita.pagado)
+            if(null != listCitaClientes.FocusedItem)
             {
-                var eliminar = clien.Delete("Cita/" + resCita.idCita);
-            }
-            else
-            {
-                MessageBox.Show("Esta cita está pagada y archivada. No se puede eliminar");
-            }
+                int fila = listCitaClientes.FocusedItem.Index;
+                //Obtenemos el idCliente de la fila que hemos seleccionado
+                String idCita = listCitaClientes.Items[fila].SubItems[5].Text;
 
+                FirebaseResponse res = clien.Get(@"Cita/" + idCita);
+                Cita resCita = res.ResultAs<Cita>();
+                if (!resCita.pagado)
+                {
+                    var eliminar = clien.Delete("Cita/" + resCita.idCita);
+                }
+                else
+                {
+                    MessageBox.Show("Esta cita está pagada y archivada. No se puede eliminar");
+                }
+            }
         }
     }
 }
