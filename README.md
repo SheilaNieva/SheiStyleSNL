@@ -10,10 +10,10 @@ Para nuestra aplicación es esencial tener registrados clientes, los cuales post
 Como administradores de la aplicación, tenemos también la opción de cambiar los precios de nuestros servicios en caso que sea necesario. 
 Por último y no menos importante, contamos con secciones de consulta. En ellas podemos visualizar los ingresos y gastos que llevamos generados por nuestra empresa hasta el momento.
 
-### Pre-requisitos 📋
+## Pre-requisitos 📋
 Nuestra app esta disponible para equipos, tanto de sobremesa como portátiles, debido a que es una aplicación de escritorio.
 
-### Lenguaje y teconologias  usadas 📋
+## Lenguaje y teconologias  usadas 📋
 Lenguaje: C# https://es.wikipedia.org/wiki/C_Sharp
 Para su desarrollo: Visual Studio https://visualstudio.microsoft.com/es/
 Base de datos: Firebase https://firebase.google.com/
