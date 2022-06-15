@@ -1,4 +1,4 @@
-﻿using FireSharp.Config;
+﻿ using FireSharp.Config;
 using FireSharp.Interfaces;
 using SheiStyleSNL.Clases;
 using System;
@@ -329,12 +329,13 @@ namespace SheiStyleSNL
         private void btnAnadir_Click(object sender, EventArgs e)
         {
             String servicios = serviciosSeleccionados();
-            
 
-            if(cbHoras.SelectedIndex == -1)
+
+            if (cbHoras.SelectedIndex == -1)
             {
                 MessageBox.Show("Debes seleccionar una hora para reservar tu cita");
-            }else if (string.IsNullOrWhiteSpace(servicios))
+            }
+            else if (string.IsNullOrWhiteSpace(servicios))
             {
                 MessageBox.Show("Debes seleccionar algún servicio para reservar tu cita");
             }
@@ -362,6 +363,7 @@ namespace SheiStyleSNL
 
                 ArrayList listaHoras = new ArrayList();
                 ArrayList listaDuracion = new ArrayList();
+
                 //Guardamos las fecha y la duracion en 2 array
                 foreach (var item in dataCita)
                 {
@@ -371,35 +373,30 @@ namespace SheiStyleSNL
                         listaDuracion.Add(item.Value.duracion);
                     }
                 }
-                int hora = cita.fecha.Hour; //obtenemos la hora de la cita que queremos reservar
-                int minutos = cita.fecha.Minute; //obtenemos los minutos de la cita que queremos reservar
-                
+
+                bool coincide = false;
+
+                DateTime horaCitaFinal = cita.fecha.AddHours(dur);
 
                 //Recorremos las citas que hay ese dia y comprobamos las horas para que no se solapen las citas
-                for (int i = 0; i < listaHoras.Count; i++)
-                {
-                    for (int j = 0; j < dur; j++)
-                    {
-                        DateTime fecha1 = new DateTime(cita.fecha.Year, cita.fecha.Month, cita.fecha.Day, hora + j, 30, cita.fecha.Second);
-                        DateTime fecha2 = (DateTime) listaHoras[i];
-                        if (fecha2.ToShortTimeString().Contains(fecha1.ToShortTimeString()))
-                        {
-                            correcto = false;
-                            break;
-                        }
-                            fecha1 = new DateTime(cita.fecha.Year, cita.fecha.Month, cita.fecha.Day, hora + j, 00, cita.fecha.Second);
-                            if (fecha2.ToShortTimeString().Contains(fecha1.ToShortTimeString()) && j > 0)
-                            {
-                                correcto = false;
-                                break;
-                            }
-                       
-                       
-                    }
-                 }
 
+                int totalMinutos = int.Parse((horaCitaFinal - cita.fecha).TotalMinutes.ToString());
+
+                for (int i = 0; i < totalMinutos; i++)
+                {
+                //    cita.fecha.AddMinutes(i);
+                    for (int j = 0; j < listaHoras.Count; j++)
+                    {
+                        if (cita.fecha.AddMinutes(i).ToString().Contains(listaHoras[j].ToString()))
+                        {
+                            coincide = true;
+                        }
+                    }
+
+                }
+            
                 //Si todo va bien, llamamos al nuevo formulario y le pasamos la cita que acabamos de crear
-                if (correcto)
+                if (!coincide)
                 {
                     FormPresupuesto frmPresupuesto = new FormPresupuesto(cita);
                     frmPresupuesto.Show();
@@ -409,8 +406,12 @@ namespace SheiStyleSNL
                 {
                     MessageBox.Show("No hay tiempo disponible para su cita. Por favor seleccione una hora distinta o una fecha distinta.");
                 }
-                
             }
+
+            
+        
+                
+            
         }
     }
 }
