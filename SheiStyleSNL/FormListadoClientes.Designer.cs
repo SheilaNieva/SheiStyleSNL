@@ -100,7 +100,6 @@ namespace SheiStyleSNL
             this.listVClientes.TabIndex = 11;
             this.listVClientes.UseCompatibleStateImageBehavior = false;
             this.listVClientes.View = System.Windows.Forms.View.Details;
-            this.listVClientes.DoubleClick += new System.EventHandler(this.listVClientes_DoubleClick);
             // 
             // pictureBox1
             // 

@@ -67,17 +67,19 @@ namespace SheiStyleSNL
 
 
 
-            Guid UUID = Guid.NewGuid();
-            String idPedido = UUID.ToString();
-            String descripcion = tbDescripcion.Text;
-            float importe = float.Parse(tbImporte.Text);
-            DateTime fecha = DateTime.Now;
 
-            if(string.IsNullOrWhiteSpace(descripcion) || string.IsNullOrWhiteSpace(importe.ToString())){
+            if(string.IsNullOrWhiteSpace(tbDescripcion.Text) || !tbImporte.MaskFull){
                 MessageBox.Show("Debes rellenar todos los campos");
             }
             else
             {
+
+                Guid UUID = Guid.NewGuid();
+                String idPedido = UUID.ToString();
+                String descripcion = tbDescripcion.Text;
+                float importe = float.Parse(tbImporte.Text);
+                DateTime fecha = DateTime.Now;
+
                 Pedido pedido = new Pedido(idPedido, descripcion, importe, fecha, idEmpresa);
                 SetResponse res = clien.Set(@"Pedido/" + idPedido, pedido);
 

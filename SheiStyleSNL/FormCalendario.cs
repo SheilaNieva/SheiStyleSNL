@@ -24,9 +24,10 @@ namespace SheiStyleSNL
          */
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            this.Close();
+           
             FormPrincipal frmPrincipal = new FormPrincipal();
             frmPrincipal.Show();
+            this.Close();
         }
 
         
@@ -45,7 +46,7 @@ namespace SheiStyleSNL
         //Cuando elegimos un dia, si aceptamos, nos lleva a la siguiente pantalla, donde le pasamos el dia seleccionado
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             FormAgenda frmAgenda = new FormAgenda(fechaSeleccionada);
             frmAgenda.ShowDialog();
         }

@@ -58,8 +58,9 @@ namespace SheiStyleSNL
          //El boton atras nos lleva de nuevo al formulario del listado de citas de un dia en concreto
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            this.Close();
 
+
+            this.Hide();
             FormAgenda frmAgenda = new FormAgenda(fecha);
             frmAgenda.ShowDialog();
         }
@@ -142,7 +143,7 @@ namespace SheiStyleSNL
                 //Recorremos la duracion de cada cita y vamos eliminando las horas que vaya a ocupar esa cita (por el indice)
                 for (int j = 0; j < duracion; j++)
                 {
-                    if(indice < cbHoras.Items.Count)
+                    if(indice < cbHoras.Items.Count && indice!=-1)
                     {
                         cbHoras.Items.RemoveAt(indice);
                     }
@@ -372,26 +373,28 @@ namespace SheiStyleSNL
                 }
                 int hora = cita.fecha.Hour; //obtenemos la hora de la cita que queremos reservar
                 int minutos = cita.fecha.Minute; //obtenemos los minutos de la cita que queremos reservar
+                
 
                 //Recorremos las citas que hay ese dia y comprobamos las horas para que no se solapen las citas
                 for (int i = 0; i < listaHoras.Count; i++)
                 {
                     for (int j = 0; j < dur; j++)
                     {
-                        DateTime fecha1 = new DateTime(cita.fecha.Year, cita.fecha.Month, cita.fecha.Day, hora + j, minutos, cita.fecha.Second);
+                        DateTime fecha1 = new DateTime(cita.fecha.Year, cita.fecha.Month, cita.fecha.Day, hora + j, 30, cita.fecha.Second);
                         DateTime fecha2 = (DateTime) listaHoras[i];
                         if (fecha2.ToShortTimeString().Contains(fecha1.ToShortTimeString()))
                         {
                             correcto = false;
                             break;
                         }
-
-                        fecha1 = new DateTime(cita.fecha.Year, cita.fecha.Month, cita.fecha.Day, hora + j, 00, cita.fecha.Second);
-                        if (fecha2.ToShortTimeString().Contains(fecha1.ToShortTimeString()) && j > 0)
-                        {
-                            correcto = false;
-                            break;
-                        }
+                            fecha1 = new DateTime(cita.fecha.Year, cita.fecha.Month, cita.fecha.Day, hora + j, 00, cita.fecha.Second);
+                            if (fecha2.ToShortTimeString().Contains(fecha1.ToShortTimeString()) && j > 0)
+                            {
+                                correcto = false;
+                                break;
+                            }
+                       
+                       
                     }
                  }
 
@@ -400,6 +403,7 @@ namespace SheiStyleSNL
                 {
                     FormPresupuesto frmPresupuesto = new FormPresupuesto(cita);
                     frmPresupuesto.Show();
+                    this.Hide();
                 }
                 else
                 {

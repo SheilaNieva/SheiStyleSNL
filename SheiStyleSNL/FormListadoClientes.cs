@@ -109,9 +109,9 @@ namespace SheiStyleSNL
         {
             if (comprobarClienteSeleccionado())
             {
-                this.Close();
                 FormEditarCliente frmEditarCliente = new FormEditarCliente(clienteSeleccionado());
                 frmEditarCliente.Show();
+                this.Close();
             }
             else
             {
@@ -134,9 +134,9 @@ namespace SheiStyleSNL
         }
 
         //Si hacemos dobleclick en un cliente, abrimos la ventana editar y cargamos sus datos
-        private void listVClientes_DoubleClick(object sender, EventArgs e)
+       private void listVClientes_DoubleClick(object sender, EventArgs e)
         {
-            clienteSeleccionado();
+           // clienteSeleccionado();
         }
 
 
@@ -152,23 +152,14 @@ namespace SheiStyleSNL
         //Recuperamos los datos del cliente que hemos seleccionado
         private Cliente recuperarDatosClienteSeleccionado()
         {
-            String idCliente="";
-            //Obtenemos la fila que pulsamos
-            // int fila = listVClientes.FocusedItem.Index;
-          //  if (listVClientes.SelectedItems.Count > 0)
-           // {
-                int fila = listVClientes.FocusedItem.Index;
-                
-
-
-                //Obtenemos el idCliente de la fila que hemos seleccionado
-                idCliente = listVClientes.Items[fila].SubItems[4].Text;
-         //   }
-
-            //Obtenemos el cliente que tenfa ese id y lo devolvemos
-            FirebaseResponse res = clien.Get(@"Cliente/" + idCliente);
-            Cliente resCliente = res.ResultAs<Cliente>();
-            return resCliente;
+            int fila = listVClientes.FocusedItem.Index;
+            //Obtenemos el idCliente de la fila que hemos seleccionado
+            String idCliente = listVClientes.Items[fila].SubItems[4].Text;
+            
+             //Obtenemos el cliente que tenga ese id y lo devolvemos
+             FirebaseResponse res = clien.Get(@"Cliente/" + idCliente);
+             Cliente resCliente = res.ResultAs<Cliente>();
+             return resCliente;
 
         }
 
@@ -296,6 +287,7 @@ namespace SheiStyleSNL
                 }
                 else
                 {
+                    this.Hide();
                     FormListadoCitasCliente frmCitas = new FormListadoCitasCliente(c);
                     frmCitas.ShowDialog();
                 }

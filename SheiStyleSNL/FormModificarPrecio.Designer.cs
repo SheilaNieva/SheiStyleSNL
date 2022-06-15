@@ -30,7 +30,6 @@ namespace SheiStyleSNL
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.rjModificarCliente = new SheiStyleSNL.RJButton();
             this.btnAtras = new System.Windows.Forms.PictureBox();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,6 +39,7 @@ namespace SheiStyleSNL
             this.tbSector = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tbPrecio = new System.Windows.Forms.MaskedTextBox();
+            this.rjModificarCliente = new SheiStyleSNL.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
             this.SuspendLayout();
@@ -54,21 +54,6 @@ namespace SheiStyleSNL
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
-            // rjModificarCliente
-            // 
-            this.rjModificarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
-            this.rjModificarCliente.FlatAppearance.BorderSize = 0;
-            this.rjModificarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjModificarCliente.Font = new System.Drawing.Font("Modern No. 20", 15.75F);
-            this.rjModificarCliente.ForeColor = System.Drawing.Color.White;
-            this.rjModificarCliente.Location = new System.Drawing.Point(62, 38);
-            this.rjModificarCliente.Name = "rjModificarCliente";
-            this.rjModificarCliente.Size = new System.Drawing.Size(223, 50);
-            this.rjModificarCliente.TabIndex = 11;
-            this.rjModificarCliente.Text = "Modificar precio";
-            this.rjModificarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.rjModificarCliente.UseVisualStyleBackColor = false;
-            // 
             // btnAtras
             // 
             this.btnAtras.Image = global::SheiStyleSNL.Properties.Resources.atras;
@@ -78,6 +63,7 @@ namespace SheiStyleSNL
             this.btnAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnAtras.TabIndex = 10;
             this.btnAtras.TabStop = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // btnActualizar
             // 
@@ -99,9 +85,9 @@ namespace SheiStyleSNL
             this.label3.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(61, 214);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 24);
+            this.label3.Size = new System.Drawing.Size(85, 24);
             this.label3.TabIndex = 23;
-            this.label3.Text = "Precio";
+            this.label3.Text = "Precio: *";
             // 
             // label2
             // 
@@ -161,6 +147,21 @@ namespace SheiStyleSNL
             this.tbPrecio.Size = new System.Drawing.Size(76, 20);
             this.tbPrecio.TabIndex = 28;
             this.tbPrecio.ValidatingType = typeof(int);
+            // 
+            // rjModificarCliente
+            // 
+            this.rjModificarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
+            this.rjModificarCliente.FlatAppearance.BorderSize = 0;
+            this.rjModificarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjModificarCliente.Font = new System.Drawing.Font("Modern No. 20", 15.75F);
+            this.rjModificarCliente.ForeColor = System.Drawing.Color.White;
+            this.rjModificarCliente.Location = new System.Drawing.Point(62, 38);
+            this.rjModificarCliente.Name = "rjModificarCliente";
+            this.rjModificarCliente.Size = new System.Drawing.Size(223, 50);
+            this.rjModificarCliente.TabIndex = 11;
+            this.rjModificarCliente.Text = "Modificar precio";
+            this.rjModificarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.rjModificarCliente.UseVisualStyleBackColor = false;
             // 
             // FormModificarPrecio
             // 

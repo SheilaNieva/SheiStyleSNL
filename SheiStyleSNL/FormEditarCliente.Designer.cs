@@ -30,6 +30,7 @@ namespace SheiStyleSNL
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbTlfn = new System.Windows.Forms.MaskedTextBox();
             this.tbCorreo = new System.Windows.Forms.TextBox();
             this.tbApellidos = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@ namespace SheiStyleSNL
             this.btnAtras = new System.Windows.Forms.PictureBox();
             this.rjEditarCliente = new SheiStyleSNL.RJButton();
             this.btnActualizarCliente = new System.Windows.Forms.Button();
-            this.tbTlfn = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
@@ -64,6 +64,14 @@ namespace SheiStyleSNL
             this.panel1.Size = new System.Drawing.Size(472, 272);
             this.panel1.TabIndex = 9;
             // 
+            // tbTlfn
+            // 
+            this.tbTlfn.Location = new System.Drawing.Point(208, 156);
+            this.tbTlfn.Mask = "000-000-000";
+            this.tbTlfn.Name = "tbTlfn";
+            this.tbTlfn.Size = new System.Drawing.Size(182, 20);
+            this.tbTlfn.TabIndex = 8;
+            // 
             // tbCorreo
             // 
             this.tbCorreo.Location = new System.Drawing.Point(208, 202);
@@ -84,9 +92,9 @@ namespace SheiStyleSNL
             this.label5.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(84, 201);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 18);
+            this.label5.Size = new System.Drawing.Size(74, 18);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Correo:";
+            this.label5.Text = "Correo: *";
             // 
             // label4
             // 
@@ -94,9 +102,9 @@ namespace SheiStyleSNL
             this.label4.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(84, 155);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 18);
+            this.label4.Size = new System.Drawing.Size(91, 18);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Teléfono:";
+            this.label4.Text = "Teléfono: *";
             // 
             // label3
             // 
@@ -104,9 +112,9 @@ namespace SheiStyleSNL
             this.label3.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(84, 101);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 18);
+            this.label3.Size = new System.Drawing.Size(97, 18);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Apellidos:";
+            this.label3.Text = "Apellidos: *";
             // 
             // tbNombre
             // 
@@ -121,9 +129,9 @@ namespace SheiStyleSNL
             this.label2.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(84, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 18);
+            this.label2.Size = new System.Drawing.Size(83, 18);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Nombre:";
+            this.label2.Text = "Nombre: *";
             // 
             // label1
             // 
@@ -187,14 +195,6 @@ namespace SheiStyleSNL
             this.btnActualizarCliente.Text = "Actualizar cliente";
             this.btnActualizarCliente.UseVisualStyleBackColor = false;
             this.btnActualizarCliente.Click += new System.EventHandler(this.btnActualizarCliente_Click);
-            // 
-            // tbTlfn
-            // 
-            this.tbTlfn.Location = new System.Drawing.Point(208, 156);
-            this.tbTlfn.Mask = "000-000-000";
-            this.tbTlfn.Name = "tbTlfn";
-            this.tbTlfn.Size = new System.Drawing.Size(182, 20);
-            this.tbTlfn.TabIndex = 8;
             // 
             // FormEditarCliente
             // 

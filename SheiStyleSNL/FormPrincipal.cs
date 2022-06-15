@@ -30,7 +30,7 @@ namespace SheiStyleSNL
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
 
             FormListadoClientes frmListadoCliente = new FormListadoClientes();
             frmListadoCliente.Show();
@@ -38,7 +38,7 @@ namespace SheiStyleSNL
 
         private void btnFavoritos_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
 
             FormFavoritos frmFavoritos = new FormFavoritos();
             frmFavoritos.Show();
@@ -46,7 +46,7 @@ namespace SheiStyleSNL
 
         private void btnPedido_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
 
             FormNuevoPedido frmPedido = new FormNuevoPedido();
             frmPedido.ShowDialog();
@@ -62,7 +62,7 @@ namespace SheiStyleSNL
 
         private void btnNuevaCita_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
 
             FormCalendario frmCalendario = new FormCalendario();
             frmCalendario.ShowDialog();
@@ -70,7 +70,7 @@ namespace SheiStyleSNL
 
         private void btnPrecio_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
 
             FormPrecios frmPrecio = new FormPrecios();
             frmPrecio.ShowDialog();

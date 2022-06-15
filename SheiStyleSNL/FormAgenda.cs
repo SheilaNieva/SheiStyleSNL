@@ -114,8 +114,8 @@ namespace SheiStyleSNL
         //Si pinchamos en el botón atras, nos lleva de nuevo a formulario del calendario
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            this.Close();
 
+            this.Hide();
             FormCalendario frmCalendario = new FormCalendario();
             frmCalendario.ShowDialog();
         }
@@ -123,10 +123,11 @@ namespace SheiStyleSNL
         //Si pinchamos en el botón anadir cita, nos lleva a la siguiente pantalla, que es la de elegir servicios (pasandole la fecha seleccionada)
         private void btnAnadirCita_Click(object sender, EventArgs e)
         {
-            this.Hide();
 
+            this.Hide();
             FormServicios frmServicios = new FormServicios(fecha);
             frmServicios.ShowDialog();
+            
         }
 
         /*

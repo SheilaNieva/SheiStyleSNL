@@ -88,7 +88,7 @@ namespace SheiStyleSNL
         {
             
 
-            if (string.IsNullOrEmpty(tbPrecio.Text))
+            if (tbPrecio.MaskFull)
             {
                 FirebaseResponse res = clien.Get(@"Servicio/" + idServicio);
                 Servicio resServicio = res.ResultAs<Servicio>();
@@ -107,6 +107,13 @@ namespace SheiStyleSNL
             {
                 MessageBox.Show("Completa el campo de precio");
             }
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FormPrecios formPrecios = new FormPrecios();
+            formPrecios.Show();
         }
     }
 }

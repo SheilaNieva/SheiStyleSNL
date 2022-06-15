@@ -58,9 +58,10 @@ namespace SheiStyleSNL
         //Si pulsamos en el boton atras, nos lleva al formulario para poder elegir servicios
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
             FormServicios frmServicios = new FormServicios(cita.fecha);
             frmServicios.Show();
+            this.Hide();
         }
 
         //Cargamos el formulario con el precio de la cita que hemos generado en el otro formulario
@@ -79,7 +80,6 @@ namespace SheiStyleSNL
             resCliente = res.ResultAs<Cliente>();
 
             int citas = resCliente.citasAcumuladas;
-            MessageBox.Show(citas.ToString());
             if(citas % 3 == 0)
             { 
                 lblDescuento.Text = "30";
