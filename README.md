@@ -12,6 +12,7 @@ Por último y no menos importante, contamos con secciones de consulta. En ellas 
 
 ## Pre-requisitos 📋
 Nuestra app esta disponible para equipos, tanto de sobremesa como portátiles, debido a que es una aplicación de escritorio.
+Necesitaremos estar conectados a una red para poder llevar dicha gestión, ya que es necesario para acceder a todos los datos que guardamos.
 
 ## Lenguaje y teconologias  usadas 📋
 Lenguaje: C# https://es.wikipedia.org/wiki/C_Sharp
