@@ -13,6 +13,11 @@ Por último y no menos importante, contamos con secciones de consulta. En ellas 
 ### Pre-requisitos 📋
 Nuestra app esta disponible para equipos, tanto de sobremesa como portátiles, debido a que es una aplicación de escritorio.
 
+### Lenguaje y teconologias  usadas 📋
+Lenguaje: C# https://es.wikipedia.org/wiki/C_Sharp
+Para su desarrollo: Visual Studio https://visualstudio.microsoft.com/es/
+Base de datos: Firebase https://firebase.google.com/
+
 ## Contenido 📖
 **Wiki**
 https://github.com/SheilaNieva/SheiStyleSNL/wiki
