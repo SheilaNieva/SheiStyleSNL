@@ -29,6 +29,7 @@ namespace SheiStyleSNL
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormServicios));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAtras = new System.Windows.Forms.PictureBox();
             this.rjServiciosCliente = new SheiStyleSNL.RJButton();
@@ -497,6 +498,7 @@ namespace SheiStyleSNL
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.rjServiciosCliente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormServicios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormServicios";

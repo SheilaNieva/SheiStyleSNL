@@ -29,6 +29,7 @@ namespace SheiStyleSNL
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIngresos));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grafIngresos = new ScottPlot.FormsPlot();
             this.label1 = new System.Windows.Forms.Label();
@@ -100,6 +101,7 @@ namespace SheiStyleSNL
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.rjEditarCliente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmIngresos";
             this.Text = "FrmIngresos";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

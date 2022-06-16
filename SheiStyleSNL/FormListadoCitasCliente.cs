@@ -28,6 +28,7 @@ namespace SheiStyleSNL
             cargarListado();
         }
 
+        //CONEXION CON LA BBDD
         IFirebaseConfig ifc = new FirebaseConfig()
         {
             AuthSecret = "6vyUU5qV0nzcwGXgtnzkyPvZDBe8ykvBXH6UV53I",
@@ -57,7 +58,9 @@ namespace SheiStyleSNL
             Dictionary<string, Cita> data = JsonConvert.DeserializeObject<Dictionary<string, Cita>>(res.Body.ToString());
             rellenarListado(data);
         }
-
+        /*
+         * Rellenamos el listado con los datos de las citas de ese cliente, comprobamos si su cita está pagada o no para indicarlo
+         * */
         private void rellenarListado(Dictionary<string, Cita> data)
         {
             
@@ -85,6 +88,7 @@ namespace SheiStyleSNL
                 }
         }
 
+        //Dibujamos la lista con sus columnas
         private void dibujarColumnasLista()
         {
             listCitaClientes.Clear();
@@ -98,6 +102,7 @@ namespace SheiStyleSNL
             listCitaClientes.Columns.Add("Id", 0);
         }
 
+        //Nos lleva al listado de clientes desde donde hemos llegado hasta aqui
         private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -105,6 +110,7 @@ namespace SheiStyleSNL
             formListadoClientes.Show();
         }
 
+        //Para pagar una cita, solo debemos hacer docle clic sobre alguna que no este pagada
         private void listCitaClientes_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             //Obtenemos la fila que pulsamos
@@ -130,6 +136,7 @@ namespace SheiStyleSNL
             }
         }
 
+        //Al pagar una cita, se genera automáticamente los ingresos
         private void generarIngreso(string idCita, float precioCita)
         {
            
@@ -157,6 +164,7 @@ namespace SheiStyleSNL
 
                 FirebaseResponse res = clien.Get(@"Cita/" + idCita);
                 Cita resCita = res.ResultAs<Cita>();
+                //Si no esta pagada, procedemos a borrarla
                 if (!resCita.pagado)
                 {
                     var eliminar = clien.Delete("Cita/" + resCita.idCita);

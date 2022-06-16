@@ -344,7 +344,6 @@ namespace SheiStyleSNL
                 //Hacemos una consulta a la tabla Cliente
                 FirebaseResponse res = clien.Get(@"Cliente");
                 Dictionary<string, Cliente> data = JsonConvert.DeserializeObject<Dictionary<string, Cliente>>(res.Body.ToString());
-                bool correcto = true;
 
                 // Construimos la cita que vamos a registrar en base de datos
                 Cita cita = new Cita();
@@ -362,7 +361,6 @@ namespace SheiStyleSNL
                 Dictionary<string, Cita> dataCita = JsonConvert.DeserializeObject<Dictionary<string, Cita>>(res1.Body.ToString());
 
                 ArrayList listaHoras = new ArrayList();
-                ArrayList listaDuracion = new ArrayList();
 
                 //Guardamos las fecha y la duracion en 2 array
                 foreach (var item in dataCita)
@@ -370,7 +368,6 @@ namespace SheiStyleSNL
                     if (item.Value.fecha.ToShortDateString() == fecha.ToShortDateString())
                     {
                         listaHoras.Add(item.Value.fecha);
-                        listaDuracion.Add(item.Value.duracion);
                     }
                 }
 
@@ -384,7 +381,6 @@ namespace SheiStyleSNL
 
                 for (int i = 0; i < totalMinutos; i++)
                 {
-                //    cita.fecha.AddMinutes(i);
                     for (int j = 0; j < listaHoras.Count; j++)
                     {
                         if (cita.fecha.AddMinutes(i).ToString().Contains(listaHoras[j].ToString()))

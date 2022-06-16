@@ -29,6 +29,7 @@ namespace SheiStyleSNL
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGastos));
             this.lblGastos = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grafGastos = new ScottPlot.FormsPlot();
@@ -99,6 +100,7 @@ namespace SheiStyleSNL
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.rjGastos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmGastos";
             this.Text = "FrmGastos";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -12,8 +12,6 @@ namespace SheiStyleSNL
 {
     public partial class FormMenu : Form
     {
-        
-        FrmIngresos frmIngresos = new FrmIngresos();
         FrmDatosEmpresa frmDatosEmpresa = new FrmDatosEmpresa();
         public FormMenu()
         {

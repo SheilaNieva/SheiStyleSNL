@@ -29,12 +29,13 @@ namespace SheiStyleSNL
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenu));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblGastos = new System.Windows.Forms.Label();
+            this.btnAtras = new System.Windows.Forms.PictureBox();
             this.lblIngresos = new System.Windows.Forms.Label();
             this.lblDatosEmpresa = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.lblGastos = new System.Windows.Forms.Label();
-            this.btnAtras = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
             this.SuspendLayout();
@@ -51,6 +52,29 @@ namespace SheiStyleSNL
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 411);
             this.panel1.TabIndex = 0;
+            // 
+            // lblGastos
+            // 
+            this.lblGastos.AutoSize = true;
+            this.lblGastos.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGastos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
+            this.lblGastos.Location = new System.Drawing.Point(34, 279);
+            this.lblGastos.Name = "lblGastos";
+            this.lblGastos.Size = new System.Drawing.Size(63, 24);
+            this.lblGastos.TabIndex = 6;
+            this.lblGastos.Text = "Gastos";
+            this.lblGastos.Click += new System.EventHandler(this.lblGastos_Click);
+            // 
+            // btnAtras
+            // 
+            this.btnAtras.Image = global::SheiStyleSNL.Properties.Resources.atras;
+            this.btnAtras.Location = new System.Drawing.Point(29, 22);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(50, 50);
+            this.btnAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnAtras.TabIndex = 5;
+            this.btnAtras.TabStop = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // lblIngresos
             // 
@@ -77,29 +101,6 @@ namespace SheiStyleSNL
             this.lblDatosEmpresa.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblDatosEmpresa.Click += new System.EventHandler(this.lblDatosEmpresa_Click);
             // 
-            // lblGastos
-            // 
-            this.lblGastos.AutoSize = true;
-            this.lblGastos.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGastos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(36)))), ((int)(((byte)(4)))));
-            this.lblGastos.Location = new System.Drawing.Point(34, 279);
-            this.lblGastos.Name = "lblGastos";
-            this.lblGastos.Size = new System.Drawing.Size(63, 24);
-            this.lblGastos.TabIndex = 6;
-            this.lblGastos.Text = "Gastos";
-            this.lblGastos.Click += new System.EventHandler(this.lblGastos_Click);
-            // 
-            // btnAtras
-            // 
-            this.btnAtras.Image = global::SheiStyleSNL.Properties.Resources.atras;
-            this.btnAtras.Location = new System.Drawing.Point(29, 22);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(50, 50);
-            this.btnAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnAtras.TabIndex = 5;
-            this.btnAtras.TabStop = false;
-            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
-            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -108,6 +109,7 @@ namespace SheiStyleSNL
             this.ClientSize = new System.Drawing.Size(968, 411);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "FormMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
