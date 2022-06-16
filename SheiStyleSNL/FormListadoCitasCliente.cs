@@ -168,6 +168,10 @@ namespace SheiStyleSNL
                 if (!resCita.pagado)
                 {
                     var eliminar = clien.Delete("Cita/" + resCita.idCita);
+                    MessageBox.Show("Cita eliminada con éxito");
+                    FormListadoClientes formClientes = new FormListadoClientes();
+                    formClientes.Show();
+                    this.Hide();
                 }
                 else
                 {
