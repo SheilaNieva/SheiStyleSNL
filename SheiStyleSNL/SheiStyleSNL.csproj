@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>loguito.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FireSharp, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FireSharp.2.0.4\lib\portable-net45+sl5+wp8+win8\FireSharp.dll</HintPath>
@@ -305,6 +308,7 @@
     <Content Include="Images\icons8-salida-48.png" />
     <Content Include="Images\loguito.png" />
     <Content Include="Images\precios.png" />
+    <Content Include="loguito.ico" />
     <None Include="Resources\atras.png" />
     <None Include="Resources\pedido.png" />
     <None Include="Resources\estrella.png" />

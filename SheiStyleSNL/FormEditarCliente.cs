@@ -114,7 +114,7 @@ namespace SheiStyleSNL
                 }
                 else if (!correoValido(correo))
                 {
-                    MessageBox.Show("Formato del correo erróneo");
+                    MessageBox.Show("Formato del correo erróneo. Ejemplo: correo@ejemplo.com");
                     return false;
                 }
                 else
